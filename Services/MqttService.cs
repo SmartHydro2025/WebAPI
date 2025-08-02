@@ -1,11 +1,14 @@
-﻿using MQTTnet;
-using MQTTnet.Client;
-using MQTTnet.Extensions.ManagedClient;
-using System.Text;
-using System.Text.Json;
+﻿using Microsoft.Extensions.DependencyInjection; // Required for IServiceScopeFactory
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection; // Required for IServiceScopeFactory
+using MQTTnet;
+using MQTTnet.Client;
+using MQTTnet.Extensions.ManagedClient;
+using SmartHydro_API;
+using SmartHydro_API.Database;
+using SmartHydro_API.Interface;
+using System.Text;
+using System.Text.Json;
 
 // --- Data Models ---
 // These classes represent the structure of the JSON data you expect from MQTT messages.
@@ -13,13 +16,18 @@ using Microsoft.Extensions.DependencyInjection; // Required for IServiceScopeFac
 
 public class SensorReading
 {
-    public string Mac { get; set; }
+    public int Id { get; set; } // Required for EF Core
+    public string? Mac { get; set; }
     public double Temperature { get; set; }
     public double Humidity { get; set; }
     public double LightLevel { get; set; }
     public double PhLevel { get; set; }
     public double EcLevel { get; set; }
+    public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 }
+
+//Testing purposes
+
 
 public class HardwareReading
 {
@@ -63,7 +71,7 @@ public class MqttService : IHostedService, IDisposable
         _scopeFactory = scopeFactory;
 
         // It's recommended to use IConfiguration to get these values
-        _mqttBroker = Environment.GetEnvironmentVariable("MQTT_BROKER") ?? "localhost";
+        _mqttBroker = Environment.GetEnvironmentVariable("MQTT_BROKER") ?? "192.168.8.103";
         _mqttUsername = Environment.GetEnvironmentVariable("MQTT_USERNAME");
         _mqttPassword = Environment.GetEnvironmentVariable("MQTT_PASSWORD");
 
@@ -230,15 +238,15 @@ public class MqttService : IHostedService, IDisposable
         }
     }
 
-    private async Task HandleSensorReadingAsync(SensorReading data /*, YourDbContext dbContext */)
+    private async Task HandleSensorReadingAsync(SensorReading data)
     {
-        // TODO: Replace with your actual database logic
-        _logger.LogInformation("Storing sensor reading for tent {Mac}", data.Mac);
-        // await dbContext.SensorReadings.AddAsync(data);
-        // await dbContext.Tents.Where(t => t.Mac == data.Mac).ExecuteUpdateAsync(s => s.SetProperty(t => t.LastSeen, DateTime.UtcNow));
-        // await dbContext.SaveChangesAsync();
-        await Task.CompletedTask; // Placeholder
+        using var scope = _scopeFactory.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>();
+        dbContext.SensorReadings.Add(data);
+        await dbContext.SaveChangesAsync();
     }
+
+
 
     private async Task HandleHardwareReadingAsync(HardwareReading data /*, YourDbContext dbContext */)
     {

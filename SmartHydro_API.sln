@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHydro_API", "SmartHydro_API.csproj", "{AF56846D-64E1-047E-D244-D2EA0B23E4F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF56846D-64E1-047E-D244-D2EA0B23E4F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF56846D-64E1-047E-D244-D2EA0B23E4F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF56846D-64E1-047E-D244-D2EA0B23E4F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF56846D-64E1-047E-D244-D2EA0B23E4F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F885C78-6F69-4D84-8AA0-C63B1FC09F65}
+	EndGlobalSection
+EndGlobal

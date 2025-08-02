@@ -1,4 +1,8 @@
 
+using Microsoft.EntityFrameworkCore;
+using SmartHydro_API.Database;
+using SmartHydro_API.Interface;
+
 namespace SmartHydro_API
 {
     public class Program
@@ -14,6 +18,12 @@ namespace SmartHydro_API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddHostedService<MqttService>(); //New Line added
+            builder.Services.AddScoped<ISensorReadingStore, SensorReadingSqlStore>(); //New Line added
+            builder.Services.AddDbContext<SmartHydroDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("AzureSQL")));
+
+            //builder.Services.AddScoped<ISensorReadingStore, SensorReadingSqlStore>(); // optional if switching storage
+
 
             var app = builder.Build();
 
@@ -28,25 +38,7 @@ namespace SmartHydro_API
 
             app.UseAuthorization();
 
-            var summaries = new[]
-            {
-                "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-            };
-
-            app.MapGet("/weatherforecast", (HttpContext httpContext) =>
-            {
-                var forecast = Enumerable.Range(1, 5).Select(index =>
-                    new WeatherForecast
-                    {
-                        Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                        TemperatureC = Random.Shared.Next(-20, 55),
-                        Summary = summaries[Random.Shared.Next(summaries.Length)]
-                    })
-                    .ToArray();
-                return forecast;
-            })
-            .WithName("GetWeatherForecast")
-            .WithOpenApi();
+            
 
             app.Run();
         }
