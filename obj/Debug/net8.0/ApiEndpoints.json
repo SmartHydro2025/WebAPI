@@ -1,26 +1,50 @@
 [
   {
-    "ContainingType": "SmartHydro_API.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__0_1",
-    "RelativePath": "api/sensors",
+    "ContainingType": "SmartHydro_API.Controllers.SensorReadingsController",
+    "Method": "GetAll",
+    "RelativePath": "api/SensorReadings",
     "HttpMethod": "GET",
-    "IsController": false,
+    "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Void",
-        "MediaTypes": [],
+        "Type": "System.Collections.Generic.List\u00601[[SensorReading, SmartHydro_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "StatusCode": 200
       }
     ]
   },
   {
-    "ContainingType": "SmartHydro_API.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__0_2",
-    "RelativePath": "api/sensors/{mac}",
+    "ContainingType": "SmartHydro_API.Controllers.SensorReadingsController",
+    "Method": "GetLatestLiveReadings",
+    "RelativePath": "api/SensorReadings/latest",
     "HttpMethod": "GET",
-    "IsController": false,
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[SensorReading, SmartHydro_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.SensorReadingsController",
+    "Method": "GetByMac",
+    "RelativePath": "api/SensorReadings/latest/{mac}",
+    "HttpMethod": "GET",
+    "IsController": true,
     "Order": 0,
     "Parameters": [
       {
@@ -31,8 +55,12 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Void",
-        "MediaTypes": [],
+        "Type": "SensorReading",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
         "StatusCode": 200
       }
     ]

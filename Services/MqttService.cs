@@ -7,8 +7,10 @@ using MQTTnet.Extensions.ManagedClient;
 using SmartHydro_API;
 using SmartHydro_API.Database;
 using SmartHydro_API.Interface;
+using SmartHydro_API.LiveCache;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization; //New Line
 
 // --- Data Models ---
 // These classes represent the structure of the JSON data you expect from MQTT messages.
@@ -16,13 +18,26 @@ using System.Text.Json;
 
 public class SensorReading
 {
-    public int Id { get; set; } // Required for EF Core
+    public int Id { get; set; }
+
+    [JsonPropertyName("mac")]
     public string? Mac { get; set; }
-    public double Temperature { get; set; }
-    public double Humidity { get; set; }
-    public double LightLevel { get; set; }
-    public double PhLevel { get; set; }
-    public double EcLevel { get; set; }
+
+    [JsonPropertyName("temperature")]
+    public double? Temperature { get; set; }
+
+    [JsonPropertyName("humidity")]
+    public double? Humidity { get; set; }
+
+    [JsonPropertyName("light_level")]
+    public double? LightLevel { get; set; }
+
+    [JsonPropertyName("ph_level")]
+    public double? PhLevel { get; set; }
+
+    [JsonPropertyName("ec_level")]
+    public double? EcLevel { get; set; }
+
     public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 }
 
@@ -64,13 +79,14 @@ public class MqttService : IHostedService, IDisposable
     private readonly string _mqttBroker;
     private readonly string _mqttUsername;
     private readonly string _mqttPassword;
+    private readonly LiveSensorCache _cache; //New Line
 
-    public MqttService(ILogger<MqttService> logger, IServiceScopeFactory scopeFactory)
+    public MqttService(ILogger<MqttService> logger, IServiceScopeFactory scopeFactory, LiveSensorCache cache)
     {
         _logger = logger;
         _scopeFactory = scopeFactory;
+        _cache = cache;
 
-        // It's recommended to use IConfiguration to get these values
         _mqttBroker = Environment.GetEnvironmentVariable("MQTT_BROKER") ?? "192.168.8.103";
         _mqttUsername = Environment.GetEnvironmentVariable("MQTT_USERNAME");
         _mqttPassword = Environment.GetEnvironmentVariable("MQTT_PASSWORD");
@@ -240,11 +256,14 @@ public class MqttService : IHostedService, IDisposable
 
     private async Task HandleSensorReadingAsync(SensorReading data)
     {
+        _cache.Update(data); // ✅ Update in-memory cache first
+
         using var scope = _scopeFactory.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>();
         dbContext.SensorReadings.Add(data);
         await dbContext.SaveChangesAsync();
     }
+
 
 
 

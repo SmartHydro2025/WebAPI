@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using SmartHydro_API.Database;
 using SmartHydro_API.Interface;
+using SmartHydro_API.LiveCache;
 
 namespace SmartHydro_API
 {
@@ -21,6 +22,12 @@ namespace SmartHydro_API
             builder.Services.AddScoped<ISensorReadingStore, SensorReadingSqlStore>(); //New Line added
             builder.Services.AddDbContext<SmartHydroDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("AzureSQL")));
+            builder.Services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+            });  // New Line
+            builder.Services.AddSingleton<LiveSensorCache>(); // New Line
+
 
             //builder.Services.AddScoped<ISensorReadingStore, SensorReadingSqlStore>(); // optional if switching storage
 
@@ -37,8 +44,9 @@ namespace SmartHydro_API
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+            app.MapControllers(); //New Line
 
-            
+
 
             app.Run();
         }
