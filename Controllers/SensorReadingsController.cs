@@ -38,10 +38,35 @@ namespace SmartHydro_API.Controllers
         [HttpGet("latest/{mac}")]
         public ActionResult<SensorReading> GetByMac(string mac)
         {
+            Console.WriteLine($"🔍 Request for MAC: {mac}");
+
             var reading = _cache.GetLatest(mac);
             if (reading == null)
                 return NotFound($"No live data for MAC: {mac}");
             return Ok(reading);
         }
+
+
+
+
+        // 4️⃣ Get all unique MAC addresses from live cache
+        [HttpGet("mac address")]
+        public ActionResult<List<string>> GetMacAddresses()
+        {
+            var readings = _cache.GetAllLatest();
+
+            if (readings == null || readings.Count == 0)
+                return NotFound("No live data available to extract MAC addresses.");
+
+            var macAddresses = readings
+                .Where(r => !string.IsNullOrEmpty(r.Mac))
+                .Select(r => r.Mac!)
+                .Distinct()
+                .ToList();
+
+            return Ok(macAddresses);
+        }
+
+
     }
 }

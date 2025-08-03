@@ -12,6 +12,8 @@ namespace SmartHydro_API.LiveCache
         {
             if (string.IsNullOrWhiteSpace(reading.Mac)) return;
 
+            var normalizedMac = reading.Mac.Trim().ToUpper();
+
             lock (_lock)
             {
                 _cache[reading.Mac] = reading;
@@ -20,6 +22,8 @@ namespace SmartHydro_API.LiveCache
 
         public SensorReading? GetLatest(string mac)
         {
+            var normalizedMac = mac.Trim().ToUpper();
+
             lock (_lock)
             {
                 return _cache.TryGetValue(mac, out var reading) ? reading : null;

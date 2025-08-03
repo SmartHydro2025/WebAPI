@@ -225,8 +225,17 @@ public class MqttService : IHostedService, IDisposable
             {
                 case "sensor_readings":
                     var sensorData = JsonSerializer.Deserialize<SensorReading>(payload);
-                    await HandleSensorReadingAsync(sensorData /*, dbContext */);
+                    if (sensorData?.Mac == null)
+                    {
+                        _logger.LogWarning("⚠️ Received sensor reading with NULL MAC: {Payload}", payload);
+                    }
+                    else
+                    {
+                        _logger.LogInformation("✅ Deserialized SensorReading with MAC: {Mac}", sensorData.Mac);
+                    }
+                    await HandleSensorReadingAsync(sensorData);
                     break;
+
                 case "hardware_status":
                     var hardwareData = JsonSerializer.Deserialize<HardwareReading>(payload);
                     await HandleHardwareReadingAsync(hardwareData /*, dbContext */);
