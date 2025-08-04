@@ -67,8 +67,48 @@
   },
   {
     "ContainingType": "SmartHydro_API.Controllers.SensorReadingsController",
+    "Method": "GetLatestECLevel",
+    "RelativePath": "api/SensorReadings/latest/ec",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Nullable\u00601[[System.Double, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.SensorReadingsController",
+    "Method": "GetLatestPhLevel",
+    "RelativePath": "api/SensorReadings/latest/ph",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Nullable\u00601[[System.Double, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.SensorReadingsController",
     "Method": "GetMacAddresses",
-    "RelativePath": "api/SensorReadings/mac-addresses",
+    "RelativePath": "api/SensorReadings/mac address",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -84,5 +124,21 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "TentControlController",
+    "Method": "SendCommand",
+    "RelativePath": "api/TentControl/send-command",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "TentCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

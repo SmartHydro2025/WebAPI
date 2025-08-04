@@ -68,5 +68,48 @@ namespace SmartHydro_API.Controllers
         }
 
 
+
+        // 5️⃣ Get only the latest pH level from the live cache
+        [HttpGet("latest/ph")]
+        public ActionResult<double?> GetLatestPhLevel()
+        {
+            var readings = _cache.GetAllLatest();
+            if (readings == null || readings.Count == 0)
+                return NotFound("No live sensor data available.");
+
+            // Get the most recent reading based on timestamp
+            var latestReading = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
+
+            if (latestReading == null || latestReading.PhLevel == null)
+                return NotFound("No valid pH level data available.");
+
+            return Ok(latestReading.PhLevel);
+        }
+
+        [HttpGet("latest/ec")]
+        public ActionResult<double?> GetLatestECLevel()
+        {
+            var readings = _cache.GetAllLatest();
+
+            if (readings == null || readings.Count == 0)
+            {
+                return NotFound("No live sensor data available.");
+            }
+
+
+            // Get the most recent reading based on timestamp
+            var latestReading = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
+
+            if (latestReading == null || latestReading.EcLevel == null)
+            {
+                return NotFound("No valid EC level data available.");
+            }
+
+            return Ok(latestReading.PhLevel);
+        }
+
+
+
+
     }
 }

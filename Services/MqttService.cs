@@ -69,6 +69,15 @@ public class TentCommandResponse
 }
 
 
+public class TentCommand
+{
+    public string Mac { get; set; }
+    public string Component { get; set; } // e.g., "grow_light", "water_pump"
+    public string Action { get; set; } // "on", "off", or "toggle"
+}
+
+
+
 // --- MQTT Service ---
 
 public class MqttService : IHostedService, IDisposable
