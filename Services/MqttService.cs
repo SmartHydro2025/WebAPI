@@ -164,7 +164,8 @@ public class MqttService : IHostedService, IDisposable
             "hardware_status",
             "ai_events",
             "tent_command_response",
-            "tent_settings"
+            "tent_settings",
+            "tentCommands"
         };
 
         foreach (var topic in topics)
@@ -236,11 +237,11 @@ public class MqttService : IHostedService, IDisposable
                     var sensorData = JsonSerializer.Deserialize<SensorReading>(payload);
                     if (sensorData?.Mac == null)
                     {
-                        _logger.LogWarning("⚠️ Received sensor reading with NULL MAC: {Payload}", payload);
+                        _logger.LogWarning("Received sensor reading with NULL MAC: {Payload}", payload);
                     }
                     else
                     {
-                        _logger.LogInformation("✅ Deserialized SensorReading with MAC: {Mac}", sensorData.Mac);
+                        _logger.LogInformation("Deserialized SensorReading with MAC: {Mac}", sensorData.Mac);
                     }
                     await HandleSensorReadingAsync(sensorData);
                     break;
@@ -257,10 +258,34 @@ public class MqttService : IHostedService, IDisposable
                     var commandResponse = JsonSerializer.Deserialize<TentCommandResponse>(payload);
                     await HandleCommandResponseAsync(commandResponse /*, dbContext */);
                     break;
+
                 case "tent_settings":
                     // TODO: Implement handling for tent settings
                     _logger.LogInformation("Received tent_settings message. Handling not yet implemented.");
                     break;
+
+                case "tentCommands":
+                    var tentCommandData = JsonSerializer.Deserialize<TentCommand>(payload);
+                    if (tentCommandData != null)
+                    {
+                        _logger.LogInformation(
+                            "Tent command received for MAC {Mac}: Component '{Component}' -> Action '{Action}'",
+                            tentCommandData.Mac, tentCommandData.Component, tentCommandData.Action
+                        );
+
+                        // TODO: If you want to store commands in DB:
+                        // using var scope = _scopeFactory.CreateScope();
+                        // var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>();
+                        // dbContext.TentCommands.Add(tentCommandData);
+                        // await dbContext.SaveChangesAsync();
+                    }
+                    break;
+
+
+
+
+
+
                 default:
                     _logger.LogWarning("Unknown message topic: {Topic}", topic);
                     break;

@@ -15,31 +15,31 @@ namespace SmartHydro_API
             // Add services to the container.
             builder.Services.AddAuthorization();
 
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddHostedService<MqttService>(); //New Line added
-            builder.Services.AddScoped<ISensorReadingStore, SensorReadingSqlStore>(); //New Line added
+
+            // FIX: Register MqttService as a Singleton
+            builder.Services.AddSingleton<MqttService>();
+
+            builder.Services.AddHostedService<MqttService>(provider => provider.GetRequiredService<MqttService>());
+            builder.Services.AddScoped<ISensorReadingStore, SensorReadingSqlStore>();
             builder.Services.AddDbContext<SmartHydroDbContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("AzureSQL")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("AzureSQL")));
             builder.Services.AddControllers().AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-            });  // New Line
-            builder.Services.AddSingleton<LiveSensorCache>(); // New Line
-
-
-            //builder.Services.AddScoped<ISensorReadingStore, SensorReadingSqlStore>(); // optional if switching storage
+            });
+            builder.Services.AddSingleton<LiveSensorCache>();
 
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
+            //if (app.Environment.IsDevelopment())
+            //{
+            app.UseSwagger();
                 app.UseSwaggerUI();
-            }
+            //}
 
             app.UseHttpsRedirection();
 

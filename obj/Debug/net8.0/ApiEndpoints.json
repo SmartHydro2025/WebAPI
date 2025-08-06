@@ -127,15 +127,63 @@
   },
   {
     "ContainingType": "TentControlController",
-    "Method": "SendCommand",
-    "RelativePath": "api/TentControl/send-command",
+    "Method": "TurnExtractorFanOff",
+    "RelativePath": "api/tents/{mac}/extractor-fan/off",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "command",
-        "Type": "TentCommand",
+        "Name": "mac",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TentControlController",
+    "Method": "TurnExtractorFanOn",
+    "RelativePath": "api/tents/{mac}/extractor-fan/on",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mac",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TentControlController",
+    "Method": "TurnLightOff",
+    "RelativePath": "api/tents/{mac}/light/off",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mac",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TentControlController",
+    "Method": "TurnLightOn",
+    "RelativePath": "api/tents/{mac}/light/on",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mac",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
