@@ -71,9 +71,12 @@ public class TentCommandResponse
 
 public class TentCommand
 {
+    [JsonPropertyName("Mac")] // <-- Add this
     public string Mac { get; set; }
-    public string Component { get; set; } // e.g., "grow_light", "water_pump"
-    public string Action { get; set; } // "on", "off", or "toggle"
+    [JsonPropertyName("Component")] // <-- Add this
+    public string Component { get; set; }
+    [JsonPropertyName("Action")] // <-- Add this
+    public string Action { get; set; }
 }
 
 
