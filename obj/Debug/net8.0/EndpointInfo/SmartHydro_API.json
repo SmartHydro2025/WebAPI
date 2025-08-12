@@ -222,7 +222,7 @@
         }
       }
     },
-    "/api/tents/{mac}/light/on": {
+    "/api/tents/{mac}/grow-light/on": {
       "post": {
         "tags": [
           "TentControl"
@@ -244,7 +244,7 @@
         }
       }
     },
-    "/api/tents/{mac}/light/off": {
+    "/api/tents/{mac}/grow-light/off": {
       "post": {
         "tags": [
           "TentControl"
@@ -289,6 +289,182 @@
       }
     },
     "/api/tents/{mac}/extractor-fan/off": {
+      "post": {
+        "tags": [
+          "TentControl"
+        ],
+        "parameters": [
+          {
+            "name": "mac",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/tents/{mac}/circulation-fan/on": {
+      "post": {
+        "tags": [
+          "TentControl"
+        ],
+        "parameters": [
+          {
+            "name": "mac",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/tents/{mac}/circulation-fan/off": {
+      "post": {
+        "tags": [
+          "TentControl"
+        ],
+        "parameters": [
+          {
+            "name": "mac",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/tents/{mac}/circulation-pump/on": {
+      "post": {
+        "tags": [
+          "TentControl"
+        ],
+        "parameters": [
+          {
+            "name": "mac",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/tents/{mac}/circulation-pump/off": {
+      "post": {
+        "tags": [
+          "TentControl"
+        ],
+        "parameters": [
+          {
+            "name": "mac",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/tents/{mac}/water-pump/on": {
+      "post": {
+        "tags": [
+          "TentControl"
+        ],
+        "parameters": [
+          {
+            "name": "mac",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/tents/{mac}/water-pump/off": {
+      "post": {
+        "tags": [
+          "TentControl"
+        ],
+        "parameters": [
+          {
+            "name": "mac",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/tents/{mac}/nutrient-pump/on": {
+      "post": {
+        "tags": [
+          "TentControl"
+        ],
+        "parameters": [
+          {
+            "name": "mac",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/tents/{mac}/nutrient-pump/off": {
       "post": {
         "tags": [
           "TentControl"

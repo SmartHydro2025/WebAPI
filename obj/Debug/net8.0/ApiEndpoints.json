@@ -127,6 +127,70 @@
   },
   {
     "ContainingType": "TentControlController",
+    "Method": "TurnCirculationFanOff",
+    "RelativePath": "api/tents/{mac}/circulation-fan/off",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mac",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TentControlController",
+    "Method": "TurnCirculationFanOn",
+    "RelativePath": "api/tents/{mac}/circulation-fan/on",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mac",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TentControlController",
+    "Method": "TurnCirculationPumpOff",
+    "RelativePath": "api/tents/{mac}/circulation-pump/off",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mac",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TentControlController",
+    "Method": "TurnCirculationPumpOn",
+    "RelativePath": "api/tents/{mac}/circulation-pump/on",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mac",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TentControlController",
     "Method": "TurnExtractorFanOff",
     "RelativePath": "api/tents/{mac}/extractor-fan/off",
     "HttpMethod": "POST",
@@ -160,7 +224,7 @@
   {
     "ContainingType": "TentControlController",
     "Method": "TurnLightOff",
-    "RelativePath": "api/tents/{mac}/light/off",
+    "RelativePath": "api/tents/{mac}/grow-light/off",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -176,7 +240,71 @@
   {
     "ContainingType": "TentControlController",
     "Method": "TurnLightOn",
-    "RelativePath": "api/tents/{mac}/light/on",
+    "RelativePath": "api/tents/{mac}/grow-light/on",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mac",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TentControlController",
+    "Method": "TurnNutrientPumpOff",
+    "RelativePath": "api/tents/{mac}/nutrient-pump/off",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mac",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TentControlController",
+    "Method": "TurnNutrientPumpOn",
+    "RelativePath": "api/tents/{mac}/nutrient-pump/on",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mac",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TentControlController",
+    "Method": "TurnWaterPumpOff",
+    "RelativePath": "api/tents/{mac}/water-pump/off",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mac",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TentControlController",
+    "Method": "TurnWaterPumpOn",
+    "RelativePath": "api/tents/{mac}/water-pump/on",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

@@ -1,42 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\",
+  "WorkspaceRootPath": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\controllers\\tentcontrolcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\webapi\\controllers\\tentcontrolcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:controllers\\tentcontrolcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\services\\mqttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\webapi\\services\\mqttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:services\\mqttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\livecache\\livesensorcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\webapi\\livecache\\livesensorcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:livecache\\livesensorcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\interface\\sensorreadingstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\webapi\\interface\\sensorreadingstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:interface\\sensorreadingstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\interface\\isensorreadingstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\webapi\\interface\\isensorreadingstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:interface\\isensorreadingstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\database\\smarthydrodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\webapi\\database\\smarthydrodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:database\\smarthydrodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\controllers\\sensorreadingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\webapi\\controllers\\sensorreadingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:controllers\\sensorreadingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\webapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,76 +58,76 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAA7wDUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T20:43:03.612Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "LiveSensorCache.cs",
-              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\LiveSensorCache.cs",
+              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\LiveCache\\LiveSensorCache.cs",
               "RelativeDocumentMoniker": "LiveCache\\LiveSensorCache.cs",
-              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\LiveSensorCache.cs",
+              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\LiveCache\\LiveSensorCache.cs",
               "RelativeToolTip": "LiveCache\\LiveSensorCache.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA3wCkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAuwCkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-10T20:42:50.782Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SensorReadingStore.cs",
-              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Interface\\SensorReadingStore.cs",
-              "RelativeDocumentMoniker": "Interface\\SensorReadingStore.cs",
-              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Interface\\SensorReadingStore.cs",
-              "RelativeToolTip": "Interface\\SensorReadingStore.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAwB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T20:42:45.222Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TentControlController.cs",
-              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Controllers\\TentControlController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TentControlController.cs",
-              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Controllers\\TentControlController.cs",
-              "RelativeToolTip": "Controllers\\TentControlController.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAA2wDYAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T20:42:24.605Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "MqttService.cs",
-              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Services\\MqttService.cs",
+              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Services\\MqttService.cs",
               "RelativeDocumentMoniker": "Services\\MqttService.cs",
-              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Services\\MqttService.cs",
+              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Services\\MqttService.cs",
               "RelativeToolTip": "Services\\MqttService.cs",
-              "ViewState": "AgIAAEsBAAAAAAAAAAAUwGgBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEkBAAAAAAAAAAA8wGgBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-10T20:42:56.756Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAwwDAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T20:43:03.612Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TentControlController.cs",
+              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Controllers\\TentControlController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TentControlController.cs",
+              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Controllers\\TentControlController.cs",
+              "RelativeToolTip": "Controllers\\TentControlController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAqwDkAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T20:42:24.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SensorReadingStore.cs",
+              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Interface\\SensorReadingStore.cs",
+              "RelativeDocumentMoniker": "Interface\\SensorReadingStore.cs",
+              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Interface\\SensorReadingStore.cs",
+              "RelativeToolTip": "Interface\\SensorReadingStore.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAA5wB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T20:42:45.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
               "Title": "ISensorReadingStore.cs",
-              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Interface\\ISensorReadingStore.cs",
+              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Interface\\ISensorReadingStore.cs",
               "RelativeDocumentMoniker": "Interface\\ISensorReadingStore.cs",
-              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Interface\\ISensorReadingStore.cs",
+              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Interface\\ISensorReadingStore.cs",
               "RelativeToolTip": "Interface\\ISensorReadingStore.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -134,9 +138,9 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "SmartHydroDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Database\\SmartHydroDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Database\\SmartHydroDbContext.cs",
               "RelativeDocumentMoniker": "Database\\SmartHydroDbContext.cs",
-              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Database\\SmartHydroDbContext.cs",
+              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Database\\SmartHydroDbContext.cs",
               "RelativeToolTip": "Database\\SmartHydroDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -147,11 +151,11 @@
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "SensorReadingsController.cs",
-              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Controllers\\SensorReadingsController.cs",
+              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Controllers\\SensorReadingsController.cs",
               "RelativeDocumentMoniker": "Controllers\\SensorReadingsController.cs",
-              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Controllers\\SensorReadingsController.cs",
+              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Controllers\\SensorReadingsController.cs",
               "RelativeToolTip": "Controllers\\SensorReadingsController.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAgwHMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFMAAAAAAAAAAAA/wHMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-10T20:42:19.23Z",
               "EditorCaption": ""
@@ -160,14 +164,26 @@
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Properties\\launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\Properties\\launchSettings.json",
               "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA5wCwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAxwCwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-08-10T20:42:13.126Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\WebAPI\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-12T16:55:58.539Z"
             }
           ]
         }
