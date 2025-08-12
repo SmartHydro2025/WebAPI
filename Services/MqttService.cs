@@ -99,7 +99,7 @@ public class MqttService : IHostedService, IDisposable
         _scopeFactory = scopeFactory;
         _cache = cache;
 
-        _mqttBroker = Environment.GetEnvironmentVariable("MQTT_BROKER") ?? "192.168.8.103";
+        _mqttBroker = Environment.GetEnvironmentVariable("MQTT_BROKER") ?? "129.151.167.185";
         _mqttUsername = Environment.GetEnvironmentVariable("MQTT_USERNAME");
         _mqttPassword = Environment.GetEnvironmentVariable("MQTT_PASSWORD");
 
