@@ -53,6 +53,8 @@ public class HardwareReading
     public bool CirculationPumpStatus { get; set; }
     public bool NutrientPumpStatus { get; set; }
     public bool WaterPumpStatus { get; set; }
+    public DateTime Timestamp { get; set; } = DateTime.UtcNow;
+
 }
 
 public class AiEvent
