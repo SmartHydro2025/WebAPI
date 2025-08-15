@@ -108,7 +108,28 @@ namespace SmartHydro_API.Controllers
             return Ok(latestReading.PhLevel);
         }
 
+        //get the last recorded temperature value 
+        [HttpGet("latest/temp")]
+        public ActionResult<double?> GetLatestTempValue()
+        {
+            var allReadings = _cache.GetAllLatest();
 
+            if (allReadings == null || allReadings.Count == 0)
+            {
+                return NotFound("No live sensor data available.");
+            }
+
+
+            //pull the most recent reading based on timestamp
+            var lastReading = allReadings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
+
+            if (lastReading == null || lastReading.Temperature == null)
+            {
+                return NotFound("No temperature data available.");
+            }
+
+            return Ok(lastReading.Temperature);
+        }
 
 
     }
