@@ -30,6 +30,8 @@ namespace SmartHydro_API
                 options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
             });
             builder.Services.AddSingleton<LiveSensorCache>();
+            builder.Services.AddSingleton<LiveHardwareStatusCache>();
+
 
 
             var app = builder.Build();

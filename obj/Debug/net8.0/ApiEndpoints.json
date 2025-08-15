@@ -1,5 +1,125 @@
 [
   {
+    "ContainingType": "SmartHydro_API.Controllers.HardwareStatusController",
+    "Method": "GetCirculationFanStatus",
+    "RelativePath": "api/HardwareStatus/status/circulationfan",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.HardwareStatusController",
+    "Method": "GetCirculationPumpStatus",
+    "RelativePath": "api/HardwareStatus/status/circulationpump",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.HardwareStatusController",
+    "Method": "GetExtractorFanStatus",
+    "RelativePath": "api/HardwareStatus/status/extractorfan",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.HardwareStatusController",
+    "Method": "GetGrowLightStatus",
+    "RelativePath": "api/HardwareStatus/status/growlight",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.HardwareStatusController",
+    "Method": "GetNutrientPumpStatus",
+    "RelativePath": "api/HardwareStatus/status/nutrientpump",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.HardwareStatusController",
+    "Method": "GetWaterPumpStatus",
+    "RelativePath": "api/HardwareStatus/status/waterpump",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SmartHydro_API.Controllers.SensorReadingsController",
     "Method": "GetAll",
     "RelativePath": "api/SensorReadings",
@@ -87,8 +207,48 @@
   },
   {
     "ContainingType": "SmartHydro_API.Controllers.SensorReadingsController",
+    "Method": "GetLatestHumidityIndex",
+    "RelativePath": "api/SensorReadings/latest/humidity",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Nullable\u00601[[System.Double, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.SensorReadingsController",
     "Method": "GetLatestPhLevel",
     "RelativePath": "api/SensorReadings/latest/ph",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Nullable\u00601[[System.Double, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.SensorReadingsController",
+    "Method": "GetLatestTempValue",
+    "RelativePath": "api/SensorReadings/latest/temp",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
