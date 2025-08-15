@@ -131,6 +131,27 @@ namespace SmartHydro_API.Controllers
             return Ok(lastReading.Temperature);
         }
 
+        //get the last recorded humidity index 
+        [HttpGet("latest/humidity")]
+        public ActionResult<double?> GetLatestHumidityIndex()
+        {
+            var readings = _cache.GetAllLatest();
 
+            if (readings == null || readings.Count == 0)
+            {
+                return NotFound("No live sensor data available.");
+            }
+
+
+            //pull the most recent reading based on timestamp
+            var latestReading = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
+
+            if (latestReading == null || latestReading.Humidity == null)
+            {
+                return NotFound("No humidity data available.");
+            }
+
+            return Ok(latestReading.Humidity);
+        }
     }
 }
