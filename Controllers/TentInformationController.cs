@@ -22,7 +22,7 @@ namespace SmartHydro_API.Controllers
         }
 
         [HttpPost("tent/add")]
-        public async ActionResult<string> AddTent(string mac, string location, string name)
+        public async Task<IActionResult> AddTent(string mac, string location, string name)
         {
             //create tent object
             var tent = new TentInformation
@@ -32,6 +32,7 @@ namespace SmartHydro_API.Controllers
                 tentName = name
             };
 
+            //hopefully pass the details to mqtt
             var payload = JsonSerializer.Serialize(tent);
             await _mqttService.PublishAsync("tentInformation", payload);
 
