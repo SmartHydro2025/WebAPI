@@ -1,5 +1,85 @@
 [
   {
+    "ContainingType": "SmartHydro_API.Controllers.AIEventController",
+    "Method": "GetLatestECEvent",
+    "RelativePath": "api/AIEvent/latest/ec",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.AIEventController",
+    "Method": "GetLatestHumidityEvent",
+    "RelativePath": "api/AIEvent/latest/humidity",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.AIEventController",
+    "Method": "GetLatestPHEvent",
+    "RelativePath": "api/AIEvent/latest/ph",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.AIEventController",
+    "Method": "GetLatestTemperatureEvent",
+    "RelativePath": "api/AIEvent/latest/temperature",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SmartHydro_API.Controllers.HardwareStatusController",
     "Method": "GetCirculationFanStatus",
     "RelativePath": "api/HardwareStatus/status/circulationfan",
