@@ -21,5 +21,17 @@
                 return _cache.Values.ToList();
             }
         }
+
+        public void Update(HardwareReading reading)
+        {
+            if (string.IsNullOrWhiteSpace(reading.Mac)) return;
+
+            var normalizedMac = reading.Mac.Trim().ToUpper();
+
+            lock (_lock)
+            {
+                _cache[reading.Mac] = reading;
+            }
+        }
     }
 }

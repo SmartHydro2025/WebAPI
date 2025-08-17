@@ -13,9 +13,9 @@ using System.Text.Json;
 using System.Text.Json.Serialization; //New Line
 
 // --- Data Models ---
-// These classes represent the structure of the JSON data you expect from MQTT messages.
-// Adjust them to match your exact data contracts.
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+//class to store details about component readings from arduino
 public class SensorReading
 {
     public int Id { get; set; }
@@ -41,9 +41,7 @@ public class SensorReading
     public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 }
 
-//Testing purposes
-
-
+//class to store on and off status of hardware components
 public class HardwareReading
 {
     public string Mac { get; set; }
@@ -57,6 +55,7 @@ public class HardwareReading
 
 }
 
+//class to store details about which sensor had an ai event trigger
 public class AiEvent
 {
     public string Mac { get; set; }
@@ -64,13 +63,14 @@ public class AiEvent
     public string Message { get; set; }
 }
 
+//class to store if a command is executed
 public class TentCommandResponse
 {
     public Guid CommandId { get; set; }
     public bool Success { get; set; }
 }
 
-
+//class to store which component received a command
 public class TentCommand
 {
     [JsonPropertyName("Mac")] // <-- Add this
@@ -82,9 +82,9 @@ public class TentCommand
 }
 
 
-
+#region MQTT
 // --- MQTT Service ---
-
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 public class MqttService : IHostedService, IDisposable
 {
     private readonly ILogger<MqttService> _logger;
@@ -94,6 +94,7 @@ public class MqttService : IHostedService, IDisposable
     private readonly string _mqttUsername;
     private readonly string _mqttPassword;
     private readonly LiveSensorCache _cache; //New Line
+    private readonly LiveHardwareStatusCache _hardwarecache; //keeps track of hardware statuses
 
     public MqttService(ILogger<MqttService> logger, IServiceScopeFactory scopeFactory, LiveSensorCache cache)
     {
@@ -253,20 +254,17 @@ public class MqttService : IHostedService, IDisposable
 
                 case "hardware_status":
                     var hardwareData = JsonSerializer.Deserialize<HardwareReading>(payload);
-                    await HandleHardwareReadingAsync(hardwareData /*, dbContext */);
+                    await HandleHardwareReadingAsync(hardwareData);
                     break;
+
                 case "ai_events":
                     var aiEventData = JsonSerializer.Deserialize<AiEvent>(payload);
                     await HandleAIEventAsync(aiEventData /*, dbContext */);
                     break;
+
                 case "tent_command_response":
                     var commandResponse = JsonSerializer.Deserialize<TentCommandResponse>(payload);
                     await HandleCommandResponseAsync(commandResponse /*, dbContext */);
-                    break;
-
-                case "tent_settings":
-                    // TODO: Implement handling for tent settings
-                    _logger.LogInformation("Received tent_settings message. Handling not yet implemented.");
                     break;
 
                 case "tentCommands":
@@ -285,12 +283,6 @@ public class MqttService : IHostedService, IDisposable
                         // await dbContext.SaveChangesAsync();
                     }
                     break;
-
-
-
-
-
-
                 default:
                     _logger.LogWarning("Unknown message topic: {Topic}", topic);
                     break;
@@ -302,6 +294,9 @@ public class MqttService : IHostedService, IDisposable
         }
     }
 
+    #endregion
+
+    //logs sensor readings from arduino to db
     private async Task HandleSensorReadingAsync(SensorReading data)
     {
         _cache.Update(data); // ✅ Update in-memory cache first
@@ -312,25 +307,24 @@ public class MqttService : IHostedService, IDisposable
         await dbContext.SaveChangesAsync();
     }
 
-
-
-
-    private async Task HandleHardwareReadingAsync(HardwareReading data /*, YourDbContext dbContext */)
+    //logs hardware statuses to db
+    private async Task HandleHardwareReadingAsync(HardwareReading data)
     {
-        // TODO: Replace with your actual database logic
+        _hardwarecache.Update(data); //update in-memory cache 
+
+        using var scope = _scopeFactory.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>(); //connects to db
         _logger.LogInformation("Storing hardware reading for tent {Mac}", data.Mac);
-        // await dbContext.HardwareReadings.AddAsync(data);
-        // await dbContext.Tents.Where(t => t.Mac == data.Mac).ExecuteUpdateAsync(s => s.SetProperty(t => t.LastSeen, DateTime.UtcNow));
-        // await dbContext.SaveChangesAsync();
-        await Task.CompletedTask; // Placeholder
+        await dbContext.HardwareStatuses.AddAsync(data); //stores hardware statuses in db
+        await dbContext.SaveChangesAsync();
     }
 
+    //logs when ai events are triggered
     private async Task HandleAIEventAsync(AiEvent data /*, YourDbContext dbContext */)
     {
-        // TODO: Replace with your actual database logic
+        // TODO: once the methods have been added for pulling ai event messages update this section
         _logger.LogInformation("Storing AI event for tent {Mac}", data.Mac);
         // await dbContext.AiEvents.AddAsync(data);
-        // await dbContext.Tents.Where(t => t.Mac == data.Mac).ExecuteUpdateAsync(s => s.SetProperty(t => t.LastSeen, DateTime.UtcNow));
         // await dbContext.SaveChangesAsync();
         await Task.CompletedTask; // Placeholder
     }

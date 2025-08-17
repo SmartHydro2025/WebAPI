@@ -7,5 +7,7 @@ namespace SmartHydro_API.Database
         public SmartHydroDbContext(DbContextOptions<SmartHydroDbContext> options) : base(options) { }
 
         public DbSet<SensorReading> SensorReadings { get; set; }
+        public DbSet<HardwareReading> HardwareStatuses { get; set; }
+        public DbSet<AiEvent> AiEvents { get; set; }
     }
 }

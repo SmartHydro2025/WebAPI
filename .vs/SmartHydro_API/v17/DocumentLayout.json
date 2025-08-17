@@ -1,57 +1,49 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\",
+  "WorkspaceRootPath": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\codee\\documents\\github\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\codee\\documents\\github\\webapi\\controllers\\hardwarestatuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:controllers\\hardwarestatuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\codee\\documents\\github\\webapi\\controllers\\tentcontrolcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:controllers\\tentcontrolcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\codee\\documents\\github\\webapi\\controllers\\sensorreadingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:controllers\\sensorreadingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\codee\\documents\\github\\webapi\\livecache\\livehardwarestatuscache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:livecache\\livehardwarestatuscache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\codee\\documents\\github\\webapi\\livecache\\livesensorcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:livecache\\livesensorcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\codee\\documents\\github\\webapi\\services\\mqttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:services\\mqttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\codee\\documents\\github\\webapi\\interface\\sensorreadingstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:interface\\sensorreadingstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\codee\\documents\\github\\webapi\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\codee\\documents\\github\\webapi\\interface\\isensorreadingstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:interface\\isensorreadingstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\codee\\documents\\github\\webapi\\database\\smarthydrodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\ianpo\\onedrive\\documents\\amber uni stuff\\smart hydro\\webapi\\database\\smarthydrodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:database\\smarthydrodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\codee\\documents\\github\\webapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\ianpo\\onedrive\\documents\\amber uni stuff\\smart hydro\\webapi\\controllers\\hardwarestatuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:controllers\\hardwarestatuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\ianpo\\onedrive\\documents\\amber uni stuff\\smart hydro\\webapi\\services\\mqttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:services\\mqttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\ianpo\\onedrive\\documents\\amber uni stuff\\smart hydro\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\ianpo\\onedrive\\documents\\amber uni stuff\\smart hydro\\webapi\\controllers\\sensorreadingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:controllers\\sensorreadingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\ianpo\\onedrive\\documents\\amber uni stuff\\smart hydro\\webapi\\controllers\\tentcontrolcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:controllers\\tentcontrolcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\ianpo\\onedrive\\documents\\amber uni stuff\\smart hydro\\webapi\\interface\\sensorreadingstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:interface\\sensorreadingstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\ianpo\\onedrive\\documents\\amber uni stuff\\smart hydro\\webapi\\interface\\isensorreadingstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:interface\\isensorreadingstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\ianpo\\onedrive\\documents\\amber uni stuff\\smart hydro\\webapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\codee\\documents\\github\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\ianpo\\onedrive\\documents\\amber uni stuff\\smart hydro\\webapi\\livecache\\livesensorcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:livecache\\livesensorcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\ianpo\\onedrive\\documents\\amber uni stuff\\smart hydro\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
@@ -62,166 +54,118 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 8,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "HardwareStatusController.cs",
-              "DocumentMoniker": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Controllers\\HardwareStatusController.cs",
+              "DocumentMoniker": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Controllers\\HardwareStatusController.cs",
               "RelativeDocumentMoniker": "Controllers\\HardwareStatusController.cs",
-              "ToolTip": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Controllers\\HardwareStatusController.cs",
+              "ToolTip": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Controllers\\HardwareStatusController.cs",
               "RelativeToolTip": "Controllers\\HardwareStatusController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T07:17:52.275Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SensorReadingsController.cs",
-              "DocumentMoniker": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Controllers\\SensorReadingsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\SensorReadingsController.cs",
-              "ToolTip": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Controllers\\SensorReadingsController.cs",
-              "RelativeToolTip": "Controllers\\SensorReadingsController.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAcwA8AAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T20:42:19.23Z",
+              "WhenOpened": "2025-08-17T08:44:00.787Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "LiveHardwareStatusCache.cs",
-              "DocumentMoniker": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\LiveCache\\LiveHardwareStatusCache.cs",
-              "RelativeDocumentMoniker": "LiveCache\\LiveHardwareStatusCache.cs",
-              "ToolTip": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\LiveCache\\LiveHardwareStatusCache.cs",
-              "RelativeToolTip": "LiveCache\\LiveHardwareStatusCache.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwA4AAAAJAAAAAAAAAA==",
+              "Title": "SensorReadingsController.cs",
+              "DocumentMoniker": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Controllers\\SensorReadingsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SensorReadingsController.cs",
+              "ToolTip": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Controllers\\SensorReadingsController.cs",
+              "RelativeToolTip": "Controllers\\SensorReadingsController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAIwBwAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T07:48:11.584Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-10T20:42:19.23Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "MqttService.cs",
-              "DocumentMoniker": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Services\\MqttService.cs",
+              "DocumentMoniker": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Services\\MqttService.cs",
               "RelativeDocumentMoniker": "Services\\MqttService.cs",
-              "ToolTip": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Services\\MqttService.cs",
+              "ToolTip": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Services\\MqttService.cs",
               "RelativeToolTip": "Services\\MqttService.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAA4wEgBAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAADQBAAAAAAAAAAAYwD0BAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-10T20:42:56.756Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAADwvyAAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T20:43:03.612Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "LiveSensorCache.cs",
-              "DocumentMoniker": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\LiveCache\\LiveSensorCache.cs",
-              "RelativeDocumentMoniker": "LiveCache\\LiveSensorCache.cs",
-              "ToolTip": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\LiveCache\\LiveSensorCache.cs",
-              "RelativeToolTip": "LiveCache\\LiveSensorCache.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwCYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T20:42:50.782Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "TentControlController.cs",
-              "DocumentMoniker": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Controllers\\TentControlController.cs",
+              "DocumentMoniker": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Controllers\\TentControlController.cs",
               "RelativeDocumentMoniker": "Controllers\\TentControlController.cs",
-              "ToolTip": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Controllers\\TentControlController.cs",
+              "ToolTip": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Controllers\\TentControlController.cs",
               "RelativeToolTip": "Controllers\\TentControlController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAwwCEAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T20:42:24.605Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "SensorReadingStore.cs",
-              "DocumentMoniker": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Interface\\SensorReadingStore.cs",
-              "RelativeDocumentMoniker": "Interface\\SensorReadingStore.cs",
-              "ToolTip": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Interface\\SensorReadingStore.cs",
-              "RelativeToolTip": "Interface\\SensorReadingStore.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T20:42:45.222Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\.gitignore",
-              "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\.gitignore",
-              "RelativeToolTip": ".gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF8SURBVDhPjVNLTgJBEG1lwpoFB3GNK9fieA48hD8iwT/ihwgSDAIHgAGXXsEV18CNzL/LquqZdsYM6kteXqcy3fWqpmpNRBgOhyABBEgpAFVKPIMUcYzUyOU\u002BXM/b2qtU3vkSfRjjZTCAMAw1A2LwzdFoBPP5HNqdzuL27n4juibWI\u002BUshBA1DIkhEx9iEorFotgslQqGYbxxAGFEqt1MxmPWJLbLZdZ\u002Bv89q5PMFPiTR6z2zdaxR0fXA0XTBcVywkb4fwHXjRteecIDNQ7UmExVYAdPcxYaqclN46na5WenMKjtlVnTYwcXlVYaDqImW9beD5N/TeGy32QHXm6hZ03ZgiSQHp2fnWQ4oBmJqWSqwAqZpZjt4aLXAD4J0VqyZsmoubfB8H2r1eoaD6NXZ9HcHO\u002BSA3f4AjifXl8rItOETM8ckB9WTWpYD9RdeZ1PWVWAHWXPQaDb59f/w8LiqHeh1pvGkCaP6qB8yXusoxmuNZ7XmII4O9vGuEF86osuDYRkpYQAAAABJRU5ErkJggg==",
-              "WhenOpened": "2025-08-15T13:39:53.051Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-10T20:42:24.605Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "ISensorReadingStore.cs",
-              "DocumentMoniker": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Interface\\ISensorReadingStore.cs",
-              "RelativeDocumentMoniker": "Interface\\ISensorReadingStore.cs",
-              "ToolTip": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Interface\\ISensorReadingStore.cs",
-              "RelativeToolTip": "Interface\\ISensorReadingStore.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAIAAAAVAAAAAAAAAA==",
+              "Title": "LiveSensorCache.cs",
+              "DocumentMoniker": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\LiveCache\\LiveSensorCache.cs",
+              "RelativeDocumentMoniker": "LiveCache\\LiveSensorCache.cs",
+              "ToolTip": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\LiveCache\\LiveSensorCache.cs",
+              "RelativeToolTip": "LiveCache\\LiveSensorCache.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T20:42:37.396Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-10T20:42:50.782Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 6,
+              "Title": "SensorReadingStore.cs",
+              "DocumentMoniker": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Interface\\SensorReadingStore.cs",
+              "RelativeDocumentMoniker": "Interface\\SensorReadingStore.cs",
+              "ToolTip": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Interface\\SensorReadingStore.cs",
+              "RelativeToolTip": "Interface\\SensorReadingStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T20:42:45.222Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ISensorReadingStore.cs",
+              "DocumentMoniker": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Interface\\ISensorReadingStore.cs",
+              "RelativeDocumentMoniker": "Interface\\ISensorReadingStore.cs",
+              "ToolTip": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Interface\\ISensorReadingStore.cs",
+              "RelativeToolTip": "Interface\\ISensorReadingStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T20:42:37.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "SmartHydroDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Database\\SmartHydroDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Database\\SmartHydroDbContext.cs",
               "RelativeDocumentMoniker": "Database\\SmartHydroDbContext.cs",
-              "ToolTip": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Database\\SmartHydroDbContext.cs",
+              "ToolTip": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Database\\SmartHydroDbContext.cs",
               "RelativeToolTip": "Database\\SmartHydroDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-10T20:42:32.21Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 8,
               "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Properties\\launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Properties\\launchSettings.json",
               "RelativeToolTip": "Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -229,19 +173,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 10,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\CodeE\\Documents\\GitHub\\WebAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-08-12T16:55:58.539Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T20:43:03.612Z"
             }
           ]
         }
