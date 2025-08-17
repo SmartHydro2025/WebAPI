@@ -153,5 +153,27 @@ namespace SmartHydro_API.Controllers
 
             return Ok(latestReading.Humidity);
         }
+
+        [HttpGet("latest/light")]
+        public ActionResult<double?> GetLatestLightLevel()
+        {
+            var readings = _cache.GetAllLatest();
+
+            if (readings == null || readings.Count == 0)
+            {
+                return NotFound("No live sensor data available.");
+            }
+
+
+            //get the most recent reading based on timestamp
+            var latestReading = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
+
+            if (latestReading == null || latestReading.EcLevel == null)
+            {
+                return NotFound("No valid light level data available.");
+            }
+
+            return Ok(latestReading.LightLevel);
+        }
     }
 }
