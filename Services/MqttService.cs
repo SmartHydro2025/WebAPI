@@ -113,6 +113,7 @@ public class MqttService : IHostedService, IDisposable
     private readonly LiveSensorCache _cache; //New Line
     private readonly LiveHardwareStatusCache _hardwarecache; //keeps track of hardware statuses
     private readonly AIEventCache _aieventcache; //logs ai events as they trigger
+    private readonly LiveTentInformationCache _tentcache; //logs tent details
 
     public MqttService(ILogger<MqttService> logger, IServiceScopeFactory scopeFactory, LiveSensorCache cache)
     {
@@ -301,6 +302,12 @@ public class MqttService : IHostedService, IDisposable
                         // await dbContext.SaveChangesAsync();
                     }
                     break;
+
+                case "tent_information":
+                    var tentInformation = JsonSerializer.Deserialize<TentInformation>(payload);
+                    await HandleTentInformationAsync(tentInformation);
+                    break;
+
                 default:
                     _logger.LogWarning("Unknown message topic: {Topic}", topic);
                     break;
@@ -358,6 +365,18 @@ public class MqttService : IHostedService, IDisposable
         //     .ExecuteUpdateAsync(s => s.SetProperty(c => c.Success, data.Success));
         // await dbContext.SaveChangesAsync();
         await Task.CompletedTask; // Placeholder
+    }
+
+    //logs hardware statuses to db
+    private async Task HandleTentInformationAsync(TentInformation data)
+    {
+        _tentcache.Update(data); //update in-memory cache 
+
+        using var scope = _scopeFactory.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>(); //connects to db
+        _logger.LogInformation("Storing for tent at mac address: {mac}", data.Mac);
+        await dbContext.TentInformation.AddAsync(data); //stores tent information in db
+        await dbContext.SaveChangesAsync();
     }
 
 

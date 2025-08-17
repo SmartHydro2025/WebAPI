@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartHydro_API.LiveCache;
+using System;
+using System.ComponentModel;
+using System.Text.Json;
 
 namespace SmartHydro_API.Controllers
 {
@@ -8,10 +11,32 @@ namespace SmartHydro_API.Controllers
     public class TentInformationController : Controller
     {
         private readonly LiveTentInformationCache _cache;
+        private readonly MqttService _mqttService;
+        private readonly ILogger<TentControlController> _logger;
 
-        public TentInformationController(LiveTentInformationCache cache)
+        public TentInformationController(LiveTentInformationCache cache, MqttService mqttService, ILogger<TentControlController> logger)
         {
             _cache = cache;
+            _mqttService = mqttService;
+            _logger = logger;
+        }
+
+        [HttpPost("tent/add")]
+        public async ActionResult<string> AddTent(string mac, string location, string name)
+        {
+            //create tent object
+            var tent = new TentInformation
+            {
+                Mac = mac,
+                tentLocation = location,
+                tentName = name
+            };
+
+            var payload = JsonSerializer.Serialize(tent);
+            await _mqttService.PublishAsync("tentInformation", payload);
+
+            _logger.LogInformation("Published tent for MAC {Mac}: Location '{location}' and Name '{name}'", mac, location, name);
+            return Ok(new { message = $"Tent was created successfully.", tent });
         }
 
         [HttpGet("tent/{mac}")]
