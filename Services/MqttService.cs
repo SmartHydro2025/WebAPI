@@ -58,8 +58,13 @@ public class HardwareReading
 //class to store details about which sensor had an ai event trigger
 public class AiEvent
 {
+    [JsonPropertyName("Mac")] 
     public string Mac { get; set; }
+
+    [JsonPropertyName("Sensor")] // ***VERIFY NAME IN JSON
     public string Sensor { get; set; }
+
+    [JsonPropertyName("Action")] // **VERIFY NAME IN JSON
     public string Message { get; set; }
 }
 
@@ -81,6 +86,18 @@ public class TentCommand
     public string Action { get; set; }
 }
 
+//class to store information about current tent open in android
+public class TentInformation
+{
+    [JsonPropertyName("Name")]
+    public string tentName { get; set; }
+
+    [JsonPropertyName("Location")]
+    public string tentLocation { get; set; }
+
+    [JsonPropertyName("Mac")]
+    public string Mac { get; set; }
+}
 
 #region MQTT
 // --- MQTT Service ---
@@ -95,6 +112,7 @@ public class MqttService : IHostedService, IDisposable
     private readonly string _mqttPassword;
     private readonly LiveSensorCache _cache; //New Line
     private readonly LiveHardwareStatusCache _hardwarecache; //keeps track of hardware statuses
+    private readonly AIEventCache _aieventcache; //logs ai events as they trigger
 
     public MqttService(ILogger<MqttService> logger, IServiceScopeFactory scopeFactory, LiveSensorCache cache)
     {
@@ -259,12 +277,12 @@ public class MqttService : IHostedService, IDisposable
 
                 case "ai_events":
                     var aiEventData = JsonSerializer.Deserialize<AiEvent>(payload);
-                    await HandleAIEventAsync(aiEventData /*, dbContext */);
+                    await HandleAIEventAsync(aiEventData);
                     break;
 
                 case "tent_command_response":
                     var commandResponse = JsonSerializer.Deserialize<TentCommandResponse>(payload);
-                    await HandleCommandResponseAsync(commandResponse /*, dbContext */);
+                    await HandleCommandResponseAsync(commandResponse);
                     break;
 
                 case "tentCommands":
@@ -320,16 +338,18 @@ public class MqttService : IHostedService, IDisposable
     }
 
     //logs when ai events are triggered
-    private async Task HandleAIEventAsync(AiEvent data /*, YourDbContext dbContext */)
+    private async Task HandleAIEventAsync(AiEvent data)
     {
-        // TODO: once the methods have been added for pulling ai event messages update this section
-        _logger.LogInformation("Storing AI event for tent {Mac}", data.Mac);
-        // await dbContext.AiEvents.AddAsync(data);
-        // await dbContext.SaveChangesAsync();
-        await Task.CompletedTask; // Placeholder
+        _aieventcache.Update(data); //update in-memory cache 
+
+        using var scope = _scopeFactory.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>(); //connects to db
+        _logger.LogInformation("Storing AI event for tent {Mac}", data.Mac); 
+        await dbContext.AiEvents.AddAsync(data);
+        await dbContext.SaveChangesAsync();
     }
 
-    private async Task HandleCommandResponseAsync(TentCommandResponse data /*, YourDbContext dbContext */)
+    private async Task HandleCommandResponseAsync(TentCommandResponse data)
     {
         // TODO: Replace with your actual database logic
         _logger.LogInformation("Updating command {CommandId} with success status: {Success}", data.CommandId, data.Success);
