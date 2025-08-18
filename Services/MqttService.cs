@@ -362,7 +362,7 @@ public class MqttService : IHostedService, IDisposable
     #endregion
 
     //logs sensor readings from arduino to db
-    private async Task HandleSensorReadingAsync(SensorReading data)
+    public async Task HandleSensorReadingAsync(SensorReading data)
     {
         _cache.Update(data); // ✅ Update in-memory cache first
 
@@ -373,7 +373,7 @@ public class MqttService : IHostedService, IDisposable
     }
 
     //logs hardware statuses to db
-    private async Task HandleHardwareReadingAsync(HardwareReading data)
+    public async Task HandleHardwareReadingAsync(HardwareReading data)
     {
         _hardwarecache.Update(data); //update in-memory cache 
 
@@ -385,7 +385,7 @@ public class MqttService : IHostedService, IDisposable
     }
 
     //logs when ai events are triggered
-    private async Task HandleAIEventAsync(AiEvent data)
+    public async Task HandleAIEventAsync(AiEvent data)
     {
         _aieventcache.Update(data); //update in-memory cache 
 
@@ -396,7 +396,7 @@ public class MqttService : IHostedService, IDisposable
         await dbContext.SaveChangesAsync();
     }
 
-    private async Task HandleCommandResponseAsync(TentCommandResponse data)
+    public async Task HandleCommandResponseAsync(TentCommandResponse data)
     {
         // TODO: Replace with your actual database logic
         _logger.LogInformation("Updating command {CommandId} with success status: {Success}", data.CommandId, data.Success);
@@ -408,16 +408,18 @@ public class MqttService : IHostedService, IDisposable
     }
 
     //logs hardware statuses to db
-    private async Task HandleTentInformationAsync(TentInformation data)
+    public async Task HandleTentInformationAsync(TentInformation data)
     {
         _tentcache.Update(data); //update in-memory cache 
 
         using var scope = _scopeFactory.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>(); //connects to db
         _logger.LogInformation("Storing for tent at mac address: {mac}", data.Mac);
-        await dbContext.TentInformation.AddAsync(data); //stores tent information in db
+        dbContext.TentInformation.Add(data); //stores tent information in db
         await dbContext.SaveChangesAsync();
     }
+
+
 
 
     public async Task StopAsync(CancellationToken cancellationToken)

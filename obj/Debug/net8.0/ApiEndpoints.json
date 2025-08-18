@@ -401,7 +401,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.String",
+        "Type": "TentInformation",
         "MediaTypes": [
           "text/plain",
           "application/json",

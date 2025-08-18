@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SmartHydro_API.Database;
 using SmartHydro_API.LiveCache;
 using System;
 using System.ComponentModel;
@@ -13,12 +14,14 @@ namespace SmartHydro_API.Controllers
         private readonly LiveTentInformationCache _cache;
         private readonly MqttService _mqttService;
         private readonly ILogger<TentControlController> _logger;
+        private readonly SmartHydroDbContext _dbContext;
 
-        public TentInformationController(LiveTentInformationCache cache, MqttService mqttService, ILogger<TentControlController> logger)
+        public TentInformationController(LiveTentInformationCache cache, MqttService mqttService, ILogger<TentControlController> logger, SmartHydroDbContext dbContext            )
         {
             _cache = cache;
             _mqttService = mqttService;
             _logger = logger;
+            _dbContext = dbContext;
         }
 
         [HttpPost("tent/add")]
@@ -33,34 +36,28 @@ namespace SmartHydro_API.Controllers
             };
 
             //hopefully pass the details to mqtt
+            _cache.Update(tent);
             var payload = JsonSerializer.Serialize(tent);
-            await _mqttService.PublishAsync("tentInformation", payload);
+            await _mqttService.HandleTentInformationAsync(tent);
 
             _logger.LogInformation("Published tent for MAC {Mac}: Location '{location}' and Name '{name}'", mac, location, name);
             return Ok(new { message = $"Tent was created successfully.", tent });
         }
 
         [HttpGet("tent/{mac}")]
-        public ActionResult<string> GetTentDetails(string mac)
+        public ActionResult<TentInformation> GetTentDetails(string mac)
         {
-            var tentDetails = _cache.GetAll(); //pull all tents details
+
+            var tentDetails = _dbContext.TentInformation.FirstOrDefault(r => r.Mac == mac);
+            //var tentDetails = _cache.GetAll(); //pull all tents details
 
 
-            if (tentDetails == null || tentDetails.Count == 0)
+            if (tentDetails == null)
             {
                 return NotFound("No tent data available.");
             }
-            var macSorted = tentDetails.OrderBy(r => r.Mac).FirstOrDefault();
 
-            //check which tent details match asked for tent in the list of objects pulled
-            foreach (var tent in tentDetails)
-            {
-                if (macSorted?.Mac == mac) //if matching mac is found
-                {
-                    return (tent.ToString()); //test if the segments will be picked up by the android side
-                }
-            }
-            return NotFound($"No tent with mac address [{mac}] found"); //if not found return that mac wasnt in the list
+            return Ok(tentDetails);
         }
 
         //possible option to update name or location of tent? **
