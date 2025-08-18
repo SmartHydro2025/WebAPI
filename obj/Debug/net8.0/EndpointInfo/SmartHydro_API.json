@@ -576,6 +576,38 @@
         }
       }
     },
+    "/api/SensorReadings/latest/light": {
+      "get": {
+        "tags": [
+          "SensorReadings"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/tents/{mac}/grow-light/on": {
       "post": {
         "tags": [
@@ -839,6 +871,80 @@
           }
         }
       }
+    },
+    "/api/TentInformation/tent/add": {
+      "post": {
+        "tags": [
+          "TentInformation"
+        ],
+        "parameters": [
+          {
+            "name": "mac",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/TentInformation/tent/{mac}": {
+      "get": {
+        "tags": [
+          "TentInformation"
+        ],
+        "parameters": [
+          {
+            "name": "mac",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TentInformation"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TentInformation"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TentInformation"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -848,7 +954,8 @@
         "properties": {
           "id": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "mac": {
             "type": "string",
@@ -882,6 +989,28 @@
           "timestamp": {
             "type": "string",
             "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TentInformation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Location": {
+            "type": "string",
+            "nullable": true
+          },
+          "Mac": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

@@ -307,6 +307,26 @@
   },
   {
     "ContainingType": "SmartHydro_API.Controllers.SensorReadingsController",
+    "Method": "GetLatestLightLevel",
+    "RelativePath": "api/SensorReadings/latest/light",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Nullable\u00601[[System.Double, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.SensorReadingsController",
     "Method": "GetLatestPhLevel",
     "RelativePath": "api/SensorReadings/latest/ph",
     "HttpMethod": "GET",
@@ -364,6 +384,58 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.TentInformationController",
+    "Method": "GetTentDetails",
+    "RelativePath": "api/TentInformation/tent/{mac}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mac",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TentInformation",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.TentInformationController",
+    "Method": "AddTent",
+    "RelativePath": "api/TentInformation/tent/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mac",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "location",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "TentControlController",

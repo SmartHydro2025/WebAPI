@@ -17,7 +17,7 @@
             }
         }
 
-        public List<TentInformation> GetAllLatest()
+        public List<TentInformation> GetAll()
         {
             lock (_lock)
             {
