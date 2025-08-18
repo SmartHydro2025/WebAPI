@@ -412,6 +412,32 @@
     ]
   },
   {
+    "ContainingType": "SmartHydro_API.Controllers.TentInformationController",
+    "Method": "AddTent",
+    "RelativePath": "api/TentInformation/tent/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mac",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "location",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TentControlController",
     "Method": "TurnCirculationFanOff",
     "RelativePath": "api/tents/{mac}/circulation-fan/off",

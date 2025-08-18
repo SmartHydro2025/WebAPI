@@ -32,6 +32,7 @@ namespace SmartHydro_API
             builder.Services.AddSingleton<LiveSensorCache>();
             builder.Services.AddSingleton<LiveHardwareStatusCache>();
             builder.Services.AddSingleton<AIEventCache>();
+            builder.Services.AddSingleton<LiveTentInformationCache>();
 
 
 

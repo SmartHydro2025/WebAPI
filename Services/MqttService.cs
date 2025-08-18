@@ -8,8 +8,11 @@ using SmartHydro_API;
 using SmartHydro_API.Database;
 using SmartHydro_API.Interface;
 using SmartHydro_API.LiveCache;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Text.Json.Serialization; //New Line
 
 // --- Data Models ---
@@ -18,7 +21,8 @@ using System.Text.Json.Serialization; //New Line
 //class to store details about component readings from arduino
 public class SensorReading
 {
-    public int Id { get; set; }
+    [Key]
+    public int? Id { get; set; }
 
     [JsonPropertyName("mac")]
     public string? Mac { get; set; }
@@ -44,13 +48,24 @@ public class SensorReading
 //class to store on and off status of hardware components
 public class HardwareReading
 {
+    [Key]
+    public int ID { get; set; }
+    [JsonPropertyName("mac")]
     public string Mac { get; set; }
-    public bool GrowLightStatus { get; set; }
-    public bool ExtractorFanStatus { get; set; }
-    public bool CirculationFanStatus { get; set; }
-    public bool CirculationPumpStatus { get; set; }
-    public bool NutrientPumpStatus { get; set; }
-    public bool WaterPumpStatus { get; set; }
+    [JsonPropertyName("grow_light_status")]
+    public string GrowLightStatus { get; set; }
+    [JsonPropertyName("extractor_fan_status")]
+    public string ExtractorFanStatus { get; set; }
+    [JsonPropertyName("circulation_fan_status")]
+    public string CirculationFanStatus { get; set; }
+    [JsonPropertyName("circulation_pump_status")]
+    public string CirculationPumpStatus { get; set; }
+    [JsonPropertyName("nutrient_pump_status")]
+    public string NutrientPumpStatus { get; set; }
+    [JsonPropertyName("water_pump_status")]
+    public string WaterPumpStatus { get; set; }
+
+    [Column("DateTime")]
     public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 
 }
@@ -58,13 +73,16 @@ public class HardwareReading
 //class to store details about which sensor had an ai event trigger
 public class AiEvent
 {
-    [JsonPropertyName("Mac")] 
+    [Key]
+    public int ID { get; set; }
+
+    [JsonPropertyName("mac")] 
     public string Mac { get; set; }
 
-    [JsonPropertyName("Sensor")] // ***VERIFY NAME IN JSON
+    [JsonPropertyName("sensor")] // ***VERIFY NAME IN JSON
     public string Sensor { get; set; }
 
-    [JsonPropertyName("Action")] // **VERIFY NAME IN JSON
+    [JsonPropertyName("message")] // **VERIFY NAME IN JSON
     public string Message { get; set; }
 }
 
@@ -78,17 +96,21 @@ public class TentCommandResponse
 //class to store which component received a command
 public class TentCommand
 {
-    [JsonPropertyName("Mac")] // <-- Add this
+    
+    [JsonPropertyName("mac")] // <-- Add this
     public string Mac { get; set; }
-    [JsonPropertyName("Component")] // <-- Add this
+    [JsonPropertyName("component")] // <-- Add this
     public string Component { get; set; }
-    [JsonPropertyName("Action")] // <-- Add this
+    [JsonPropertyName("action")] // <-- Add this
     public string Action { get; set; }
 }
 
 //class to store information about current tent open in android
 public class TentInformation
 {
+    [Key]
+    public int ID { get; set; }
+
     [JsonPropertyName("Name")]
     public string tentName { get; set; }
 
@@ -115,11 +137,15 @@ public class MqttService : IHostedService, IDisposable
     private readonly AIEventCache _aieventcache; //logs ai events as they trigger
     private readonly LiveTentInformationCache _tentcache; //logs tent details
 
-    public MqttService(ILogger<MqttService> logger, IServiceScopeFactory scopeFactory, LiveSensorCache cache)
+    public MqttService(ILogger<MqttService> logger, IServiceScopeFactory scopeFactory, LiveSensorCache cache, LiveHardwareStatusCache hardwarecache,
+        AIEventCache aieventcache, LiveTentInformationCache tentcache)
     {
         _logger = logger;
         _scopeFactory = scopeFactory;
         _cache = cache;
+        _hardwarecache = hardwarecache;
+        _aieventcache = aieventcache;
+        _tentcache = tentcache;
 
         _mqttBroker = Environment.GetEnvironmentVariable("MQTT_BROKER") ?? "129.151.167.185";
         _mqttUsername = Environment.GetEnvironmentVariable("MQTT_USERNAME");
@@ -272,7 +298,21 @@ public class MqttService : IHostedService, IDisposable
                     break;
 
                 case "hardware_status":
-                    var hardwareData = JsonSerializer.Deserialize<HardwareReading>(payload);
+                    //var hardwareData = JsonSerializer.Deserialize<HardwareReading>(payload);
+
+                    var jsonNode = JsonNode.Parse(payload);
+
+                    var hardwareData = new HardwareReading
+                    {
+                        Mac = jsonNode["mac"]?.GetValue<string>(),
+                        GrowLightStatus = jsonNode["grow_light_status"]?.GetValue<string>(),
+                        ExtractorFanStatus = jsonNode["extractor_fan_status"]?.GetValue<string>(),
+                        CirculationFanStatus = jsonNode["circulation_fan_status"]?.GetValue<string>(),
+                        CirculationPumpStatus = jsonNode["circulation_pump_status"]?.GetValue<string>(),
+                        NutrientPumpStatus = jsonNode["nutrient_pump_status"]?.GetValue<string>(),
+                        WaterPumpStatus = jsonNode["water_pump_status"]?.GetValue<string>()
+                    };
+
                     await HandleHardwareReadingAsync(hardwareData);
                     break;
 
@@ -340,7 +380,7 @@ public class MqttService : IHostedService, IDisposable
         using var scope = _scopeFactory.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>(); //connects to db
         _logger.LogInformation("Storing hardware reading for tent {Mac}", data.Mac);
-        await dbContext.HardwareStatuses.AddAsync(data); //stores hardware statuses in db
+        dbContext.HardwareStatuses.Add(data); //stores hardware statuses in db
         await dbContext.SaveChangesAsync();
     }
 
@@ -352,7 +392,7 @@ public class MqttService : IHostedService, IDisposable
         using var scope = _scopeFactory.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>(); //connects to db
         _logger.LogInformation("Storing AI event for tent {Mac}", data.Mac); 
-        await dbContext.AiEvents.AddAsync(data);
+         dbContext.AiEvents.Add(data);
         await dbContext.SaveChangesAsync();
     }
 

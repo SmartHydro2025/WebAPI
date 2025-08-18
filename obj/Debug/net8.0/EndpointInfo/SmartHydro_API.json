@@ -872,6 +872,41 @@
         }
       }
     },
+    "/api/TentInformation/tent/add": {
+      "post": {
+        "tags": [
+          "TentInformation"
+        ],
+        "parameters": [
+          {
+            "name": "mac",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/TentInformation/tent/{mac}": {
       "get": {
         "tags": [
@@ -919,7 +954,8 @@
         "properties": {
           "id": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "mac": {
             "type": "string",

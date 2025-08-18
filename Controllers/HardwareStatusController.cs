@@ -30,11 +30,11 @@ namespace SmartHydro_API.Controllers
 
             // check to see what the status is
 
-            if (latestStatus?.GrowLightStatus == false)
+            if ((bool)(latestStatus?.GrowLightStatus.Equals("0")))
             {
                 return ("The grow light is on");
             }
-            else if (latestStatus?.GrowLightStatus == true)
+            else if ((bool)(latestStatus?.GrowLightStatus.Equals("1")))
             {
                 return ("The grow light is off");
             }
@@ -53,11 +53,11 @@ namespace SmartHydro_API.Controllers
             var latestStatus = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
 
             // check to see what the status is
-            if (latestStatus?.NutrientPumpStatus == false)
+            if ((bool)(latestStatus?.NutrientPumpStatus.Equals("0")))
             {
                 return ("The nutrient pump is on");
             }
-            else if (latestStatus?.NutrientPumpStatus ==  true)
+            else if ((bool)(latestStatus?.NutrientPumpStatus.Equals("1")))
             {
                 return ("The nutrient pump is off");
             }
@@ -78,11 +78,11 @@ namespace SmartHydro_API.Controllers
             var latestStatus = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
 
             // check to see what the status is
-            if (latestStatus?.WaterPumpStatus == false)
+            if ((bool)(latestStatus?.WaterPumpStatus.Equals("0")))
             {
                 return ("The water pump is on");
             }
-            else if (latestStatus?.WaterPumpStatus == true)
+            else if ((bool)(latestStatus?.WaterPumpStatus.Equals("1")))
             {
                 return ("The water pump is off");
             }
@@ -102,11 +102,11 @@ namespace SmartHydro_API.Controllers
             var latestStatus = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
 
             // check to see what the status is
-            if (latestStatus?.CirculationPumpStatus == false)
+            if ((bool)(latestStatus?.CirculationPumpStatus.Equals("0")))
             {
                 return ("The circulation pump is on");
             }
-            else if (latestStatus?.CirculationPumpStatus == true)
+            else if ((bool)(latestStatus?.CirculationPumpStatus.Equals("1")))
             {
                 return ("The circulation pump is off");
             }
@@ -125,11 +125,11 @@ namespace SmartHydro_API.Controllers
             var latestStatus = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
 
             // check to see what the status is
-            if (latestStatus?.CirculationFanStatus == false)
+            if ((bool)(latestStatus?.CirculationFanStatus.Equals("0")))
             {
                 return ("The circulation fan is on");
             }
-            else if (latestStatus?.CirculationFanStatus == true)
+            else if ((bool)(latestStatus?.CirculationFanStatus.Equals("1")))
             {
                 return ("The circulation fan is off");
             }
@@ -149,11 +149,11 @@ namespace SmartHydro_API.Controllers
             var latestStatus = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
 
             // check to see what the status is
-            if (latestStatus?.ExtractorFanStatus == false)
+            if ((bool)(latestStatus?.ExtractorFanStatus.Equals("0")))
             {
                 return ("The extractor fan is on");
             }
-            else if (latestStatus?.ExtractorFanStatus == true)
+            else if ((bool)(latestStatus?.ExtractorFanStatus.Equals("1")))
             {
                 return ("The extractor fan is off");
             }
