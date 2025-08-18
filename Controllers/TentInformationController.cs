@@ -24,6 +24,7 @@ namespace SmartHydro_API.Controllers
             _dbContext = dbContext;
         }
 
+        //adds a tent with a mac address, location of the tent and tent name
         [HttpPost("tent/add")]
         public async Task<IActionResult> AddTent(string mac, string location, string name)
         {
@@ -44,13 +45,11 @@ namespace SmartHydro_API.Controllers
             return Ok(new { message = $"Tent was created successfully.", tent });
         }
 
+        //pulls a single tent details by mac address
         [HttpGet("tent/{mac}")]
         public ActionResult<TentInformation> GetTentDetails(string mac)
         {
-
             var tentDetails = _dbContext.TentInformation.FirstOrDefault(r => r.Mac == mac);
-            //var tentDetails = _cache.GetAll(); //pull all tents details
-
 
             if (tentDetails == null)
             {
@@ -60,6 +59,18 @@ namespace SmartHydro_API.Controllers
             return Ok(tentDetails);
         }
 
-        //possible option to update name or location of tent? **
+        //returns a list of all tents logged in db
+        [HttpGet("alltents")]
+        public ActionResult<List<TentInformation>> GetAllTents()
+        {
+            var tentDetails = _dbContext.TentInformation.ToList();
+
+            if (tentDetails == null)
+            {
+                return NotFound("No tent data available.");
+            }
+
+            return Ok(tentDetails);
+        }
     }
 }
