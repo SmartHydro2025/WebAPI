@@ -10,5 +10,7 @@ namespace SmartHydro_API.Database
         public DbSet<HardwareReading> HardwareStatuses { get; set; }
         public DbSet<AiEvent> AiEvents { get; set; }
         public DbSet<TentInformation> TentInformation { get; set; }
+
+
     }
 }

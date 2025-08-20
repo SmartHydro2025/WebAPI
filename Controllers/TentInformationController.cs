@@ -26,24 +26,25 @@ namespace SmartHydro_API.Controllers
 
         //adds a tent with a mac address, location of the tent and tent name
         [HttpPost("tent/add")]
-        public async Task<IActionResult> AddTent(string mac, string location, string name)
+        public async Task<IActionResult> AddTent(
+            [FromQuery] string mac,
+    [FromQuery] string location,
+    [FromQuery] string name)
         {
-            //create tent object
             var tent = new TentInformation
             {
                 Mac = mac,
-                tentLocation = location,
-                tentName = name
+                tentName = name,
+                tentLocation = location
             };
 
-            //hopefully pass the details to mqtt
-            _cache.Update(tent);
-            var payload = JsonSerializer.Serialize(tent);
-            await _mqttService.HandleTentInformationAsync(tent);
+            _dbContext.TentInformation.Add(tent);
+            await _dbContext.SaveChangesAsync();
 
-            _logger.LogInformation("Published tent for MAC {Mac}: Location '{location}' and Name '{name}'", mac, location, name);
-            return Ok(new { message = $"Tent was created successfully.", tent });
+            return CreatedAtAction(nameof(GetTentDetails), new { mac = tent.Mac }, tent);
         }
+
+
 
         //pulls a single tent details by mac address
         [HttpGet("tent/{mac}")]

@@ -109,6 +109,7 @@ public class TentCommand
 public class TentInformation
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int ID { get; set; }
 
     [JsonPropertyName("Name")]

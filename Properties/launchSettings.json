@@ -14,7 +14,7 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:8080,http://localhost:80",
+      "applicationUrl": "http://0.0.0.0:5218", //"http://localhost:8080,http://localhost:80",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "MQTT_BROKER": "129.151.167.185", //"MQTT_BROKER": "192.168.8.103", "10.0.0.116" "129.151.167.185"
@@ -27,7 +27,7 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7153;http://localhost:5218",
+      "applicationUrl": "https://0.0.0.0:7153;http://0.0.0.0:5218",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
         // You can add the MQTT variables here too if you use this profile
