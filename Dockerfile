@@ -1,19 +1,30 @@
-# Stage 1: Build the application
+# Stage 1: The build environment, using the .NET SDK
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
+WORKDIR /source
 
-# Copy project files and restore dependencies
-COPY ["*.csproj", "./"]
-RUN dotnet restore
+# CORRECTED: Copy the project file first and restore its dependencies
+COPY *.csproj .
+RUN dotnet restore "SmartHydro_API.csproj"
 
-# Copy the rest of the source code and build
+# Copy the rest of the application's source code
 COPY . .
-RUN dotnet publish "WebAPI.csproj" -c Release -o /app/publish
 
-# Stage 2: Create the final, smaller runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+# CORRECTED: Publish the specific project
+RUN dotnet publish "SmartHydro_API.csproj" -c Release -o /app/publish --no-restore
+
+
+# Stage 2: The final runtime image, using the lean ASP.NET runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
+
+# Copy the published output from the build stage
 COPY --from=build /app/publish .
 
-# Set the entrypoint for the container
-ENTRYPOINT ["dotnet", "WebAPI.dll"]
+# Set the URL the app will listen on within the container
+ENV ASPNETCORE_URLS=http://+:8080
+
+# Expose port 8080 to the outside world
+EXPOSE 8080
+
+# Define the entry point for the container.
+ENTRYPOINT ["dotnet", "SmartHydro_API.dll"]

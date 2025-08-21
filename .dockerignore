@@ -1,24 +1,14 @@
-# .dockerignore
+# Ignore the machine-specific NuGet configuration file
+**/NuGet.Config
 
-**/.classpath
-**/.dockerignore
-**/.env
-**/.git
-**/.gitignore
-**/.project
-**/.settings
-**/.toolstarget
-**/.vs
-**/.vscode
-**/*.*proj.user
-**/*.dbmdl
-**/*.jfm
-**/azds.yaml
+# Ignore build artifacts
 **/bin
-**/charts
-**/docker-compose*
-**/Dockerfile*
 **/obj
-**/secrets.dev.yaml
-**/values.dev.yaml
-README.md
+
+# Ignore user-specific files
+*.user
+*.suo
+
+# Ignore IDE folders
+.vs
+.vscode
