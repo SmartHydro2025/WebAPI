@@ -490,3 +490,5 @@ C:\Users\keely\Source\Repos\WebAPI\obj\Debug\net8.0\refint\SmartHydro_API.dll
 C:\Users\keely\Source\Repos\WebAPI\obj\Debug\net8.0\SmartHydro_API.pdb
 C:\Users\keely\Source\Repos\WebAPI\obj\Debug\net8.0\SmartHydro_API.genruntimeconfig.cache
 C:\Users\keely\Source\Repos\WebAPI\obj\Debug\net8.0\ref\SmartHydro_API.dll
+C:\Users\keely\Source\Repos\WebAPI\bin\Debug\net8.0\MySqlConnector.dll
+C:\Users\keely\Source\Repos\WebAPI\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll

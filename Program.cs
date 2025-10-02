@@ -24,7 +24,10 @@ namespace SmartHydro_API
             builder.Services.AddHostedService<MqttService>(provider => provider.GetRequiredService<MqttService>());
             builder.Services.AddScoped<ISensorReadingStore, SensorReadingSqlStore>();
             builder.Services.AddDbContext<SmartHydroDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("AzureSQL")));
+                 options.UseMySql(
+                    builder.Configuration.GetConnectionString("DefaultConnection"),
+                    new MySqlServerVersion(new Version(8, 0, 43)) 
+                ));
             builder.Services.AddControllers().AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
