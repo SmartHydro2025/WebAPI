@@ -16,6 +16,7 @@ namespace SmartHydro_API.Controllers
         private readonly ILogger<TentControlController> _logger;
         private readonly SmartHydroDbContext _dbContext;
 
+        // This controller basically saves the only to the database as it it saves the information given when adding the tent
         public TentInformationController(LiveTentInformationCache cache, MqttService mqttService, ILogger<TentControlController> logger, SmartHydroDbContext dbContext            )
         {
             _cache = cache;

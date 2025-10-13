@@ -17,46 +17,52 @@ namespace SmartHydro_API.Controllers
             _cache = cache;
         }
 
-        // 1️⃣ Get all historical sensor readings from DB
+        // Gets all historical sensor readings from the database.
         [HttpGet]
         public ActionResult<List<SensorReading>> GetAll()
         {
             return Ok(_store.GetAll());
         }
 
-        // 2️⃣ Get the latest live reading from in-memory cache (all devices)
+        // Gets the latest live reading from all devices in the cache.
         [HttpGet("latest")]
         public ActionResult<List<SensorReading>> GetLatestLiveReadings()
         {
             var readings = _cache.GetAllLatest();
             if (readings.Count == 0)
+            {
                 return NotFound("No live sensor data in cache.");
+            }
             return Ok(readings);
         }
 
-        // 3️⃣ Optional: Get latest by MAC
+        // Gets the latest live reading for a specific device.
         [HttpGet("latest/{mac}")]
         public ActionResult<SensorReading> GetByMac(string mac)
         {
-            Console.WriteLine($"🔍 Request for MAC: {mac}");
+            Console.WriteLine($" Request for MAC: {mac}");
 
             var reading = _cache.GetLatest(mac);
             if (reading == null)
+            {
                 return NotFound($"No live data for MAC: {mac}");
+            }
             return Ok(reading);
         }
 
 
 
 
-        // 4️⃣ Get all unique MAC addresses from live cache
+        // Gets a list of all unique MAC addresses currently in the live cache
         [HttpGet("mac address")]
         public ActionResult<List<string>> GetMacAddresses()
         {
             var readings = _cache.GetAllLatest();
 
             if (readings == null || readings.Count == 0)
+            {
                 return NotFound("No live data available to extract MAC addresses.");
+            }
 
             var macAddresses = readings
                 .Where(r => !string.IsNullOrEmpty(r.Mac))
@@ -69,23 +75,29 @@ namespace SmartHydro_API.Controllers
 
 
 
-        // 5️⃣ Get only the latest pH level from the live cache
+        // Gets just the latest pH value from the cache.
         [HttpGet("latest/ph")]
         public ActionResult<double?> GetLatestPhLevel()
         {
             var readings = _cache.GetAllLatest();
             if (readings == null || readings.Count == 0)
+            {
                 return NotFound("No live sensor data available.");
+            }
 
             // Get the most recent reading based on timestamp
             var latestReading = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
 
             if (latestReading == null || latestReading.PhLevel == null)
+            {
                 return NotFound("No valid pH level data available.");
+            }
 
             return Ok(latestReading.PhLevel);
         }
 
+
+        // Gets just the latest ec value from the cache.
         [HttpGet("latest/ec")]
         public ActionResult<double?> GetLatestECLevel()
         {
@@ -108,7 +120,7 @@ namespace SmartHydro_API.Controllers
             return Ok(latestReading.PhLevel);
         }
 
-        //get the last recorded temperature value 
+        // Gets just the latest temp value from the cache.
         [HttpGet("latest/temp")]
         public ActionResult<double?> GetLatestTempValue()
         {
@@ -131,7 +143,7 @@ namespace SmartHydro_API.Controllers
             return Ok(lastReading.Temperature);
         }
 
-        //get the last recorded humidity index 
+        // Gets just the latest humidity value from the cache. 
         [HttpGet("latest/humidity")]
         public ActionResult<double?> GetLatestHumidityIndex()
         {
@@ -154,6 +166,7 @@ namespace SmartHydro_API.Controllers
             return Ok(latestReading.Humidity);
         }
 
+        // Gets just the latest light value from the cache. 
         [HttpGet("latest/light")]
         public ActionResult<double?> GetLatestLightLevel()
         {

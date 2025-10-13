@@ -5,6 +5,7 @@
         private readonly Dictionary<string, TentInformation> _cache = new();
         private readonly object _lock = new();
 
+        // Updates or adds tent information to the cache.
         public void Update(TentInformation reading)
         {
             if (string.IsNullOrWhiteSpace(reading.Mac)) return;
@@ -17,6 +18,7 @@
             }
         }
 
+        // Returns a list of all tent information objects in the cache.
         public List<TentInformation> GetAll()
         {
             lock (_lock)

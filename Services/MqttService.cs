@@ -16,7 +16,7 @@ using System.Text.Json.Nodes;
 using System.Text.Json.Serialization; //New Line
 
 // --- Data Models ---
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 
 //class to store details about component readings from arduino
 public class SensorReading

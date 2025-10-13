@@ -14,6 +14,8 @@ namespace SmartHydro_API.Controllers
             _cache = cache;
         }
 
+
+        /// Gets the latest AI event message related to temperature.
         [HttpGet("latest/temperature")]
         public ActionResult<string> GetLatestTemperatureEvent()
         {
@@ -24,6 +26,7 @@ namespace SmartHydro_API.Controllers
                 return NotFound("No AI event data is available.");
             }
 
+            // Find the first event that matches the "Temperature" sensor.
             foreach (var ai in events)
             {
                 if (ai.Sensor.Equals("Temperature", StringComparison.OrdinalIgnoreCase))
@@ -34,6 +37,7 @@ namespace SmartHydro_API.Controllers
             return NotFound("No temperature events were found.");
         }
 
+        // Gets the latest AI event message related to humidity.
         [HttpGet("latest/humidity")]
         public ActionResult<string> GetLatestHumidityEvent()
         {
@@ -54,6 +58,7 @@ namespace SmartHydro_API.Controllers
             return NotFound("No temperature events were found.");
         }
 
+        // Gets the latest AI event message related to pH.
         [HttpGet("latest/ph")]
         public ActionResult<string> GetLatestPHEvent()
         {
@@ -74,6 +79,7 @@ namespace SmartHydro_API.Controllers
             return NotFound("No pH events were found.");
         }
 
+        // Gets the latest AI event message related to EC.
         [HttpGet("latest/ec")]
         public ActionResult<string> GetLatestECEvent()
         {

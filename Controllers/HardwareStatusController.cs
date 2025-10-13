@@ -16,16 +16,19 @@ namespace SmartHydro_API.Controllers
             _cache = cache;
         }
 
+        // Returns the current status of the grow light.
+        [HttpGet("status/growlight")]
         [HttpGet("status/growlight")]
         public ActionResult<string> GetGrowLightStatus()
         {
             var readings = _cache.GetAllLatest();
 
-
             if (readings == null || readings.Count == 0)
             {
                 return NotFound("No hardware status data available.");
             }
+
+            // Get the most recent status update from any device.
             var latestStatus = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
 
             // check to see what the status is
@@ -41,6 +44,8 @@ namespace SmartHydro_API.Controllers
             return NotFound("No grow light status found");
         }
 
+
+        // Returns the current status of the nutrient pump
         [HttpGet("status/nutrientpump")]
         public ActionResult<string> GetNutrientPumpStatus()
         {
@@ -65,7 +70,7 @@ namespace SmartHydro_API.Controllers
 
         }
 
-
+        // Returns the current status of the water pump
         [HttpGet("status/waterpump")]
         public ActionResult<string> GetWaterPumpStatus()
         {
@@ -89,7 +94,7 @@ namespace SmartHydro_API.Controllers
             return NotFound("No water pump status found");
         }
 
-
+        // Returns the current status of the circilation pump
         [HttpGet("status/circulationpump")]
         public ActionResult<string> GetCirculationPumpStatus()
         {
@@ -113,6 +118,7 @@ namespace SmartHydro_API.Controllers
             return NotFound("No circulation pump status found");
         }
 
+        // Returns the current status of the fan
         [HttpGet("status/circulationfan")]
         public ActionResult<string> GetCirculationFanStatus()
         {
@@ -136,6 +142,7 @@ namespace SmartHydro_API.Controllers
             return NotFound("No circulation fan status found");
         }
 
+        // Returns the current status of the extractor fan
         [HttpGet("status/extractorfan")]
         public ActionResult<string> GetExtractorFanStatus()
         {

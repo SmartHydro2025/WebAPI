@@ -14,9 +14,7 @@ public class TentControlController : ControllerBase
         _logger = logger;
     }
 
-    /// <summary>
-    /// This is a private helper method that builds and publishes the command to the MQTT broker.
-    /// </summary>
+    // A private helper method to build and publish a command to the MQTT broker.
     private async Task<IActionResult> PublishCommandAsync(string mac, string component, string action)
     {
         var command = new TentCommand
@@ -26,14 +24,16 @@ public class TentControlController : ControllerBase
             Action = action
         };
 
+        // Serialize the command object to a JSON string.
         var payload = JsonSerializer.Serialize(command);
+        // Publish the JSON payload to the "tentCommands" MQTT topic.
         await _mqttService.PublishAsync("tentCommands", payload);
 
         _logger.LogInformation("Published command for MAC {Mac}: Component '{Component}' -> Action '{Action}'", mac, component, action);
         return Ok(new { message = $"Command '{action}' for component '{component}' sent successfully.", command });
     }
 
-    // --- Grow Light Endpoints ---
+    //Grow Light Endpoints
     [HttpPost("grow-light/on")]
     public async Task<IActionResult> TurnLightOn(string mac) => await PublishCommandAsync(mac, "grow_light", "on");
 
