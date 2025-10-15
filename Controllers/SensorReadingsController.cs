@@ -188,5 +188,30 @@ namespace SmartHydro_API.Controllers
 
             return Ok(latestReading.LightLevel);
         }
+
+
+
+        //Testing Purpose
+        [HttpPost]
+        public IActionResult Post([FromBody] SensorReading reading)
+        {
+            if (reading == null)
+            {
+                return BadRequest("Sensor reading data is null.");
+            }
+
+            // Set the timestamp to the current time when received.
+            reading.Timestamp = DateTime.UtcNow;
+
+            // 1. Update the live cache for immediate access.
+            _cache.Update(reading);
+
+            // 2. Save the reading to the database for historical record.
+            _store.Update(reading);
+
+            // Return a success response.
+            return Ok(new { message = "Sensor reading received and stored successfully." });
+        }
+
     }
 }

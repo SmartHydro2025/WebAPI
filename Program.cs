@@ -18,7 +18,7 @@ namespace SmartHydro_API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            // FIX: Register MqttService as a Singleton
+            //Register MqttService as a Singleton
             builder.Services.AddSingleton<MqttService>();
 
             builder.Services.AddHostedService<MqttService>(provider => provider.GetRequiredService<MqttService>());
@@ -26,8 +26,7 @@ namespace SmartHydro_API
             builder.Services.AddDbContext<SmartHydroDbContext>(options =>
                  options.UseMySql(
                     builder.Configuration.GetConnectionString("DefaultConnection"),
-                    new MySqlServerVersion(new Version(8, 0, 43)) 
-                ));
+                    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
             builder.Services.AddControllers().AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
@@ -46,7 +45,7 @@ namespace SmartHydro_API
             //if (app.Environment.IsDevelopment())
             //{
             app.UseSwagger();
-                app.UseSwaggerUI();
+            app.UseSwaggerUI();
             //}
 
             app.UseHttpsRedirection();

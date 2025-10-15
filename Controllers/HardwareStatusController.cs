@@ -18,7 +18,7 @@ namespace SmartHydro_API.Controllers
 
         // Returns the current status of the grow light.
         [HttpGet("status/growlight")]
-        [HttpGet("status/growlight")]
+        
         public ActionResult<string> GetGrowLightStatus()
         {
             var readings = _cache.GetAllLatest();

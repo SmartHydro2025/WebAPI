@@ -492,3 +492,5 @@ C:\Users\keely\Source\Repos\WebAPI\obj\Debug\net8.0\SmartHydro_API.genruntimecon
 C:\Users\keely\Source\Repos\WebAPI\obj\Debug\net8.0\ref\SmartHydro_API.dll
 C:\Users\keely\Source\Repos\WebAPI\bin\Debug\net8.0\MySqlConnector.dll
 C:\Users\keely\Source\Repos\WebAPI\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Jessica van Heerden\OneDrive - ADvTECH Ltd\BCAD 3\Semester 2\SmartHydro_WIL\WebAPI\bin\Debug\net8.0\MySqlConnector.dll
+C:\Users\Jessica van Heerden\OneDrive - ADvTECH Ltd\BCAD 3\Semester 2\SmartHydro_WIL\WebAPI\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll

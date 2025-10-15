@@ -221,6 +221,22 @@
   },
   {
     "ContainingType": "SmartHydro_API.Controllers.SensorReadingsController",
+    "Method": "Post",
+    "RelativePath": "api/SensorReadings",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reading",
+        "Type": "SensorReading",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartHydro_API.Controllers.SensorReadingsController",
     "Method": "GetLatestLiveReadings",
     "RelativePath": "api/SensorReadings/latest",
     "HttpMethod": "GET",
