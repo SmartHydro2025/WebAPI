@@ -1,0 +1,48 @@
+﻿﻿version: '3.8'
+
+services:
+  # Your .NET WebAPI Service
+  api:
+    build: .
+    container_name: smarthydro_api
+    ports:
+      - "8080:8080"
+    environment:
+      # This connection string overrides the one in appsettings.json
+      - ConnectionStrings__DefaultConnection=Server=mysql;Database=smartHydro;User=smarthydro_api;Password=SmartHydro2025!;
+      # This tells your API to find the MQTT broker by its service name
+      - MQTT_BROKER=mosquitto
+    depends_on:
+      - mysql
+      - mosquitto
+
+  # Your MySQL Database Service
+  mysql:
+    image: mysql:8.0
+    container_name: smarthydro_mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: SmartHydro2025!
+      MYSQL_DATABASE: smartHydro
+      MYSQL_USER: smarthydro_api
+      MYSQL_PASSWORD: SmartHydro2025!
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  # Your Mosquitto MQTT Broker Service
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: smarthydro_mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+
+# Defines the volumes to persist data
+volumes:
+  mysql_data:
+  mosquitto_data:
+  mosquitto_log:
