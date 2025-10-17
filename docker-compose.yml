@@ -36,7 +36,7 @@
       - mosquitto
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
-      - ConnectionStrings__DefaultConnection=Server=mysql;Database=smartHydro;User Id=smarthydro_api;Password=SmartHydro2025!;
+      - ConnectionStrings__DefaultConnection=Server=smarthydro_mysql;Database=smartHydro;User Id=smarthydro_api;Password=SmartHydro2025!;
     restart: always
  
 volumes:
