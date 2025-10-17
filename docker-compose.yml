@@ -27,7 +27,7 @@
  
   # Web API Service
   webapi:
-    build: ./WebAPI          
+    build: .          
     container_name: smarthydro_webapi
     ports:
       - "8080:8080"
