@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tox3Ptg8Bso=",
+  "dgSpecHash": "NdsqjKKNZfg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\WebAPI\\SmartHydro_API.csproj",
+  "projectFilePath": "C:\\Users\\ianpo\\OneDrive\\Documents\\Amber Uni Stuff\\SMART HYDRO\\Smart-Hydro2025\\WebAPI\\SmartHydro_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ianpo\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ianpo\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.16\\microsoft.aspnetcore.openapi.8.0.16.nupkg.sha512",
