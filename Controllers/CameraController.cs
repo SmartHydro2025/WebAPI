@@ -38,7 +38,7 @@ namespace SmartHydro_API.Controllers
             var cameraImage = new CameraImage(imageBytes, image.ContentType, mac);
 
             //update the cache with the new image
-            _imageCache.Update(mac, cameraImage);
+            _imageCache.Update(cameraImage);
 
             return Ok(new { message = $"Image from {mac} received and cached successfully." });
         }

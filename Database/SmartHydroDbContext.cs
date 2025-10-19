@@ -11,6 +11,6 @@ namespace SmartHydro_API.Database
         public DbSet<AiEvent> AiEvents { get; set; }
         public DbSet<TentInformation> TentInformation { get; set; }
 
-
+        public DbSet<CameraImage> CameraImages { get; set; }
     }
 }

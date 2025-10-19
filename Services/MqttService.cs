@@ -432,7 +432,7 @@ public class MqttService : IHostedService, IDisposable
         using var scope = _scopeFactory.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>(); //connects to db
         _logger.LogInformation("Storing hardware reading for tent {Mac}", data.Mac);
-        dbContext.HardwareStatuses.Add(data); //stores hardware statuses in db
+        dbContext.CameraImages.Add(data); //stores image objects in db
         await dbContext.SaveChangesAsync();
     }
 
