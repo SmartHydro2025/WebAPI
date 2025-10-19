@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartHydro_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7a483cc9e194eea68f835b10b0f22761ef44e75")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cae251a2574a16a012b57d7e2e816e0169de3d49")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartHydro_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartHydro_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
