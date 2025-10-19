@@ -35,7 +35,7 @@ namespace SmartHydro_API.Controllers
             var imageBytes = memoryStream.ToArray();
 
             //create an image object
-            var cameraImage = new CameraImage(imageBytes, image.ContentType);
+            var cameraImage = new CameraImage(imageBytes, image.ContentType, mac);
 
             //update the cache with the new image
             _imageCache.Update(mac, cameraImage);

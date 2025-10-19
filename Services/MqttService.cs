@@ -20,15 +20,23 @@ using System.Text.Json.Serialization; //New Line
 //class fo rhandling imagse from camera
 public class CameraImage
 {
+    [JsonPropertyName("ImageBytes")]
     public byte[] ImageBytes { get; set; }
+
+    [JsonPropertyName("ContentType")]
     public string ContentType { get; set; }
+
     public DateTime Timestamp { get; set; }
 
-    public CameraImage(byte[] imageBytes, string contentType)
+    [JsonPropertyName("mac")]
+    public string? Mac { get; set; }
+
+    public CameraImage(byte[] imageBytes, string contentType, string mac)
     {
         ImageBytes = imageBytes;
         ContentType = contentType;
         Timestamp = DateTime.UtcNow;
+        Mac = mac;
     }
 }
 
@@ -152,9 +160,10 @@ public class MqttService : IHostedService, IDisposable
     private readonly LiveHardwareStatusCache _hardwarecache; //keeps track of hardware statuses
     private readonly AIEventCache _aieventcache; //logs ai events as they trigger
     private readonly LiveTentInformationCache _tentcache; //logs tent details
+    private readonly LiveImageCache _imageCache; //logs image data
 
     public MqttService(ILogger<MqttService> logger, IServiceScopeFactory scopeFactory, LiveSensorCache cache, LiveHardwareStatusCache hardwarecache,
-        AIEventCache aieventcache, LiveTentInformationCache tentcache)
+        AIEventCache aieventcache, LiveTentInformationCache tentcache, LiveImageCache imageCache)
     {
         _logger = logger;
         _scopeFactory = scopeFactory;
@@ -168,6 +177,7 @@ public class MqttService : IHostedService, IDisposable
         _mqttPassword = Environment.GetEnvironmentVariable("MQTT_PASSWORD");
 
         InitializeMqttClient();
+        _imageCache = imageCache;
     }
 
     private void InitializeMqttClient()
@@ -232,7 +242,8 @@ public class MqttService : IHostedService, IDisposable
             "ai_events",
             "tent_command_response",
             "tent_settings",
-            "tentCommands"
+            "tentCommands",
+            "image_data" //added for camera implementation
         };
 
         foreach (var topic in topics)
@@ -364,6 +375,19 @@ public class MqttService : IHostedService, IDisposable
                     await HandleTentInformationAsync(tentInformation);
                     break;
 
+                case "image_data":
+                    var imageData = JsonSerializer.Deserialize<CameraImage>(payload);
+                    if (imageData?.Mac == null)
+                    {
+                        _logger.LogWarning("Received sensor reading with NULL MAC: {Payload}", payload);
+                    }
+                    else
+                    {
+                        _logger.LogInformation("Deserialized SensorReading with MAC: {Mac}", imageData.Mac);
+                    }
+                    await HandleCameraImageAsync(imageData);
+                    break;
+
                 default:
                     _logger.LogWarning("Unknown message topic: {Topic}", topic);
                     break;
@@ -392,6 +416,18 @@ public class MqttService : IHostedService, IDisposable
     public async Task HandleHardwareReadingAsync(HardwareReading data)
     {
         _hardwarecache.Update(data); //update in-memory cache 
+
+        using var scope = _scopeFactory.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>(); //connects to db
+        _logger.LogInformation("Storing hardware reading for tent {Mac}", data.Mac);
+        dbContext.HardwareStatuses.Add(data); //stores hardware statuses in db
+        await dbContext.SaveChangesAsync();
+    }
+
+    //logs images to db
+    public async Task HandleCameraImageAsync(CameraImage data)
+    {
+        _imageCache.Update(data); //update in-memory cache 
 
         using var scope = _scopeFactory.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>(); //connects to db

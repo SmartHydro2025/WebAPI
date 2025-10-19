@@ -6,11 +6,11 @@
         private readonly Dictionary<string, CameraImage> _cache = new();
         private readonly object _lock = new();
 
-        public void Update(string mac, CameraImage image)
+        public void Update(CameraImage image)
         {
-            if (string.IsNullOrWhiteSpace(mac)) return;
+            if (string.IsNullOrWhiteSpace(image.Mac)) return;
 
-            var normalizedMac = mac.Trim().ToUpper();
+            var normalizedMac = image.Mac.Trim().ToUpper();
 
             lock (_lock)
             {

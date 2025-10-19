@@ -31,16 +31,15 @@ namespace SmartHydro_API
             {
                 options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
             });
+            //all singleotns of lives, only one instance throughout lifetime that updates on cyccle
             builder.Services.AddSingleton<LiveSensorCache>();
             builder.Services.AddSingleton<LiveHardwareStatusCache>();
             builder.Services.AddSingleton<AIEventCache>();
             builder.Services.AddSingleton<LiveTentInformationCache>();
             builder.Services.AddHostedService<MqttService>();
-
-
+            builder.Services.AddSingleton<LiveImageCache>();
 
             var app = builder.Build();
-
 
             using (var scope = app.Services.CreateScope())
             {
