@@ -17,6 +17,21 @@ using System.Text.Json.Serialization; //New Line
 
 // --- Data Models ---
 
+//class fo rhandling imagse from camera
+public class CameraImage
+{
+    public byte[] ImageBytes { get; set; }
+    public string ContentType { get; set; }
+    public DateTime Timestamp { get; set; }
+
+    public CameraImage(byte[] imageBytes, string contentType)
+    {
+        ImageBytes = imageBytes;
+        ContentType = contentType;
+        Timestamp = DateTime.UtcNow;
+    }
+}
+
 
 //class to store details about component readings from arduino
 public class SensorReading
