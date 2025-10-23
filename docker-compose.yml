@@ -12,7 +12,8 @@
       MYSQL_PASSWORD: SmartHydro2025!
     volumes:
       - mysql_data:/var/lib/mysql
- 
+    restart: always
+
   # Mosquitto MQTT Broker Service
   mosquitto:
     image: eclipse-mosquitto:2
@@ -24,10 +25,11 @@
       - ./mosquitto/config:/mosquitto/config
       - mosquitto_data:/mosquitto/data
       - mosquitto_log:/mosquitto/log
- 
+    restart: always
+
   # Web API Service
   webapi:
-    build: .          
+    build: .
     container_name: smarthydro_webapi
     ports:
       - "8080:8080"
@@ -38,7 +40,7 @@
       - ASPNETCORE_ENVIRONMENT=Production
       - ConnectionStrings__DefaultConnection=Server=smarthydro_mysql;Database=smartHydro;User Id=smarthydro_api;Password=SmartHydro2025!;
     restart: always
- 
+
 volumes:
   mysql_data:
   mosquitto_data:
