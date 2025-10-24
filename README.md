@@ -4,12 +4,12 @@
 
 ## What Smart Hydro 2025 Web API is built on.
 
-1. **Receiving Data**:
+1.  **Receiving Data**:
 ---
 
 The Web API collects the sensor readings, hardware statuses and AI events that come FROM the hydroponics tent.
 
-2. **Sending Data**:
+2.  **Sending Data**:
    ---
 
    The web api then sends commands TO the hydroponics to turn the different components (light 💡, pumps ⛽ and fans ❄️) on or off.
