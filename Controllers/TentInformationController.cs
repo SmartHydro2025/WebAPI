@@ -4,6 +4,7 @@ using SmartHydro_API.LiveCache;
 using System;
 using System.ComponentModel;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace SmartHydro_API.Controllers
 {
@@ -17,7 +18,7 @@ namespace SmartHydro_API.Controllers
         private readonly SmartHydroDbContext _dbContext;
 
         // This controller basically saves the only to the database as it it saves the information given when adding the tent
-        public TentInformationController(LiveTentInformationCache cache, MqttService mqttService, ILogger<TentControlController> logger, SmartHydroDbContext dbContext            )
+        public TentInformationController(LiveTentInformationCache cache, MqttService mqttService, ILogger<TentControlController> logger, SmartHydroDbContext dbContext)
         {
             _cache = cache;
             _mqttService = mqttService;
@@ -30,13 +31,15 @@ namespace SmartHydro_API.Controllers
         public async Task<IActionResult> AddTent(
             [FromQuery] string mac,
     [FromQuery] string location,
-    [FromQuery] string name)
+    [FromQuery] string name,
+    [FromQuery] string network)
         {
             var tent = new TentInformation
             {
                 Mac = mac,
                 tentName = name,
-                tentLocation = location
+                tentLocation = location,
+                networkName = network
             };
 
             _dbContext.TentInformation.Add(tent);
@@ -58,7 +61,7 @@ namespace SmartHydro_API.Controllers
                 return NotFound("No tent data available.");
             }
 
-            return Ok(tentDetails);
+            return Ok(tentDetails);,
         }
 
         //returns a list of all tents logged in db
@@ -74,5 +77,39 @@ namespace SmartHydro_API.Controllers
 
             return Ok(tentDetails);
         }
+
+
+        [HttpDelete("deleteTent/{mac}")]
+        public async Task<ActionResult<List<TentInformation>>> DeleteTent(string mac)
+        {
+
+            //Find the tent
+            var tent = _dbContext.TentInformation.FirstOrDefault(t => t.Mac == mac);
+
+
+            if (tent == null)
+            {
+                return NotFound("TentNot found in the database");
+            }
+
+
+
+            try
+            {
+                _dbContext.TentInformation.Remove(tent);
+                _cache.Remove(mac);
+                await _dbContext.SaveChangesAsync();
+
+                return NoContent();
+
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, "An internal error occurred while deleting the tent.");
+            }
+
+
+        }
+        }
     }
-}

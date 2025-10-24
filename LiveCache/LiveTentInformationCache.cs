@@ -26,5 +26,22 @@
                 return _cache.Values.ToList();
             }
         }
+
+
+        public void Remove(string mac)
+        {
+            if (string.IsNullOrWhiteSpace(mac))
+            {
+                return;
+            }
+
+            lock (_lock)
+            {
+                _cache.Remove(mac);
+            }
+
+        }
+
+
     }
 }
