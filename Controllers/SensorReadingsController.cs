@@ -117,7 +117,7 @@ namespace SmartHydro_API.Controllers
                 return NotFound("No valid EC level data available.");
             }
 
-            return Ok(latestReading.PhLevel);
+            return Ok(latestReading.EcLevel);
         }
 
         // Gets just the latest temp value from the cache.
