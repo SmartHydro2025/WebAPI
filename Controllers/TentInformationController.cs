@@ -29,14 +29,19 @@ namespace SmartHydro_API.Controllers
         [HttpPost("tent/add")]
         public async Task<IActionResult> AddTent(
             [FromQuery] string mac,
-    [FromQuery] string location,
-    [FromQuery] string name)
+            [FromQuery] string location,
+            [FromQuery] string name,
+            [FromQuery] string networkName,
+            [FromQuery] bool favourite
+            )
         {
             var tent = new TentInformation
             {
                 Mac = mac,
                 tentName = name,
-                tentLocation = location
+                tentLocation = location,
+                networkName = networkName,
+                favourite = favourite
             };
 
             _dbContext.TentInformation.Add(tent);

@@ -99,9 +99,9 @@ public class TentCommand
     
     [JsonPropertyName("mac")] // <-- Add this
     public string Mac { get; set; }
-    [JsonPropertyName("component")] // <-- Add this
+    [JsonPropertyName("component")] 
     public string Component { get; set; }
-    [JsonPropertyName("action")] // <-- Add this
+    [JsonPropertyName("action")] 
     public string Action { get; set; }
 }
 
@@ -120,6 +120,13 @@ public class TentInformation
 
     [JsonPropertyName("Mac")]
     public string Mac { get; set; }
+
+    [JsonPropertyName("networkName")]
+    public string networkName { get; set; }
+
+    [JsonPropertyName("favourite")]
+    public bool favourite { get; set; }
+
 }
 
 #region MQTT
@@ -365,7 +372,7 @@ public class MqttService : IHostedService, IDisposable
     //logs sensor readings from arduino to db
     public async Task HandleSensorReadingAsync(SensorReading data)
     {
-        _cache.Update(data); // ✅ Update in-memory cache first
+        _cache.Update(data);
 
         using var scope = _scopeFactory.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>();
