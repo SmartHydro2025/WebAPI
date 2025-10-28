@@ -124,9 +124,6 @@ public class TentInformation
     [JsonPropertyName("networkName")]
     public string networkName { get; set; }
 
-    [JsonPropertyName("favourite")]
-    public bool favourite { get; set; }
-
 }
 
 #region MQTT

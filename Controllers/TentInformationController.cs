@@ -31,8 +31,7 @@ namespace SmartHydro_API.Controllers
             [FromQuery] string mac,
             [FromQuery] string location,
             [FromQuery] string name,
-            [FromQuery] string networkName,
-            [FromQuery] bool favourite
+            [FromQuery] string networkName
             )
         {
             var tent = new TentInformation
@@ -40,8 +39,7 @@ namespace SmartHydro_API.Controllers
                 Mac = mac,
                 tentName = name,
                 tentLocation = location,
-                networkName = networkName,
-                favourite = favourite
+                networkName = networkName
             };
 
             _dbContext.TentInformation.Add(tent);
@@ -50,7 +48,21 @@ namespace SmartHydro_API.Controllers
             return CreatedAtAction(nameof(GetTentDetails), new { mac = tent.Mac }, tent);
         }
 
+        // Deletes a tent
+        [HttpPost("tent/delete")]
+        public async Task<IActionResult> DeleteTent(string mac)
+        {
 
+            var tent = _dbContext.TentInformation.FirstOrDefault(r => r.Mac == mac);
+            if (tent == null)
+            {
+                return NotFound();
+            }
+            _dbContext.TentInformation.Remove(tent);
+            await _dbContext.SaveChangesAsync();
+
+            return Ok("Tent has been successfully deleted.");
+        }
 
         //pulls a single tent details by mac address
         [HttpGet("tent/{mac}")]
