@@ -20,19 +20,19 @@
       - smarthydro-network
 
   # Mosquitto MQTT Broker Service
-  # mosquitto:
-  #   image: eclipse-mosquitto:2
-  #   container_name: smarthydro_mosquitto
-  #   ports:
-  #     - "1883:1883"
-  #     - "9001:9001"
-  #   volumes:
-  #     - ./mosquitto/config:/mosquitto/config
-  #     - mosquitto_data:/mosquitto/data
-  #     - mosquitto_log:/mosquitto/log
-  #   restart: always
-  #   networks:
-  #     - smarthydro-network
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: smarthydro_mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+    restart: always
+    networks:
+      - smarthydro-network
 
   # Web API Service
   webapi:
@@ -42,9 +42,9 @@
       - "8080:8080"
     depends_on:
       - smarthydro-db
-      # - mosquitto
+      - mosquitto
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production
       - SQL_CONNECTION_STRING=Server=smarthydro-db;Database=SmartHydroDB;User Id=sa;Password=Password1!;TrustServerCertificate=True;
     restart: always
     networks:
@@ -56,5 +56,5 @@ networks:
 
 volumes:
   mssql_data:
-  # mosquitto_data:
-  # mosquitto_log:
+  mosquitto_data:
+  mosquitto_log:
