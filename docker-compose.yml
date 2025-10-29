@@ -1,31 +1,38 @@
 ﻿services:
-  # MySQL Database Service
-  mysql:
-    image: mysql:8.0
-    container_name: smarthydro_mysql
+  # Database Service
+  smarthydro-db:
+    build:
+      context: ./SmartHydroDB
+      dockerfile: Dockerfile
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: smarthydro-db
     ports:
-      - "3306:3306"
+      - "1433:1433"
+      - "1400:1433" 
     environment:
-      MYSQL_ROOT_PASSWORD: SmartHydro2025!
-      MYSQL_DATABASE: smartHydro
-      MYSQL_USER: smarthydro_api
-      MYSQL_PASSWORD: SmartHydro2025!
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Express"
+      MSSQL_SA_PASSWORD: "Password1!"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - mssql_data:/var/opt/mssql
     restart: always
+    networks:
+      - smarthydro-network
 
   # Mosquitto MQTT Broker Service
-  mosquitto:
-    image: eclipse-mosquitto:2
-    container_name: smarthydro_mosquitto
-    ports:
-      - "1883:1883"
-      - "9001:9001"
-    volumes:
-      - ./mosquitto/config:/mosquitto/config
-      - mosquitto_data:/mosquitto/data
-      - mosquitto_log:/mosquitto/log
-    restart: always
+  # mosquitto:
+  #   image: eclipse-mosquitto:2
+  #   container_name: smarthydro_mosquitto
+  #   ports:
+  #     - "1883:1883"
+  #     - "9001:9001"
+  #   volumes:
+  #     - ./mosquitto/config:/mosquitto/config
+  #     - mosquitto_data:/mosquitto/data
+  #     - mosquitto_log:/mosquitto/log
+  #   restart: always
+  #   networks:
+  #     - smarthydro-network
 
   # Web API Service
   webapi:
@@ -34,14 +41,20 @@
     ports:
       - "8080:8080"
     depends_on:
-      - mysql
-      - mosquitto
+      - smarthydro-db
+      # - mosquitto
     environment:
-      - ASPNETCORE_ENVIRONMENT=Production
-      - ConnectionStrings__DefaultConnection=Server=smarthydro_mysql;Database=smartHydro;User Id=smarthydro_api;Password=SmartHydro2025!;
+      - ASPNETCORE_ENVIRONMENT=Development
+      - SQL_CONNECTION_STRING=Server=smarthydro-db;Database=SmartHydroDB;User Id=sa;Password=Password1!;TrustServerCertificate=True;
     restart: always
+    networks:
+      - smarthydro-network
+
+networks:
+  smarthydro-network:
+    driver: bridge
 
 volumes:
-  mysql_data:
-  mosquitto_data:
-  mosquitto_log:
+  mssql_data:
+  # mosquitto_data:
+  # mosquitto_log:

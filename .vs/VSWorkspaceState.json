@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SmartHydroDB"
   ],
-  "SelectedNode": "\\SmartHydro_API.sln",
+  "SelectedNode": "\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

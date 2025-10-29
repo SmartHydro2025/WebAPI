@@ -1,37 +1,27 @@
-﻿{
-  "$schema": "http://json.schemastore.org/launchsettings.json",
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:28392",
-      "sslPort": 44331
-    }
-  },
+{
   "profiles": {
     "http": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://0.0.0.0:5218", //"http://localhost:8080,http://localhost:80",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "MQTT_BROKER": "129.151.167.185", //"MQTT_BROKER": "192.168.8.103", "10.0.0.116" "129.151.167.185"
+        "MQTT_BROKER": "129.151.167.185",
         "MQTT_USERNAME": "hydroadmin",
         "MQTT_PASSWORD": "hydroadmin"
-      }
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://0.0.0.0:5218"
     },
     "https": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://0.0.0.0:7153;http://0.0.0.0:5218",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-        // You can add the MQTT variables here too if you use this profile
-      }
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://0.0.0.0:7153;http://0.0.0.0:5218"
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -40,6 +30,26 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "environmentVariables": {
+        "ASPNETCORE_HTTPS_PORTS": "8081",
+        "ASPNETCORE_HTTP_PORTS": "8080"
+      },
+      "publishAllPorts": true,
+      "useSSL": true
+    }
+  },
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:28392",
+      "sslPort": 44331
     }
   }
 }

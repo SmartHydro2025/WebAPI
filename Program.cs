@@ -23,10 +23,17 @@ namespace SmartHydro_API
 
             builder.Services.AddHostedService<MqttService>(provider => provider.GetRequiredService<MqttService>());
             builder.Services.AddScoped<ISensorReadingStore, SensorReadingSqlStore>();
+            //builder.Services.AddDbContext<SmartHydroDbContext>(options =>
+            //     options.UseMySql(
+            //        builder.Configuration.GetConnectionString("DefaultConnection"),
+            //        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
+            
+            // Database connection
             builder.Services.AddDbContext<SmartHydroDbContext>(options =>
-                 options.UseMySql(
-                    builder.Configuration.GetConnectionString("DefaultConnection"),
-                    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
+            {
+                options.UseSqlServer(Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING"));
+            });
+
             builder.Services.AddControllers().AddJsonOptions(options =>
             {
                 options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
@@ -36,8 +43,6 @@ namespace SmartHydro_API
             builder.Services.AddSingleton<AIEventCache>();
             builder.Services.AddSingleton<LiveTentInformationCache>();
             builder.Services.AddHostedService<MqttService>();
-
-
 
             var app = builder.Build();
 

@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("b7d08bfb-169a-43b6-9bf0-7f4ef412c253")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartHydro_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+80f58286a733c20f178db1731cf76eee420a9797")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f17fd2c9e25bb1602feef4dbdebfb9ca3cd2b0a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartHydro_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartHydro_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
