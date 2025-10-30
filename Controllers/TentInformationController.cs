@@ -30,36 +30,50 @@ namespace SmartHydro_API.Controllers
         public async Task<IActionResult> AddTent(
             [FromQuery] string mac,
             [FromQuery] string location,
-            [FromQuery] string name
+            [FromQuery] string name,
+            [FromQuery] string networkName
             )
         {
-            var tent = new TentInformation
+            try //error handling added
             {
-                Mac = mac,
-                tentName = name,
-                tentLocation = location
-            };
+                var tent = new TentInformation
+                {
+                    Mac = mac,
+                    tentName = name,
+                    tentLocation = location,
+                    networkName = networkName
 
-            _dbContext.TentInformation.Add(tent);
-            await _dbContext.SaveChangesAsync();
+                };
 
-            return CreatedAtAction(nameof(GetTentDetails), new { mac = tent.Mac }, tent);
+                _dbContext.TentInformation.Add(tent);
+                await _dbContext.SaveChangesAsync();
+
+                return CreatedAtAction(nameof(GetTentDetails), new { mac = tent.Mac }, tent);
+            } catch (Exception error)
+            {
+                return BadRequest(error.Message); //prints back whatever goes wrong
+            }
         }
 
         // Deletes a tent
         [HttpPost("tent/delete")]
         public async Task<IActionResult> DeleteTent(string mac)
         {
-
-            var tent = _dbContext.TentInformation.FirstOrDefault(r => r.Mac == mac);
-            if (tent == null)
+            try
             {
-                return NotFound();
-            }
-            _dbContext.TentInformation.Remove(tent);
-            await _dbContext.SaveChangesAsync();
+                var tent = _dbContext.TentInformation.FirstOrDefault(r => r.Mac == mac);
+                if (tent == null)
+                {
+                    return NotFound();
+                }
+                _dbContext.TentInformation.Remove(tent);
+                await _dbContext.SaveChangesAsync();
 
-            return Ok("Tent has been successfully deleted.");
+                return Ok("Tent has been successfully deleted.");
+            } catch (Exception error)
+            {
+                return BadRequest(error.Message);
+            }
         }
 
         //pulls a single tent details by mac address
@@ -80,14 +94,20 @@ namespace SmartHydro_API.Controllers
         [HttpGet("alltents")]
         public ActionResult<List<TentInformation>> GetAllTents()
         {
-            var tentDetails = _dbContext.TentInformation.ToList();
-
-            if (tentDetails == null)
+            try
             {
-                return NotFound("No tent data available.");
-            }
+                var tentDetails = _dbContext.TentInformation.ToList();
 
-            return Ok(tentDetails);
+                if (tentDetails == null)
+                {
+                    return NotFound("No tent data available.");
+                }
+
+                return Ok(tentDetails);
+            } catch (Exception error)
+            {
+                return BadRequest(error.Message);
+            }
         }
     }
 }

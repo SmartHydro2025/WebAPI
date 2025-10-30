@@ -121,6 +121,8 @@ public class TentInformation
     [JsonPropertyName("Mac")]
     public string Mac { get; set; }
 
+    [JsonPropertyName("networkName")]
+    public string networkName { get; set; }
 }
 
 #region MQTT
