@@ -121,13 +121,11 @@ public class TentInformation
     [JsonPropertyName("Mac")]
     public string Mac { get; set; }
 
-  
-
 }
 
 #region MQTT
-// MQTT Service 
-
+// --- MQTT Service ---
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 public class MqttService : IHostedService, IDisposable
 {
     private readonly ILogger<MqttService> _logger;
@@ -339,6 +337,11 @@ public class MqttService : IHostedService, IDisposable
                             tentCommandData.Mac, tentCommandData.Component, tentCommandData.Action
                         );
 
+                        // TODO: If you want to store commands in DB:
+                        // using var scope = _scopeFactory.CreateScope();
+                        // var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>();
+                        // dbContext.TentCommands.Add(tentCommandData);
+                        // await dbContext.SaveChangesAsync();
                     }
                     break;
 
