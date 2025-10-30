@@ -1,8 +1,8 @@
 {
   "ExpandedNodes": [
     "",
+    "\\init-smarthydrodb.sql",
     "\\SmartHydroDB"
   ],
-  "SelectedNode": "\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

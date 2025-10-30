@@ -45,7 +45,7 @@
       - mosquitto
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
-      - SQL_CONNECTION_STRING=Server=smarthydro-db;Database=SmartHydroDB;User Id=sa;Password=Password1!;TrustServerCertificate=True;
+      - SQL_CONNECTION_STRING=Server=smarthydro-db,1433;Database=SmartHydroDB;User Id=sa;Password=Password1!;TrustServerCertificate=True;
     restart: always
     networks:
       - smarthydro-network
