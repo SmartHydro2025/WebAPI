@@ -26,7 +26,7 @@ namespace SmartHydro_API.Controllers
         }
 
         // Gets the latest live reading from all devices
-        [HttpGet("latest")]
+        [HttpGet("allLatestReadings")]
         public ActionResult<List<SensorReading>> GetLatestLiveReadings()
         {
             var readings = _cache.GetAllLatest();
@@ -49,29 +49,6 @@ namespace SmartHydro_API.Controllers
                 return NotFound($"No live data for MAC: {mac}");
             }
             return Ok(reading);
-        }
-
-
-
-
-        // Gets a list of all unique MAC addresses currently in the live cache
-        [HttpGet("allMacAddress")]
-        public ActionResult<List<string>> GetMacAddresses()
-        {
-            var readings = _cache.GetAllLatest();
-
-            if (readings == null || readings.Count == 0)
-            {
-                return NotFound("No live data available to extract MAC addresses.");
-            }
-
-            var macAddresses = readings
-                .Where(r => !string.IsNullOrEmpty(r.Mac))
-                .Select(r => r.Mac!)
-                .Distinct()
-                .ToList();
-
-            return Ok(macAddresses);
         }
 
 
@@ -130,7 +107,7 @@ namespace SmartHydro_API.Controllers
                 return NotFound($"No live data for MAC: {mac}");
             }
 
-            if (latestReading.PhLevel == null)
+            if (latestReading.Temperature == null)
             {
                 return NotFound($"No valid temperature data available for MAC: {mac}");
             }
@@ -150,7 +127,7 @@ namespace SmartHydro_API.Controllers
                 return NotFound($"No live data for MAC: {mac}");
             }
 
-            if (latestReading.PhLevel == null)
+            if (latestReading.Humidity == null)
             {
                 return NotFound($"No valid temperature data available for MAC: {mac}");
             }
@@ -169,7 +146,7 @@ namespace SmartHydro_API.Controllers
                 return NotFound($"No live data for MAC: {mac}");
             }
 
-            if (latestReading.PhLevel == null)
+            if (latestReading.LightLevel == null)
             {
                 return NotFound($"No valid temperature data available for MAC: {mac}");
             }

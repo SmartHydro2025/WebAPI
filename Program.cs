@@ -78,7 +78,7 @@ namespace SmartHydro_API
             app.UseSwaggerUI();
             //}
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseCors(MyAllowSpecificOrigins); //new Line
             app.UseAuthorization();
