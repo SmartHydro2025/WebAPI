@@ -12,6 +12,23 @@ namespace SmartHydro_API
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            //CORS POLICY
+            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.AllowAnyOrigin()
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
+                      });
+            });
+
+
+
+
             // Add services to the container.
             builder.Services.AddAuthorization();
 
@@ -63,6 +80,7 @@ namespace SmartHydro_API
 
             app.UseHttpsRedirection();
 
+            app.UseCors(MyAllowSpecificOrigins); //new Line
             app.UseAuthorization();
             app.MapControllers(); //New Line
 
