@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartHydro_API.Interface;
 using SmartHydro_API.LiveCache;
+using System.Security.Cryptography;
 
 namespace SmartHydro_API.Controllers
 {
@@ -24,7 +25,7 @@ namespace SmartHydro_API.Controllers
             return Ok(_store.GetAll());
         }
 
-        // Gets the latest live reading from all devices in the cache.
+        // Gets the latest live reading from all devices
         [HttpGet("latest")]
         public ActionResult<List<SensorReading>> GetLatestLiveReadings()
         {
@@ -54,7 +55,7 @@ namespace SmartHydro_API.Controllers
 
 
         // Gets a list of all unique MAC addresses currently in the live cache
-        [HttpGet("mac address")]
+        [HttpGet("allMacAddress")]
         public ActionResult<List<string>> GetMacAddresses()
         {
             var readings = _cache.GetAllLatest();
@@ -75,115 +76,102 @@ namespace SmartHydro_API.Controllers
 
 
 
-        // Gets just the latest pH value from the cache.
-        [HttpGet("latest/ph")]
-        public ActionResult<double?> GetLatestPhLevel()
+        // Gets just the latest pH value 
+        [HttpGet("latest/{mac}/ph")]
+        public ActionResult<double?> GetLatestPhLevel(string mac)
         {
-            var readings = _cache.GetAllLatest();
-            if (readings == null || readings.Count == 0)
+
+            var latestReading = _cache.GetLatest(mac);
+
+            if (latestReading == null)
             {
-                return NotFound("No live sensor data available.");
+                return NotFound($"No live data for MAC: {mac}");
             }
 
-            // Get the most recent reading based on timestamp
-            var latestReading = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
-
-            if (latestReading == null || latestReading.PhLevel == null)
+            if (latestReading.PhLevel == null)
             {
-                return NotFound("No valid pH level data available.");
+                return NotFound($"No valid temperature data available for MAC: {mac}");
             }
+
+
 
             return Ok(latestReading.PhLevel);
         }
 
 
-        // Gets just the latest ec value from the cache.
-        [HttpGet("latest/ec")]
-        public ActionResult<double?> GetLatestECLevel()
+        // Gets just the latest ec value 
+        [HttpGet("latest/{mac}/ec")]
+        public ActionResult<double?> GetLatestECLevel(string mac)
         {
-            var readings = _cache.GetAllLatest();
+            var latestReading = _cache.GetLatest(mac);
 
-            if (readings == null || readings.Count == 0)
+            if (latestReading == null)
             {
-                return NotFound("No live sensor data available.");
+                return NotFound($"No live data for MAC: {mac}");
             }
 
-
-            // Get the most recent reading based on timestamp
-            var latestReading = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
-
-            if (latestReading == null || latestReading.EcLevel == null)
+            if (latestReading.EcLevel == null)
             {
-                return NotFound("No valid EC level data available.");
+                return NotFound($"No valid temperature data available for MAC: {mac}");
             }
+
 
             return Ok(latestReading.EcLevel);
         }
 
-        // Gets just the latest temp value from the cache.
-        [HttpGet("latest/temp")]
-        public ActionResult<double?> GetLatestTempValue()
+        // Gets just the latest temp value 
+        [HttpGet("latest/{mac}/temp")]
+        public ActionResult<double?> GetLatestTempValue(string mac)
         {
-            var allReadings = _cache.GetAllLatest();
+            var latestReading = _cache.GetLatest(mac);
 
-            if (allReadings == null || allReadings.Count == 0)
+            if (latestReading == null)
             {
-                return NotFound("No live sensor data available.");
+                return NotFound($"No live data for MAC: {mac}");
+            }
+
+            if (latestReading.PhLevel == null)
+            {
+                return NotFound($"No valid temperature data available for MAC: {mac}");
             }
 
 
-            //pull the most recent reading based on timestamp
-            var lastReading = allReadings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
-
-            if (lastReading == null || lastReading.Temperature == null)
-            {
-                return NotFound("No temperature data available.");
-            }
-
-            return Ok(lastReading.Temperature);
+            return Ok(latestReading.Temperature);
         }
 
-        // Gets just the latest humidity value from the cache. 
-        [HttpGet("latest/humidity")]
-        public ActionResult<double?> GetLatestHumidityIndex()
+        // Gets just the latest humidity 
+        [HttpGet("latest/{mac}/humidity")]
+        public ActionResult<double?> GetLatestHumidityIndex(string mac)
         {
-            var readings = _cache.GetAllLatest();
+            var latestReading = _cache.GetLatest(mac);
 
-            if (readings == null || readings.Count == 0)
+            if (latestReading == null)
             {
-                return NotFound("No live sensor data available.");
+                return NotFound($"No live data for MAC: {mac}");
             }
 
-
-            //pull the most recent reading based on timestamp
-            var latestReading = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
-
-            if (latestReading == null || latestReading.Humidity == null)
+            if (latestReading.PhLevel == null)
             {
-                return NotFound("No humidity data available.");
+                return NotFound($"No valid temperature data available for MAC: {mac}");
             }
 
             return Ok(latestReading.Humidity);
         }
 
         // Gets just the latest light value from the cache. 
-        [HttpGet("latest/light")]
-        public ActionResult<double?> GetLatestLightLevel()
+        [HttpGet("latest/{mac}/light")]
+        public ActionResult<double?> GetLatestLightLevel(string mac)
         {
-            var readings = _cache.GetAllLatest();
+            var latestReading = _cache.GetLatest(mac);
 
-            if (readings == null || readings.Count == 0)
+            if (latestReading == null)
             {
-                return NotFound("No live sensor data available.");
+                return NotFound($"No live data for MAC: {mac}");
             }
 
-
-            //get the most recent reading based on timestamp
-            var latestReading = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
-
-            if (latestReading == null || latestReading.EcLevel == null)
+            if (latestReading.PhLevel == null)
             {
-                return NotFound("No valid light level data available.");
+                return NotFound($"No valid temperature data available for MAC: {mac}");
             }
 
             return Ok(latestReading.LightLevel);
