@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SmartHydro_API.Interface;
 using SmartHydro_API.LiveCache;
+using System.Security.Cryptography;
 
 namespace SmartHydro_API.Controllers
 {
@@ -17,152 +18,142 @@ namespace SmartHydro_API.Controllers
         }
 
         // Returns the current status of the grow light.
-        [HttpGet("status/growlight")]
+        [HttpGet("status/{mac}/growlight")]
         
-        public ActionResult<string> GetGrowLightStatus()
+        public ActionResult<string> GetGrowLightStatus(string mac)
         {
-            var readings = _cache.GetAllLatest();
+            var readings = _cache.GetLatest(mac);
 
-            if (readings == null || readings.Count == 0)
+            if (readings == null )
             {
                 return NotFound("No hardware status data available.");
             }
 
-            // Get the most recent status update from any device.
-            var latestStatus = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
 
-            // check to see what the status is
-
-            if ((bool)(latestStatus?.GrowLightStatus.Equals("0")))
+            if (readings.GrowLightStatus == "0")
             {
-                return ("The grow light is on");
+                return Ok("The grow light is on");
             }
-            else if ((bool)(latestStatus?.GrowLightStatus.Equals("1")))
+            else if (readings.GrowLightStatus == "1")
             {
-                return ("The grow light is off");
+                return Ok("The grow light is off");
             }
             return NotFound("No grow light status found");
         }
 
 
         // Returns the current status of the nutrient pump
-        [HttpGet("status/nutrientpump")]
-        public ActionResult<string> GetNutrientPumpStatus()
+        [HttpGet("status/{mac}/nutrientpump")]
+        public ActionResult<string> GetNutrientPumpStatus(string mac)
         {
-            var readings = _cache.GetAllLatest();
+            var readings = _cache.GetLatest(mac);
 
             if (readings == null || readings.Count == 0)
             {
                 return NotFound("No hardware status data available.");
             }
-            var latestStatus = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
 
             // check to see what the status is
-            if ((bool)(latestStatus?.NutrientPumpStatus.Equals("0")))
+            if (readings.NutrientPumpStatus == "0")
             {
-                return ("The nutrient pump is on");
+                return Ok("The nutrient pump is on");
             }
-            else if ((bool)(latestStatus?.NutrientPumpStatus.Equals("1")))
+            else if (readings.NutrientPumpStatus == "1")
             {
-                return ("The nutrient pump is off");
+                return Ok("The nutrient pump is off");
             }
             return NotFound("No nutrient pump status found");
 
         }
 
         // Returns the current status of the water pump
-        [HttpGet("status/waterpump")]
-        public ActionResult<string> GetWaterPumpStatus()
+        [HttpGet("status/{mac}/waterpump")]
+        public ActionResult<string> GetWaterPumpStatus(string mac)
         {
-            var readings = _cache.GetAllLatest();
+            var readings = _cache.GetLatest(mac);
 
-            if (readings == null || readings.Count == 0)
+            if (readings == null)
             {
                 return NotFound("No hardware status data available.");
             }
-            var latestStatus = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
 
             // check to see what the status is
-            if ((bool)(latestStatus?.WaterPumpStatus.Equals("0")))
+            if (readings.WaterPumpStatus == "0")
             {
-                return ("The water pump is on");
+                return Ok("The water pump is on");
             }
-            else if ((bool)(latestStatus?.WaterPumpStatus.Equals("1")))
+            else if (readings.WaterPumpStatus == "1")
             {
-                return ("The water pump is off");
+                return Ok("The water pump is off");
             }
             return NotFound("No water pump status found");
         }
 
         // Returns the current status of the circilation pump
-        [HttpGet("status/circulationpump")]
-        public ActionResult<string> GetCirculationPumpStatus()
+        [HttpGet("status/{mac}/circulationpump")]
+        public ActionResult<string> GetCirculationPumpStatus(string mac)
         {
-            var readings = _cache.GetAllLatest();
+            var readings = _cache.GetLatest(mac);
 
-            if (readings == null || readings.Count == 0)
+            if (readings == null)
             {
                 return NotFound("No hardware status data available.");
             }
-            var latestStatus = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
 
             // check to see what the status is
-            if ((bool)(latestStatus?.CirculationPumpStatus.Equals("0")))
+            if (readings.CirculationPumpStatus == "0")
             {
-                return ("The circulation pump is on");
+                return Ok("The circulation pump is on");
             }
-            else if ((bool)(latestStatus?.CirculationPumpStatus.Equals("1")))
+            else if (readings.CirculationPumpStatus == "1")
             {
-                return ("The circulation pump is off");
+                return Ok("The circulation pump is off");
             }
             return NotFound("No circulation pump status found");
         }
 
         // Returns the current status of the fan
-        [HttpGet("status/circulationfan")]
-        public ActionResult<string> GetCirculationFanStatus()
+        [HttpGet("status/{mac}/circulationfan")]
+        public ActionResult<string> GetCirculationFanStatus(string mac)
         {
-            var readings = _cache.GetAllLatest();
+            var readings = _cache.GetLatest(mac);
 
-            if (readings == null || readings.Count == 0)
+            if (readings == null)
             {
                 return NotFound("No hardware status data available.");
             }
-            var latestStatus = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
 
             // check to see what the status is
-            if ((bool)(latestStatus?.CirculationFanStatus.Equals("0")))
+            if (readings.CirculationFanStatus == "0")
             {
-                return ("The circulation fan is on");
+                return Ok("The circulation fan is on");
             }
-            else if ((bool)(latestStatus?.CirculationFanStatus.Equals("1")))
+            else if (readings.CirculationFanStatus == "1")
             {
-                return ("The circulation fan is off");
+                return Ok("The circulation fan is off");
             }
             return NotFound("No circulation fan status found");
         }
 
         // Returns the current status of the extractor fan
-        [HttpGet("status/extractorfan")]
-        public ActionResult<string> GetExtractorFanStatus()
+        [HttpGet("status/{mac}/extractorfan")]
+        public ActionResult<string> GetExtractorFanStatus(string mac)
         {
-            var readings = _cache.GetAllLatest();
+            var readings = _cache.GetLatest(mac);
 
 
-            if (readings == null || readings.Count == 0)
+            if (readings == null)
             {
                 return NotFound("No hardware status data available.");
             }
-            var latestStatus = readings.OrderByDescending(r => r.Timestamp).FirstOrDefault();
-
-            // check to see what the status is
-            if ((bool)(latestStatus?.ExtractorFanStatus.Equals("0")))
+               // check to see what the status is
+            if (readings.ExtractorFanStatus == "0")
             {
-                return ("The extractor fan is on");
+                return Ok("The extractor fan is on");
             }
-            else if ((bool)(latestStatus?.ExtractorFanStatus.Equals("1")))
+            else if (readings.ExtractorFanStatus == "1")
             {
-                return ("The extractor fan is off");
+                return Ok("The extractor fan is off");
             }
             return NotFound("No extractor fan status found");
         }
