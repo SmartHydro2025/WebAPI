@@ -48,7 +48,7 @@ namespace SmartHydro_API.Controllers
         {
             var readings = _cache.GetLatest(mac);
 
-            if (readings == null || readings.Count == 0)
+            if (readings == null)
             {
                 return NotFound("No hardware status data available.");
             }
