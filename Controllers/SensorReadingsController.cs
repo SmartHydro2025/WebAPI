@@ -32,7 +32,7 @@ namespace SmartHydro_API.Controllers
             var readings = _cache.GetAllLatest();
             if (readings.Count == 0)
             {
-                return NotFound("No live sensor data in cache.");
+                return Ok("No live sensor data in cache.");
             }
             return Ok(readings);
         }
@@ -44,10 +44,13 @@ namespace SmartHydro_API.Controllers
             Console.WriteLine($" Request for MAC: {mac}");
 
             var reading = _cache.GetLatest(mac);
+
             if (reading == null)
             {
-                return NotFound($"No live data for MAC: {mac}");
+                return Ok($"No live data for MAC: {mac}");
             }
+
+            
             return Ok(reading);
         }
 
@@ -62,15 +65,13 @@ namespace SmartHydro_API.Controllers
 
             if (latestReading == null)
             {
-                return NotFound($"No live data for MAC: {mac}");
+                return Ok($"No live data for MAC: {mac}");
             }
 
             if (latestReading.PhLevel == null)
             {
-                return NotFound($"No valid temperature data available for MAC: {mac}");
+                return Ok($"No valid temperature data available for MAC: {mac}");
             }
-
-
 
             return Ok(latestReading.PhLevel);
         }
@@ -84,12 +85,12 @@ namespace SmartHydro_API.Controllers
 
             if (latestReading == null)
             {
-                return NotFound($"No live data for MAC: {mac}");
+                return Ok($"No live data for MAC: {mac}");
             }
 
             if (latestReading.EcLevel == null)
             {
-                return NotFound($"No valid temperature data available for MAC: {mac}");
+                return Ok($"No valid temperature data available for MAC: {mac}");
             }
 
 
@@ -104,12 +105,12 @@ namespace SmartHydro_API.Controllers
 
             if (latestReading == null)
             {
-                return NotFound($"No live data for MAC: {mac}");
+                return Ok($"No live data for MAC: {mac}");
             }
 
             if (latestReading.Temperature == null)
             {
-                return NotFound($"No valid temperature data available for MAC: {mac}");
+                return Ok($"No valid temperature data available for MAC: {mac}");
             }
 
 
@@ -124,12 +125,12 @@ namespace SmartHydro_API.Controllers
 
             if (latestReading == null)
             {
-                return NotFound($"No live data for MAC: {mac}");
+                return Ok($"No live data for MAC: {mac}");
             }
 
             if (latestReading.Humidity == null)
             {
-                return NotFound($"No valid temperature data available for MAC: {mac}");
+                return Ok($"No valid temperature data available for MAC: {mac}");
             }
 
             return Ok(latestReading.Humidity);
@@ -143,12 +144,12 @@ namespace SmartHydro_API.Controllers
 
             if (latestReading == null)
             {
-                return NotFound($"No live data for MAC: {mac}");
+                return Ok($"No live data for MAC: {mac}");
             }
 
             if (latestReading.LightLevel == null)
             {
-                return NotFound($"No valid temperature data available for MAC: {mac}");
+                return Ok($"No valid temperature data available for MAC: {mac}");
             }
 
             return Ok(latestReading.LightLevel);
