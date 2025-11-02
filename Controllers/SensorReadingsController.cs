@@ -70,7 +70,7 @@ namespace SmartHydro_API.Controllers
 
             if (latestReading.PhLevel == null)
             {
-                return Ok($"No valid temperature data available for MAC: {mac}");
+                return Ok($"null");
             }
 
             return Ok(latestReading.PhLevel);
@@ -90,7 +90,7 @@ namespace SmartHydro_API.Controllers
 
             if (latestReading.EcLevel == null)
             {
-                return Ok($"No valid temperature data available for MAC: {mac}");
+                return Ok($"null");
             }
 
 
@@ -110,7 +110,7 @@ namespace SmartHydro_API.Controllers
 
             if (latestReading.Temperature == null)
             {
-                return Ok($"No valid temperature data available for MAC: {mac}");
+                return Ok($"null");
             }
 
 
@@ -130,7 +130,7 @@ namespace SmartHydro_API.Controllers
 
             if (latestReading.Humidity == null)
             {
-                return Ok($"No valid temperature data available for MAC: {mac}");
+                return Ok($"null");
             }
 
             return Ok(latestReading.Humidity);
@@ -149,7 +149,7 @@ namespace SmartHydro_API.Controllers
 
             if (latestReading.LightLevel == null)
             {
-                return Ok($"No valid temperature data available for MAC: {mac}");
+                return Ok($"null");
             }
 
             return Ok(latestReading.LightLevel);
