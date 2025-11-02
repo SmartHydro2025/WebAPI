@@ -64,7 +64,7 @@ namespace SmartHydro_API.Controllers
             return Ok("Tent has been successfully deleted.");
         }
 
-        //Deletes a single tent  by mac address
+        //Gets a single tent  by mac address
         [HttpGet("tent/{mac}")]
         public ActionResult<TentInformation> GetTentDetails(string mac)
         {
@@ -72,7 +72,7 @@ namespace SmartHydro_API.Controllers
 
             if (tentDetails == null)
             {
-                return NotFound("No tent data available.");
+                return Ok("No tent data available.");
             }
 
             return Ok(tentDetails);
@@ -86,7 +86,7 @@ namespace SmartHydro_API.Controllers
 
             if (tentDetails == null)
             {
-                return NotFound("No tent data available.");
+                return Ok("No tent data available.");
             }
 
             return Ok(tentDetails);
