@@ -49,7 +49,7 @@ namespace SmartHydro_API.Controllers
         }
 
         // Deletes a tent
-        [HttpPost("tent/delete")]
+        [HttpDelete("tent/delete")]
         public async Task<IActionResult> DeleteTent(string mac)
         {
 
@@ -64,7 +64,7 @@ namespace SmartHydro_API.Controllers
             return Ok("Tent has been successfully deleted.");
         }
 
-        //pulls a single tent details by mac address
+        //Deletes a single tent  by mac address
         [HttpGet("tent/{mac}")]
         public ActionResult<TentInformation> GetTentDetails(string mac)
         {
