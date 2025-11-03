@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using SmartHydro_API.LiveCache;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
+using System.Text.Json.Serialization;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SmartHydro_API.Controllers
 {
@@ -41,6 +45,47 @@ namespace SmartHydro_API.Controllers
             _imageCache.Update(cameraImage);
 
             return Ok(new { message = $"Image from {mac} received and cached successfully." });
+        }
+
+        //method to accept base64 encoded image data from the esp32 cam
+        [HttpPost("base64/{mac}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult UploadBase64Image(string mac, [FromBody] CameraImageUpload upload)
+        {
+            if (string.IsNullOrWhiteSpace(upload.Base64Image))
+            {
+                return BadRequest("No Base64 image string was provided.");
+            }
+
+            try
+            {
+                //decode base64 string back into a raw byte array
+                var imageBytes = Convert.FromBase64String(upload.Base64Image);
+
+                //esp32 cam is set to output jpeg format
+                const string contentType = "image/jpeg";
+
+                _logger.LogInformation("Receiving Base64 image from MAC: {mac}, Size: {length} bytes",
+                    mac, imageBytes.Length);
+
+                //create an image object using the decoded bytes
+                var cameraImage = new CameraImage(imageBytes, contentType, mac);
+
+                //update the cache with the new image
+                _imageCache.Update(cameraImage);
+
+                return Ok(new { message = $"Base64 image from {mac} received and cached successfully." });
+            }
+            catch (FormatException)
+            {
+                return BadRequest("Invalid Base64 string format. Ensure the data is a valid Base64 string.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error processing Base64 image upload for MAC: {mac}", mac);
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error processing image.");
+            }
         }
 
         //method to get latest image of a tent

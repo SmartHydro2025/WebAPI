@@ -17,6 +17,13 @@ using System.Text.Json.Serialization; //New Line
 
 // --- Data Models ---
 
+//matches the arduino side of the esp
+public class CameraImageUpload
+{
+    [JsonPropertyName("base64Image")]
+    public string? Base64Image { get; set; }
+}
+
 //class fo rhandling imagse from camera
 public class CameraImage
 {
