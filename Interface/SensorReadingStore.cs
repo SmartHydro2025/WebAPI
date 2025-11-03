@@ -33,6 +33,8 @@ public class SensorReadingSqlStore : ISensorReadingStore
             .OrderByDescending(r => r.Timestamp)
             .FirstOrDefault();
     }
+
+    
 }
 
 

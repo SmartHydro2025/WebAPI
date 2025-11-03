@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SmartHydro_API.Database;
 using SmartHydro_API.LiveCache;
+using System;
 
 namespace SmartHydro_API.Controllers
 {
@@ -8,96 +10,167 @@ namespace SmartHydro_API.Controllers
     public class AIEventController : ControllerBase
     {
         private readonly AIEventCache _cache;
+        private readonly SmartHydroDbContext _dbContext;
 
-        public AIEventController(AIEventCache cache)
+        public AIEventController(AIEventCache cache, SmartHydroDbContext dbContext)
         {
             _cache = cache;
         }
 
-
-        /// Gets the latest AI event message related to temperature.
-        [HttpGet("latest/temperature")]
-        public ActionResult<string> GetLatestTemperatureEvent()
+        [HttpGet("{mac}/latestAI/temperature")]
+        public ActionResult<string> GetLatestTemperatureEvent(string mac)
         {
-            var events = _cache.GetAllLatest();
-
-            if (events == null || events.Count == 0)
+            try
             {
-                return NotFound("No AI event data is available.");
-            }
+                var aiEvent = _cache.GetLatest(mac);
 
-            // Find the first event that matches the "Temperature" sensor.
-            foreach (var ai in events)
-            {
-                if (ai.Sensor.Equals("Temperature", StringComparison.OrdinalIgnoreCase))
+                if (aiEvent == null)
                 {
-                    return Ok(ai.Message);
+                    return NotFound($"No AI event data is available for MAC: {mac}");
                 }
+
+                if (aiEvent.Sensor.Equals("Temperature", StringComparison.OrdinalIgnoreCase))
+                {
+                    return Ok(aiEvent.Message);
+                }
+
+                //(D, 2025; Vedpathak, 2024)
+                var dbEvent = _dbContext.AiEvents
+                                    .Where(e => e.Mac == mac && e.Sensor.Equals("Temperature", StringComparison.OrdinalIgnoreCase))
+                                    .OrderByDescending(e => e.ID) // Assumes higher ID = newer
+                                    .FirstOrDefault();
+
+                if (dbEvent == null)
+                {
+                    return NotFound($"No Temperature event data is available for MAC: {mac}");
+                }
+
+                return Ok(dbEvent.Message);
             }
-            return NotFound("No temperature events were found.");
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving latest Temperature event for {mac}: {ex.Message}");
+                return StatusCode(500, "An internal error occurred.");
+            }
         }
 
-        // Gets the latest AI event message related to humidity.
-        [HttpGet("latest/humidity")]
-        public ActionResult<string> GetLatestHumidityEvent()
+        [HttpGet("{mac}/latestAI/humidity")]
+        public ActionResult<string> GetLatestHumidityEvent(string mac)
         {
-            var events = _cache.GetAllLatest();
-
-            if (events == null || events.Count == 0)
+            try
             {
-                return NotFound("No AI event data is available.");
-            }
+                var aiEvent = _cache.GetLatest(mac);
 
-            foreach (var ai in events)
-            {
-                if (ai.Sensor.Equals("Humidity", StringComparison.OrdinalIgnoreCase))
+                if (aiEvent == null)
                 {
-                    return Ok(ai.Message);
+                    return NotFound($"No AI event data is available for MAC: {mac}");
                 }
+
+                if (aiEvent.Sensor.Equals("Humidity", StringComparison.OrdinalIgnoreCase))
+                {
+                    return Ok(aiEvent.Message);
+                }
+
+                //(D, 2025; Vedpathak, 2024)
+                var dbEvent = _dbContext.AiEvents
+                                    .Where(e => e.Mac == mac && e.Sensor.Equals("Humidity", StringComparison.OrdinalIgnoreCase))
+                                    .OrderByDescending(e => e.ID)
+                                    .FirstOrDefault();
+
+                if (dbEvent == null)
+                {
+                    return NotFound($"No Humidity event data is available for MAC: {mac}");
+                }
+
+                return Ok(dbEvent.Message);
             }
-            return NotFound("No temperature events were found.");
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving latest Humidity event for {mac}: {ex.Message}");
+                return StatusCode(500, "An internal error occurred.");
+            }
         }
 
-        // Gets the latest AI event message related to pH.
-        [HttpGet("latest/ph")]
-        public ActionResult<string> GetLatestPHEvent()
+        [HttpGet("{mac}/latestAI/ph")]
+        public ActionResult<string> GetLatestPHEvent(string mac)
         {
-            var events = _cache.GetAllLatest();
-
-            if (events == null || events.Count == 0)
+            try
             {
-                return NotFound("No AI event data is available.");
-            }
+                var aiEvent = _cache.GetLatest(mac);
 
-            foreach (var ai in events)
-            {
-                if (ai.Sensor.Equals("pH", StringComparison.OrdinalIgnoreCase))
+                if (aiEvent == null)
                 {
-                    return Ok(ai.Message);
+                    return NotFound($"No AI event data is available for MAC: {mac}");
                 }
+
+                if (aiEvent.Sensor.Equals("pH", StringComparison.OrdinalIgnoreCase))
+                {
+                    return Ok(aiEvent.Message);
+                }
+
+                //(D, 2025; Vedpathak, 2024)
+                var dbEvent = _dbContext.AiEvents
+                                    .Where(e => e.Mac == mac && e.Sensor.Equals("pH", StringComparison.OrdinalIgnoreCase))
+                                    .OrderByDescending(e => e.ID)
+                                    .FirstOrDefault();
+
+                if (dbEvent == null)
+                {
+                    return NotFound($"No pH event data is available for MAC: {mac}");
+                }
+
+                return Ok(dbEvent.Message);
             }
-            return NotFound("No pH events were found.");
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving latest pH event for {mac}: {ex.Message}");
+                return StatusCode(500, "An internal error occurred.");
+            }
         }
 
-        // Gets the latest AI event message related to EC.
-        [HttpGet("latest/ec")]
-        public ActionResult<string> GetLatestECEvent()
+        [HttpGet("{mac}/latestAI/ec")]
+        public ActionResult<string> GetLatestECEvent(string mac)
         {
-            var events = _cache.GetAllLatest();
-
-            if (events == null || events.Count == 0)
+            try
             {
-                return NotFound("No AI event data is available.");
-            }
+                var aiEvent = _cache.GetLatest(mac);
 
-            foreach (var ai in events)
-            {
-                if (ai.Sensor.Equals("EC", StringComparison.OrdinalIgnoreCase))
+                if (aiEvent == null)
                 {
-                    return Ok(ai.Message);
+                    return NotFound($"No AI event data is available for MAC: {mac}");
                 }
+
+                if (aiEvent.Sensor.Equals("EC", StringComparison.OrdinalIgnoreCase))
+                {
+                    return Ok(aiEvent.Message);
+                }
+
+                //(D, 2025; Vedpathak, 2024)
+                var dbEvent = _dbContext.AiEvents
+                                    .Where(e => e.Mac == mac && e.Sensor.Equals("EC", StringComparison.OrdinalIgnoreCase))
+                                    .OrderByDescending(e => e.ID)
+                                    .FirstOrDefault();
+
+                if (dbEvent == null)
+                {
+                    return NotFound($"No EC event data is available for MAC: {mac}");
+                }
+
+                return Ok(dbEvent.Message);
             }
-            return NotFound("No EC events were found.");
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving latest EC event for {mac}: {ex.Message}");
+                return StatusCode(500, "An internal error occurred.");
+            }
         }
     }
 }
+
+
+/*
+REFERENCES
+====================
+D, S. 2025. LINQ in C# Tutorial for Beginners: 101 C# LINQ Operations. [Online]. Available at:    https://www.c-sharpcorner.com/article/linq-in-c-sharp-tutorial-for-beginners-101-c-sharp-linq-operations/
+Vedpathak, Y. 2024. Querying with LINQ. [Online]. Available at:  https://www.c-sharpcorner.com/blogs/querying-with-linq 
+ */

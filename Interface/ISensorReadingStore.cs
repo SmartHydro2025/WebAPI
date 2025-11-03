@@ -6,5 +6,8 @@
         List<SensorReading> GetAll();
         SensorReading GetByMac(string mac);
 
+        
+        
+
     }
 }

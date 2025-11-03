@@ -19,7 +19,7 @@ namespace SmartHydro_API.Controllers
         }
 
         // Gets all historical sensor readings from the database.
-        [HttpGet]
+        [HttpGet("allDBReadings")]
         public ActionResult<List<SensorReading>> GetAll()
         {
             return Ok(_store.GetAll());
@@ -43,37 +43,72 @@ namespace SmartHydro_API.Controllers
         {
             Console.WriteLine($" Request for MAC: {mac}");
 
-            var reading = _cache.GetLatest(mac);
-
-            if (reading == null)
+            try
             {
-                return Ok($"No live data for MAC: {mac}");
+                var reading = _cache.GetLatest(mac);
+
+                if (reading == null)
+                {
+                    reading = _store.GetByMac(mac);
+                  
+                }
+
+                if (reading == null)
+                {
+                    return Ok($"No data found for MAC: {mac}");
+
+                }
+
+
+                return Ok(reading);
+
             }
-
-            
-            return Ok(reading);
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving latest for MAC {mac}: {ex.Message}");
+                return StatusCode(500, "An internal error occurred while retrieving data.");
+            }
         }
-
 
 
         // Gets just the latest pH value 
         [HttpGet("latest/{mac}/ph")]
         public ActionResult<double?> GetLatestPhLevel(string mac)
         {
-
-            var latestReading = _cache.GetLatest(mac);
-
-            if (latestReading == null)
+            try
             {
-                return Ok($"No live data for MAC: {mac}");
-            }
 
-            if (latestReading.PhLevel == null)
+                var latestReading = _cache.GetLatest(mac);
+
+                //checks database
+                if (latestReading == null)
+                {
+                    latestReading = _store.GetByMac(mac);
+                    
+
+                }
+
+                //if cache and databse is null
+                if (latestReading == null)
+                {
+
+                    return Ok($"No data found for MAC: {mac}");
+
+                }
+
+                if (latestReading.PhLevel == null)
+                {
+                    return Ok($"null");
+                }
+
+                return Ok(latestReading.PhLevel);
+
+            }
+            catch (Exception ex)
             {
-                return Ok($"null");
+                Console.WriteLine($"Error retrieving latest for MAC {mac}: {ex.Message}");
+                return StatusCode(500, "An internal error occurred while retrieving data.");
             }
-
-            return Ok(latestReading.PhLevel);
         }
 
 
@@ -81,78 +116,155 @@ namespace SmartHydro_API.Controllers
         [HttpGet("latest/{mac}/ec")]
         public ActionResult<double?> GetLatestECLevel(string mac)
         {
-            var latestReading = _cache.GetLatest(mac);
-
-            if (latestReading == null)
+            try
             {
-                return Ok($"No live data for MAC: {mac}");
-            }
+                var latestReading = _cache.GetLatest(mac);
 
-            if (latestReading.EcLevel == null)
+                //checks database
+                if (latestReading == null)
+                {
+                    latestReading = _store.GetByMac(mac);
+
+
+                }
+
+                //if cache and databse is null
+                if (latestReading == null)
+                {
+
+                    return Ok($"No data found for MAC: {mac}");
+
+                }
+
+                if (latestReading.EcLevel == null)
+                {
+                    return Ok($"null");
+                }
+
+
+                return Ok(latestReading.EcLevel);
+            }
+            catch (Exception ex)
             {
-                return Ok($"null");
+                Console.WriteLine($"Error retrieving latest for MAC {mac}: {ex.Message}");
+                return StatusCode(500, "An internal error occurred while retrieving data.");
             }
-
-
-            return Ok(latestReading.EcLevel);
         }
 
         // Gets just the latest temp value 
         [HttpGet("latest/{mac}/temp")]
         public ActionResult<double?> GetLatestTempValue(string mac)
         {
-            var latestReading = _cache.GetLatest(mac);
-
-            if (latestReading == null)
+            try
             {
-                return Ok($"No live data for MAC: {mac}");
+                var latestReading = _cache.GetLatest(mac);
+
+                //checks database
+                if (latestReading == null)
+                {
+                    latestReading = _store.GetByMac(mac);
+
+
+                }
+
+                //if cache and databse is null
+                if (latestReading == null)
+                {
+
+                    return Ok($"No data found for MAC: {mac}");
+
+                }
+
+                if (latestReading.Temperature == null)
+                {
+                    return Ok($"null");
+                }
+
+
+                return Ok(latestReading.Temperature);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving latest for MAC {mac}: {ex.Message}");
+                return StatusCode(500, "An internal error occurred while retrieving data.");
             }
 
-            if (latestReading.Temperature == null)
-            {
-                return Ok($"null");
-            }
-
-
-            return Ok(latestReading.Temperature);
         }
 
         // Gets just the latest humidity 
         [HttpGet("latest/{mac}/humidity")]
         public ActionResult<double?> GetLatestHumidityIndex(string mac)
         {
-            var latestReading = _cache.GetLatest(mac);
-
-            if (latestReading == null)
+            try
             {
-                return Ok($"No live data for MAC: {mac}");
-            }
+                var latestReading = _cache.GetLatest(mac);
 
-            if (latestReading.Humidity == null)
+                //checks database
+                if (latestReading == null)
+                {
+                    latestReading = _store.GetByMac(mac);
+
+
+                }
+
+                //if cache and databse is null
+                if (latestReading == null)
+                {
+
+                    return Ok($"No data found for MAC: {mac}");
+
+                }
+
+                if (latestReading.Humidity == null)
+                {
+                    return Ok($"null");
+                }
+
+                return Ok(latestReading.Humidity);
+            }
+            catch (Exception ex)
             {
-                return Ok($"null");
+                Console.WriteLine($"Error retrieving latest for MAC {mac}: {ex.Message}");
+                return StatusCode(500, "An internal error occurred while retrieving data.");
             }
-
-            return Ok(latestReading.Humidity);
         }
 
         // Gets just the latest light value from the cache. 
         [HttpGet("latest/{mac}/light")]
         public ActionResult<double?> GetLatestLightLevel(string mac)
         {
-            var latestReading = _cache.GetLatest(mac);
-
-            if (latestReading == null)
+            try
             {
-                return Ok($"No live data for MAC: {mac}");
-            }
+                var latestReading = _cache.GetLatest(mac);
 
-            if (latestReading.LightLevel == null)
+                //checks database
+                if (latestReading == null)
+                {
+                    latestReading = _store.GetByMac(mac);
+
+
+                }
+
+                //if cache and databse is null
+                if (latestReading == null)
+                {
+
+                    return Ok($"No data found for MAC: {mac}");
+
+                }
+
+                if (latestReading.LightLevel == null)
+                {
+                    return Ok($"null");
+                }
+
+                return Ok(latestReading.LightLevel);
+            }
+            catch (Exception ex)
             {
-                return Ok($"null");
+                Console.WriteLine($"Error retrieving latest for MAC {mac}: {ex.Message}");
+                return StatusCode(500, "An internal error occurred while retrieving data.");
             }
-
-            return Ok(latestReading.LightLevel);
         }
 
 

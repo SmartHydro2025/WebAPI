@@ -2,7 +2,7 @@
 using System.Text.Json;
 
 [ApiController]
-[Route("api/tents/{mac}")] // The base route for all tent controls
+[Route("api/tents/{mac}")] 
 public class TentControlController : ControllerBase
 {
     private readonly MqttService _mqttService;

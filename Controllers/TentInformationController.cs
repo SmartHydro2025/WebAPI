@@ -34,18 +34,26 @@ namespace SmartHydro_API.Controllers
             [FromQuery] string networkName
             )
         {
-            var tent = new TentInformation
+            try
             {
-                Mac = mac,
-                tentName = name,
-                tentLocation = location,
-                networkName = networkName
-            };
+                var tent = new TentInformation
+                {
+                    Mac = mac,
+                    tentName = name,
+                    tentLocation = location,
+                    networkName = networkName
+                };
 
-            _dbContext.TentInformation.Add(tent);
-            await _dbContext.SaveChangesAsync();
+                _dbContext.TentInformation.Add(tent);
+                await _dbContext.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetTentDetails), new { mac = tent.Mac }, tent);
+                return CreatedAtAction(nameof(GetTentDetails), new { mac = tent.Mac }, tent);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while adding a new tent for MAC {Mac}", mac);
+                return StatusCode(500, "An internal error occurred while adding the tent.");
+            }
         }
 
         // Deletes a tent
@@ -68,28 +76,44 @@ namespace SmartHydro_API.Controllers
         [HttpGet("tent/{mac}")]
         public ActionResult<TentInformation> GetTentDetails(string mac)
         {
-            var tentDetails = _dbContext.TentInformation.FirstOrDefault(r => r.Mac == mac);
-
-            if (tentDetails == null)
+            try
             {
-                return Ok("No tent data available.");
-            }
+                var tentDetails = _dbContext.TentInformation.FirstOrDefault(r => r.Mac == mac);
 
-            return Ok(tentDetails);
+                if (tentDetails == null)
+                {
+                    return NotFound($"No tent data available for MAC: {mac}");
+                }
+
+                return Ok(tentDetails);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while retrieving details for tent with MAC {Mac}", mac);
+                return StatusCode(500, "An internal error occurred while retrieving tent details.");
+            }
         }
 
         //returns a list of all tents logged in db
         [HttpGet("alltents")]
         public ActionResult<List<TentInformation>> GetAllTents()
         {
-            var tentDetails = _dbContext.TentInformation.ToList();
-
-            if (tentDetails == null)
+            try
             {
-                return Ok("No tent data available.");
-            }
+                var tentDetails = _dbContext.TentInformation.ToList();
 
-            return Ok(tentDetails);
+                if (tentDetails == null)
+                {
+                    return Ok("No tent data available.");
+                }
+
+                return Ok(tentDetails);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while retrieving all tents");
+                return StatusCode(500, "An internal error occurred while retrieving all tents.");
+            }
         }
     }
 }
