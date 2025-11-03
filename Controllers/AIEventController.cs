@@ -15,6 +15,7 @@ namespace SmartHydro_API.Controllers
         public AIEventController(AIEventCache cache, SmartHydroDbContext dbContext)
         {
             _cache = cache;
+            _dbContext = dbContext;
         }
 
         [HttpGet("{mac}/latestAI/temperature")]
