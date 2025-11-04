@@ -45,11 +45,18 @@ CREATE TABLE SensorReadings(
     Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 GO
+
 CREATE TABLE TentInformation(
     ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
     tentName VARCHAR(255),
     tentLocation VARCHAR(255),
     Mac VARCHAR(255),
     networkName VARCHAR(255) 
+);
+GO
+
+CREATE TABLE TestPipeline(
+    ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    pipelineName VARCHAR(255)
 );
 GO
