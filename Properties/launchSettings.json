@@ -6,7 +6,7 @@
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "MQTT_BROKER": "188.166.118.211",
+        "MQTT_BROKER": "128.199.41.231",
         "MQTT_USERNAME": "hydroadmin",
         "MQTT_PASSWORD": "hydroadmin"
       },
