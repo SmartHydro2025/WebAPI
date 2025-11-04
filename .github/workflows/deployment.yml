@@ -1,4 +1,3 @@
-# Web API Deployment (Kova?,2023)
 name: WebAPI Deployment
 
 on:
@@ -19,10 +18,13 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Build WebAPI
-        run: dotnet build SmartHydro_API.csproj --configuration Release
+        run: dotnet build WebAPI/SmartHydro_API.csproj --configuration Release
 
       - name: Publish WebAPI
-        run: dotnet publish SmartHydro_API.csproj -c Release -o ./publish
+        run: dotnet publish WebAPI/SmartHydro_API.csproj -c Release -o ./publish
+
+      - name: List publish folder
+        run: ls -la ./publish
 
       - name: Build Docker image
         run: docker build -t smarthydro_webapi:latest .
