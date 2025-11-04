@@ -54,8 +54,7 @@
               "RelativeToolTip": "SmartHydroDB\\Dockerfile",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-11-04T07:13:31.156Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-04T07:13:31.156Z"
             },
             {
               "$type": "Document",
@@ -65,7 +64,7 @@
               "RelativeDocumentMoniker": ".github\\workflows\\deployment.yml",
               "ToolTip": "C:\\GitHub\\WebAPI\\.github\\workflows\\deployment.yml",
               "RelativeToolTip": ".github\\workflows\\deployment.yml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
               "WhenOpened": "2025-11-04T06:56:48.858Z",
               "EditorCaption": ""
@@ -80,8 +79,7 @@
               "RelativeToolTip": "docker-compose.yml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2025-10-16T18:22:46.711Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-16T18:22:46.711Z"
             },
             {
               "$type": "Document",
@@ -93,8 +91,7 @@
               "RelativeToolTip": "Dockerfile",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-10-16T16:44:47.907Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-16T16:44:47.907Z"
             }
           ]
         }
