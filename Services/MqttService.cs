@@ -152,7 +152,7 @@ public class MqttService : IHostedService, IDisposable
         _aieventcache = aieventcache;
         _tentcache = tentcache;
 
-        _mqttBroker = Environment.GetEnvironmentVariable("MQTT_BROKER") ?? "128.199.41.231";
+        _mqttBroker = Environment.GetEnvironmentVariable("MQTT_BROKER") ?? "188.166.118.211";
         _mqttUsername = Environment.GetEnvironmentVariable("MQTT_USERNAME");
         _mqttPassword = Environment.GetEnvironmentVariable("MQTT_PASSWORD");
 
