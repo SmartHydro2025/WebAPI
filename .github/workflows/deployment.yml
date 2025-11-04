@@ -18,14 +18,11 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Build WebAPI
-        run: dotnet build WebAPI/SmartHydro_API.csproj --configuration Release
+        run: dotnet build SmartHydro_API.csproj --configuration Release
 
       - name: Publish WebAPI
-        run: dotnet publish WebAPI/SmartHydro_API.csproj -c Release -o ./publish
-
-      - name: List publish folder
-        run: ls -la ./publish
-
+        run: dotnet publish SmartHydro_API.csproj -c Release -o ./publish
+        
       - name: Build Docker image
         run: docker build -t smarthydro_webapi:latest .
 
