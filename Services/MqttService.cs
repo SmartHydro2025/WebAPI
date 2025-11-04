@@ -97,7 +97,7 @@ public class TentCommandResponse
 public class TentCommand
 {
     
-    [JsonPropertyName("mac")] // <-- Add this
+    [JsonPropertyName("mac")] 
     public string Mac { get; set; }
     [JsonPropertyName("component")] 
     public string Component { get; set; }
@@ -340,11 +340,7 @@ public class MqttService : IHostedService, IDisposable
                             tentCommandData.Mac, tentCommandData.Component, tentCommandData.Action
                         );
 
-                        // TODO: If you want to store commands in DB:
-                        // using var scope = _scopeFactory.CreateScope();
-                        // var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>();
-                        // dbContext.TentCommands.Add(tentCommandData);
-                        // await dbContext.SaveChangesAsync();
+                        
                     }
                     break;
 
@@ -403,13 +399,10 @@ public class MqttService : IHostedService, IDisposable
 
     public async Task HandleCommandResponseAsync(TentCommandResponse data)
     {
-        // TODO: Replace with your actual database logic
+        
         _logger.LogInformation("Updating command {CommandId} with success status: {Success}", data.CommandId, data.Success);
-        // await dbContext.TentCommands
-        //     .Where(c => c.CommandId == data.CommandId)
-        //     .ExecuteUpdateAsync(s => s.SetProperty(c => c.Success, data.Success));
-        // await dbContext.SaveChangesAsync();
-        await Task.CompletedTask; // Placeholder
+       
+        await Task.CompletedTask;
     }
 
     //logs hardware statuses to db

@@ -98,7 +98,7 @@ namespace SmartHydro_API.Controllers
 
                 if (latestReading.PhLevel == null)
                 {
-                    return Ok($"null");
+                    return Ok(0.0);
                 }
 
                 return Ok(latestReading.PhLevel);
@@ -138,7 +138,7 @@ namespace SmartHydro_API.Controllers
 
                 if (latestReading.EcLevel == null)
                 {
-                    return Ok($"null");
+                    return Ok(0.0);
                 }
 
 
@@ -177,7 +177,7 @@ namespace SmartHydro_API.Controllers
 
                 if (latestReading.Temperature == null)
                 {
-                    return Ok($"null");
+                    return Ok(0);
                 }
 
 
@@ -217,7 +217,7 @@ namespace SmartHydro_API.Controllers
 
                 if (latestReading.Humidity == null)
                 {
-                    return Ok($"null");
+                    return Ok(0.0);
                 }
 
                 return Ok(latestReading.Humidity);
@@ -255,7 +255,7 @@ namespace SmartHydro_API.Controllers
 
                 if (latestReading.LightLevel == null)
                 {
-                    return Ok($"null");
+                    return Ok(0.0);
                 }
 
                 return Ok(latestReading.LightLevel);
