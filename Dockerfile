@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /source
 
 # CORRECTED: Copy the project file first and restore its dependencies
-COPY *.csproj .
+COPY SmartHydro_API.csproj ./
 RUN dotnet restore "SmartHydro_API.csproj"
 
 # Copy the rest of the application's source code
