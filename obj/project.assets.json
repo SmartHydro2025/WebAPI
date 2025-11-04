@@ -47,6 +47,19 @@
           }
         }
       },
+      "Castle.Core/3.3.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Castle.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/Castle.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -938,6 +951,22 @@
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         }
       },
+      "Moq/4.5.9": {
+        "type": "package",
+        "dependencies": {
+          "Castle.Core": "3.3.3"
+        },
+        "compile": {
+          "lib/net45/Moq.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/Moq.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MQTTnet/4.3.7.1207": {
         "type": "package",
         "compile": {
@@ -965,6 +994,73 @@
           "lib/net7.0/MQTTnet.Extensions.ManagedClient.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "MSTest.Analyzers/4.0.1": {
+        "type": "package",
+        "build": {
+          "buildTransitive/MSTest.Analyzers.props": {},
+          "buildTransitive/MSTest.Analyzers.targets": {}
+        }
+      },
+      "MSTest.TestFramework/4.0.1": {
+        "type": "package",
+        "dependencies": {
+          "MSTest.Analyzers": "4.0.1"
+        },
+        "compile": {
+          "lib/net8.0/MSTest.TestFramework.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/MSTest.TestFramework.dll": {
+            "related": ".xml"
+          }
+        },
+        "resource": {
+          "lib/net8.0/cs/MSTest.TestFramework.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net8.0/de/MSTest.TestFramework.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net8.0/es/MSTest.TestFramework.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net8.0/fr/MSTest.TestFramework.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net8.0/it/MSTest.TestFramework.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net8.0/ja/MSTest.TestFramework.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net8.0/ko/MSTest.TestFramework.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net8.0/pl/MSTest.TestFramework.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net8.0/pt-BR/MSTest.TestFramework.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net8.0/ru/MSTest.TestFramework.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net8.0/tr/MSTest.TestFramework.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net8.0/zh-Hans/MSTest.TestFramework.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net8.0/zh-Hant/MSTest.TestFramework.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/MSTest.TestFramework.targets": {}
         }
       },
       "MySqlConnector/2.3.5": {
@@ -1669,6 +1765,35 @@
             "rid": "win"
           }
         }
+      },
+      "xunit.abstractions/2.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/xunit.abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/xunit.abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "xunit.extensibility.core/2.9.3": {
+        "type": "package",
+        "dependencies": {
+          "xunit.abstractions": "2.0.3"
+        },
+        "compile": {
+          "lib/netstandard1.1/xunit.core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard1.1/xunit.core.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
@@ -1709,6 +1834,32 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "Castle.Core/3.3.3": {
+      "sha512": "tvVrLbHhtAGubUUDbEkH9JlivdlJOTI25u3hlyHpPxuJdTVi/yVQKWCYvGpafGPm7G1ibdWj4brqhtSQkAmN+g==",
+      "type": "package",
+      "path": "castle.core/3.3.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ASL - Apache Software Foundation License.txt",
+        "BreakingChanges.txt",
+        "Changes.txt",
+        "License.txt",
+        "castle.core.3.3.3.nupkg.sha512",
+        "castle.core.nuspec",
+        "lib/net35/Castle.Core.dll",
+        "lib/net35/Castle.Core.xml",
+        "lib/net40-client/Castle.Core.dll",
+        "lib/net40-client/Castle.Core.xml",
+        "lib/net45/Castle.Core.dll",
+        "lib/net45/Castle.Core.xml",
+        "lib/sl4/Castle.Core.dll",
+        "lib/sl4/Castle.Core.xml",
+        "lib/sl5/Castle.Core.dll",
+        "lib/sl5/Castle.Core.xml",
+        "readme.txt"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -3416,6 +3567,19 @@
         "mono.texttemplating.nuspec"
       ]
     },
+    "Moq/4.5.9": {
+      "sha512": "dhVX8Gn/84kucjMnMTv/StGBBsCGacPjGYU9v7yn/cRZVFVZbkhTyg9qt+df/zTvdx+civ6F3qNgh4S9HgiyxQ==",
+      "type": "package",
+      "path": "moq/4.5.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Moq.dll",
+        "lib/net45/Moq.xml",
+        "moq.4.5.9.nupkg.sha512",
+        "moq.nuspec"
+      ]
+    },
     "MQTTnet/4.3.7.1207": {
       "sha512": "ah7aHXoedWp5m5a4zy2u4phOEVj0QFYzOb5tFKQeV8RRBrxp+1QREF4ymZuG8D+hzB2dhtrrG81WxTFv0PzOeQ==",
       "type": "package",
@@ -3484,6 +3648,182 @@
         "mqttnet.extensions.managedclient.4.3.7.1207.nupkg.sha512",
         "mqttnet.extensions.managedclient.nuspec",
         "nuget.png"
+      ]
+    },
+    "MSTest.Analyzers/4.0.1": {
+      "sha512": "SFYBSnZ2O5n+JZ6dYGig0rV8maAYYSAk8SpYbAvCl8XqJ2H1+Z6Su9AI4llW+RMJtmDDRUZ3JgaGih/MMgQkOw==",
+      "type": "package",
+      "path": "mstest.analyzers/4.0.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "analyzers/dotnet/cs/MSTest.Analyzers.CodeFixes.dll",
+        "analyzers/dotnet/cs/MSTest.Analyzers.dll",
+        "analyzers/dotnet/cs/cs/MSTest.Analyzers.CodeFixes.resources.dll",
+        "analyzers/dotnet/cs/cs/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/de/MSTest.Analyzers.CodeFixes.resources.dll",
+        "analyzers/dotnet/cs/de/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/es/MSTest.Analyzers.CodeFixes.resources.dll",
+        "analyzers/dotnet/cs/es/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/fr/MSTest.Analyzers.CodeFixes.resources.dll",
+        "analyzers/dotnet/cs/fr/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/it/MSTest.Analyzers.CodeFixes.resources.dll",
+        "analyzers/dotnet/cs/it/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/ja/MSTest.Analyzers.CodeFixes.resources.dll",
+        "analyzers/dotnet/cs/ja/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/ko/MSTest.Analyzers.CodeFixes.resources.dll",
+        "analyzers/dotnet/cs/ko/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/pl/MSTest.Analyzers.CodeFixes.resources.dll",
+        "analyzers/dotnet/cs/pl/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/pt-BR/MSTest.Analyzers.CodeFixes.resources.dll",
+        "analyzers/dotnet/cs/pt-BR/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/ru/MSTest.Analyzers.CodeFixes.resources.dll",
+        "analyzers/dotnet/cs/ru/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/tr/MSTest.Analyzers.CodeFixes.resources.dll",
+        "analyzers/dotnet/cs/tr/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/zh-Hans/MSTest.Analyzers.CodeFixes.resources.dll",
+        "analyzers/dotnet/cs/zh-Hans/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/zh-Hant/MSTest.Analyzers.CodeFixes.resources.dll",
+        "analyzers/dotnet/cs/zh-Hant/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/MSTest.Analyzers.dll",
+        "analyzers/dotnet/vb/cs/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/de/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/es/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/fr/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/it/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/ja/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/ko/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/pl/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/pt-BR/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/ru/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/tr/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/zh-Hans/MSTest.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/zh-Hant/MSTest.Analyzers.resources.dll",
+        "buildTransitive/MSTest.Analyzers.props",
+        "buildTransitive/MSTest.Analyzers.targets",
+        "globalconfigs/mstest-all.globalconfig",
+        "globalconfigs/mstest-default.globalconfig",
+        "globalconfigs/mstest-none.globalconfig",
+        "globalconfigs/mstest-recommended.globalconfig",
+        "mstest.analyzers.4.0.1.nupkg.sha512",
+        "mstest.analyzers.nuspec",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "MSTest.TestFramework/4.0.1": {
+      "sha512": "uXIBT47UAQcga6sfflqFvo1rkmHQESIhDvtusMWqhOef9nZhJF8UslfOZoIBV8q6uv9WOehSZ5fBBB4SNZWnBg==",
+      "type": "package",
+      "path": "mstest.testframework/4.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "build/net462/MSTest.TestFramework.targets",
+        "build/net8.0/MSTest.TestFramework.targets",
+        "build/net9.0/MSTest.TestFramework.targets",
+        "build/netstandard2.0/MSTest.TestFramework.targets",
+        "build/uap10.0/MSTest.TestFramework.targets",
+        "buildTransitive/net462/MSTest.TestFramework.targets",
+        "buildTransitive/net8.0/MSTest.TestFramework.Extensions.dll",
+        "buildTransitive/net8.0/MSTest.TestFramework.Extensions.xml",
+        "buildTransitive/net8.0/MSTest.TestFramework.targets",
+        "buildTransitive/net8.0/winui/MSTest.TestFramework.Extensions.dll",
+        "buildTransitive/net8.0/winui/MSTest.TestFramework.Extensions.xml",
+        "buildTransitive/net9.0/MSTest.TestFramework.Extensions.dll",
+        "buildTransitive/net9.0/MSTest.TestFramework.Extensions.xml",
+        "buildTransitive/net9.0/MSTest.TestFramework.targets",
+        "buildTransitive/net9.0/uwp/MSTest.TestFramework.Extensions.dll",
+        "buildTransitive/net9.0/uwp/MSTest.TestFramework.Extensions.xml",
+        "buildTransitive/netstandard2.0/MSTest.TestFramework.targets",
+        "buildTransitive/uap10.0/MSTest.TestFramework.targets",
+        "lib/net462/MSTest.TestFramework.Extensions.dll",
+        "lib/net462/MSTest.TestFramework.Extensions.xml",
+        "lib/net462/MSTest.TestFramework.dll",
+        "lib/net462/MSTest.TestFramework.xml",
+        "lib/net462/cs/MSTest.TestFramework.resources.dll",
+        "lib/net462/de/MSTest.TestFramework.resources.dll",
+        "lib/net462/es/MSTest.TestFramework.resources.dll",
+        "lib/net462/fr/MSTest.TestFramework.resources.dll",
+        "lib/net462/it/MSTest.TestFramework.resources.dll",
+        "lib/net462/ja/MSTest.TestFramework.resources.dll",
+        "lib/net462/ko/MSTest.TestFramework.resources.dll",
+        "lib/net462/pl/MSTest.TestFramework.resources.dll",
+        "lib/net462/pt-BR/MSTest.TestFramework.resources.dll",
+        "lib/net462/ru/MSTest.TestFramework.resources.dll",
+        "lib/net462/tr/MSTest.TestFramework.resources.dll",
+        "lib/net462/zh-Hans/MSTest.TestFramework.resources.dll",
+        "lib/net462/zh-Hant/MSTest.TestFramework.resources.dll",
+        "lib/net8.0/MSTest.TestFramework.dll",
+        "lib/net8.0/MSTest.TestFramework.xml",
+        "lib/net8.0/cs/MSTest.TestFramework.resources.dll",
+        "lib/net8.0/de/MSTest.TestFramework.resources.dll",
+        "lib/net8.0/es/MSTest.TestFramework.resources.dll",
+        "lib/net8.0/fr/MSTest.TestFramework.resources.dll",
+        "lib/net8.0/it/MSTest.TestFramework.resources.dll",
+        "lib/net8.0/ja/MSTest.TestFramework.resources.dll",
+        "lib/net8.0/ko/MSTest.TestFramework.resources.dll",
+        "lib/net8.0/pl/MSTest.TestFramework.resources.dll",
+        "lib/net8.0/pt-BR/MSTest.TestFramework.resources.dll",
+        "lib/net8.0/ru/MSTest.TestFramework.resources.dll",
+        "lib/net8.0/tr/MSTest.TestFramework.resources.dll",
+        "lib/net8.0/zh-Hans/MSTest.TestFramework.resources.dll",
+        "lib/net8.0/zh-Hant/MSTest.TestFramework.resources.dll",
+        "lib/net9.0/MSTest.TestFramework.dll",
+        "lib/net9.0/MSTest.TestFramework.xml",
+        "lib/net9.0/cs/MSTest.TestFramework.resources.dll",
+        "lib/net9.0/de/MSTest.TestFramework.resources.dll",
+        "lib/net9.0/es/MSTest.TestFramework.resources.dll",
+        "lib/net9.0/fr/MSTest.TestFramework.resources.dll",
+        "lib/net9.0/it/MSTest.TestFramework.resources.dll",
+        "lib/net9.0/ja/MSTest.TestFramework.resources.dll",
+        "lib/net9.0/ko/MSTest.TestFramework.resources.dll",
+        "lib/net9.0/pl/MSTest.TestFramework.resources.dll",
+        "lib/net9.0/pt-BR/MSTest.TestFramework.resources.dll",
+        "lib/net9.0/ru/MSTest.TestFramework.resources.dll",
+        "lib/net9.0/tr/MSTest.TestFramework.resources.dll",
+        "lib/net9.0/zh-Hans/MSTest.TestFramework.resources.dll",
+        "lib/net9.0/zh-Hant/MSTest.TestFramework.resources.dll",
+        "lib/netstandard2.0/MSTest.TestFramework.Extensions.dll",
+        "lib/netstandard2.0/MSTest.TestFramework.Extensions.xml",
+        "lib/netstandard2.0/MSTest.TestFramework.dll",
+        "lib/netstandard2.0/MSTest.TestFramework.xml",
+        "lib/netstandard2.0/cs/MSTest.TestFramework.resources.dll",
+        "lib/netstandard2.0/de/MSTest.TestFramework.resources.dll",
+        "lib/netstandard2.0/es/MSTest.TestFramework.resources.dll",
+        "lib/netstandard2.0/fr/MSTest.TestFramework.resources.dll",
+        "lib/netstandard2.0/it/MSTest.TestFramework.resources.dll",
+        "lib/netstandard2.0/ja/MSTest.TestFramework.resources.dll",
+        "lib/netstandard2.0/ko/MSTest.TestFramework.resources.dll",
+        "lib/netstandard2.0/pl/MSTest.TestFramework.resources.dll",
+        "lib/netstandard2.0/pt-BR/MSTest.TestFramework.resources.dll",
+        "lib/netstandard2.0/ru/MSTest.TestFramework.resources.dll",
+        "lib/netstandard2.0/tr/MSTest.TestFramework.resources.dll",
+        "lib/netstandard2.0/zh-Hans/MSTest.TestFramework.resources.dll",
+        "lib/netstandard2.0/zh-Hant/MSTest.TestFramework.resources.dll",
+        "lib/uap10.0/MSTest.TestFramework.Extensions.dll",
+        "lib/uap10.0/MSTest.TestFramework.Extensions.xml",
+        "lib/uap10.0/MSTest.TestFramework.dll",
+        "lib/uap10.0/MSTest.TestFramework.xml",
+        "lib/uap10.0/cs/MSTest.TestFramework.resources.dll",
+        "lib/uap10.0/de/MSTest.TestFramework.resources.dll",
+        "lib/uap10.0/es/MSTest.TestFramework.resources.dll",
+        "lib/uap10.0/fr/MSTest.TestFramework.resources.dll",
+        "lib/uap10.0/it/MSTest.TestFramework.resources.dll",
+        "lib/uap10.0/ja/MSTest.TestFramework.resources.dll",
+        "lib/uap10.0/ko/MSTest.TestFramework.resources.dll",
+        "lib/uap10.0/pl/MSTest.TestFramework.resources.dll",
+        "lib/uap10.0/pt-BR/MSTest.TestFramework.resources.dll",
+        "lib/uap10.0/ru/MSTest.TestFramework.resources.dll",
+        "lib/uap10.0/tr/MSTest.TestFramework.resources.dll",
+        "lib/uap10.0/zh-Hans/MSTest.TestFramework.resources.dll",
+        "lib/uap10.0/zh-Hant/MSTest.TestFramework.resources.dll",
+        "mstest.testframework.4.0.1.nupkg.sha512",
+        "mstest.testframework.nuspec"
       ]
     },
     "MySqlConnector/2.3.5": {
@@ -4728,12 +5068,50 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "xunit.abstractions/2.0.3": {
+      "sha512": "pot1I4YOxlWjIb5jmwvvQNbTrZ3lJQ+jUGkGjWE3hEFM0l5gOnBWS+H3qsex68s5cO52g+44vpGzhAt+42vwKg==",
+      "type": "package",
+      "path": "xunit.abstractions/2.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/xunit.abstractions.dll",
+        "lib/net35/xunit.abstractions.xml",
+        "lib/netstandard1.0/xunit.abstractions.dll",
+        "lib/netstandard1.0/xunit.abstractions.xml",
+        "lib/netstandard2.0/xunit.abstractions.dll",
+        "lib/netstandard2.0/xunit.abstractions.xml",
+        "xunit.abstractions.2.0.3.nupkg.sha512",
+        "xunit.abstractions.nuspec"
+      ]
+    },
+    "xunit.extensibility.core/2.9.3": {
+      "sha512": "kf3si0YTn2a8J8eZNb+zFpwfoyvIrQ7ivNk5ZYA5yuYk1bEtMe4DxJ2CF/qsRgmEnDr7MnW1mxylBaHTZ4qErA==",
+      "type": "package",
+      "path": "xunit.extensibility.core/2.9.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "_content/README.md",
+        "_content/logo-128-transparent.png",
+        "lib/net452/xunit.core.dll",
+        "lib/net452/xunit.core.dll.tdnet",
+        "lib/net452/xunit.core.xml",
+        "lib/net452/xunit.runner.tdnet.dll",
+        "lib/net452/xunit.runner.utility.net452.dll",
+        "lib/netstandard1.1/xunit.core.dll",
+        "lib/netstandard1.1/xunit.core.xml",
+        "xunit.extensibility.core.2.9.3.nupkg.sha512",
+        "xunit.extensibility.core.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "MQTTnet >= 4.3.7.1207",
       "MQTTnet.Extensions.ManagedClient >= 4.3.7.1207",
+      "MSTest.TestFramework >= 4.0.1",
       "Microsoft.AspNetCore.OpenApi >= 8.0.16",
       "Microsoft.EntityFrameworkCore >= 8.0.13",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.13",
@@ -4741,28 +5119,31 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.13",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.13",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.22.1",
+      "Moq >= 4.5.9",
       "Pomelo.EntityFrameworkCore.MySql >= 8.0.3",
-      "Swashbuckle.AspNetCore >= 6.6.2"
+      "Swashbuckle.AspNetCore >= 6.6.2",
+      "xunit.abstractions >= 2.0.3",
+      "xunit.extensibility.core >= 2.9.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\keely\\.nuget\\packages\\": {},
+    "C:\\Users\\Jessica van Heerden\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GitHub\\WebAPI\\SmartHydro_API.csproj",
+      "projectUniqueName": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\SmartHydro_API.csproj",
       "projectName": "SmartHydro_API",
-      "projectPath": "C:\\GitHub\\WebAPI\\SmartHydro_API.csproj",
-      "packagesPath": "C:\\Users\\keely\\.nuget\\packages\\",
-      "outputPath": "C:\\GitHub\\WebAPI\\obj\\",
+      "projectPath": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\SmartHydro_API.csproj",
+      "packagesPath": "C:\\Users\\Jessica van Heerden\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\keely\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jessica van Heerden\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4771,6 +5152,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4802,6 +5184,10 @@
           "MQTTnet.Extensions.ManagedClient": {
             "target": "Package",
             "version": "[4.3.7.1207, )"
+          },
+          "MSTest.TestFramework": {
+            "target": "Package",
+            "version": "[4.0.1, )"
           },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
@@ -4835,6 +5221,10 @@
             "target": "Package",
             "version": "[1.22.1, )"
           },
+          "Moq": {
+            "target": "Package",
+            "version": "[4.5.9, )"
+          },
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
             "version": "[8.0.3, )"
@@ -4842,6 +5232,14 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.6.2, )"
+          },
+          "xunit.abstractions": {
+            "target": "Package",
+            "version": "[2.0.3, )"
+          },
+          "xunit.extensibility.core": {
+            "target": "Package",
+            "version": "[2.9.3, )"
           }
         },
         "imports": [
@@ -4863,8 +5261,30 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Castle.Core 3.3.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Castle.Core",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Moq 4.5.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Moq",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

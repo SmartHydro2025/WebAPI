@@ -10,6 +10,7 @@
         "dependencies": {
           "MQTTnet": "4.3.7.1207",
           "MQTTnet.Extensions.ManagedClient": "4.3.7.1207",
+          "MSTest.TestFramework": "4.0.1",
           "Microsoft.AspNetCore.OpenApi": "8.0.16",
           "Microsoft.EntityFrameworkCore": "8.0.13",
           "Microsoft.EntityFrameworkCore.Design": "8.0.13",
@@ -17,8 +18,12 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.13",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.13",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.22.1",
+          "Moq": "4.5.9",
           "Pomelo.EntityFrameworkCore.MySql": "8.0.3",
-          "Swashbuckle.AspNetCore": "6.6.2"
+          "Swashbuckle.AspNetCore": "6.6.2",
+          "xunit.abstractions": "2.0.3",
+          "xunit.extensibility.core": "2.9.3",
+          "MSTest.TestFramework.Extensions": "4.0.1.0"
         },
         "runtime": {
           "SmartHydro_API.dll": {}
@@ -56,6 +61,14 @@
           "lib/netstandard2.0/Azure.Identity.dll": {
             "assemblyVersion": "1.11.4.0",
             "fileVersion": "1.1100.424.31005"
+          }
+        }
+      },
+      "Castle.Core/3.3.3": {
+        "runtime": {
+          "lib/net45/Castle.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.3.58"
           }
         }
       },
@@ -667,6 +680,17 @@
           }
         }
       },
+      "Moq/4.5.9": {
+        "dependencies": {
+          "Castle.Core": "3.3.3"
+        },
+        "runtime": {
+          "lib/net45/Moq.dll": {
+            "assemblyVersion": "4.5.9.0",
+            "fileVersion": "4.5.9.0"
+          }
+        }
+      },
       "MQTTnet/4.3.7.1207": {
         "runtime": {
           "lib/net7.0/MQTTnet.dll": {
@@ -683,6 +707,59 @@
           "lib/net7.0/MQTTnet.Extensions.ManagedClient.dll": {
             "assemblyVersion": "4.3.7.1207",
             "fileVersion": "4.3.7.1207"
+          }
+        }
+      },
+      "MSTest.Analyzers/4.0.1": {},
+      "MSTest.TestFramework/4.0.1": {
+        "dependencies": {
+          "MSTest.Analyzers": "4.0.1"
+        },
+        "runtime": {
+          "lib/net8.0/MSTest.TestFramework.dll": {
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.0.125.51406"
+          }
+        },
+        "resources": {
+          "lib/net8.0/cs/MSTest.TestFramework.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net8.0/de/MSTest.TestFramework.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net8.0/es/MSTest.TestFramework.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net8.0/fr/MSTest.TestFramework.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net8.0/it/MSTest.TestFramework.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net8.0/ja/MSTest.TestFramework.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net8.0/ko/MSTest.TestFramework.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net8.0/pl/MSTest.TestFramework.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net8.0/pt-BR/MSTest.TestFramework.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net8.0/ru/MSTest.TestFramework.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net8.0/tr/MSTest.TestFramework.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net8.0/zh-Hans/MSTest.TestFramework.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net8.0/zh-Hant/MSTest.TestFramework.resources.dll": {
+            "locale": "zh-Hant"
           }
         }
       },
@@ -1006,6 +1083,33 @@
             "fileVersion": "6.0.21.52210"
           }
         }
+      },
+      "xunit.abstractions/2.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/xunit.abstractions.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "xunit.extensibility.core/2.9.3": {
+        "dependencies": {
+          "xunit.abstractions": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.1/xunit.core.dll": {
+            "assemblyVersion": "2.9.3.0",
+            "fileVersion": "2.9.3.0"
+          }
+        }
+      },
+      "MSTest.TestFramework.Extensions/4.0.1.0": {
+        "runtime": {
+          "MSTest.TestFramework.Extensions.dll": {
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.0.125.51406"
+          }
+        }
       }
     }
   },
@@ -1028,6 +1132,13 @@
       "sha512": "sha512-Sf4BoE6Q3jTgFkgBkx7qztYOFELBCo+wQgpYDwal/qJ1unBH73ywPztIJKXBXORRzAeNijsuxhk94h0TIMvfYg==",
       "path": "azure.identity/1.11.4",
       "hashPath": "azure.identity.1.11.4.nupkg.sha512"
+    },
+    "Castle.Core/3.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tvVrLbHhtAGubUUDbEkH9JlivdlJOTI25u3hlyHpPxuJdTVi/yVQKWCYvGpafGPm7G1ibdWj4brqhtSQkAmN+g==",
+      "path": "castle.core/3.3.3",
+      "hashPath": "castle.core.3.3.3.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
@@ -1337,6 +1448,13 @@
       "path": "mono.texttemplating/2.2.1",
       "hashPath": "mono.texttemplating.2.2.1.nupkg.sha512"
     },
+    "Moq/4.5.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dhVX8Gn/84kucjMnMTv/StGBBsCGacPjGYU9v7yn/cRZVFVZbkhTyg9qt+df/zTvdx+civ6F3qNgh4S9HgiyxQ==",
+      "path": "moq/4.5.9",
+      "hashPath": "moq.4.5.9.nupkg.sha512"
+    },
     "MQTTnet/4.3.7.1207": {
       "type": "package",
       "serviceable": true,
@@ -1350,6 +1468,20 @@
       "sha512": "sha512-i7T+4dsBqy3VVvuDuh9mmTbeZwF7eYP+8rHir4rdriM+k2dGwDNuXrScpz6xI3mEBfJZTVno8zy8+r0zzmFQuQ==",
       "path": "mqttnet.extensions.managedclient/4.3.7.1207",
       "hashPath": "mqttnet.extensions.managedclient.4.3.7.1207.nupkg.sha512"
+    },
+    "MSTest.Analyzers/4.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SFYBSnZ2O5n+JZ6dYGig0rV8maAYYSAk8SpYbAvCl8XqJ2H1+Z6Su9AI4llW+RMJtmDDRUZ3JgaGih/MMgQkOw==",
+      "path": "mstest.analyzers/4.0.1",
+      "hashPath": "mstest.analyzers.4.0.1.nupkg.sha512"
+    },
+    "MSTest.TestFramework/4.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uXIBT47UAQcga6sfflqFvo1rkmHQESIhDvtusMWqhOef9nZhJF8UslfOZoIBV8q6uv9WOehSZ5fBBB4SNZWnBg==",
+      "path": "mstest.testframework/4.0.1",
+      "hashPath": "mstest.testframework.4.0.1.nupkg.sha512"
     },
     "MySqlConnector/2.3.5": {
       "type": "package",
@@ -1630,6 +1762,25 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "xunit.abstractions/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pot1I4YOxlWjIb5jmwvvQNbTrZ3lJQ+jUGkGjWE3hEFM0l5gOnBWS+H3qsex68s5cO52g+44vpGzhAt+42vwKg==",
+      "path": "xunit.abstractions/2.0.3",
+      "hashPath": "xunit.abstractions.2.0.3.nupkg.sha512"
+    },
+    "xunit.extensibility.core/2.9.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kf3si0YTn2a8J8eZNb+zFpwfoyvIrQ7ivNk5ZYA5yuYk1bEtMe4DxJ2CF/qsRgmEnDr7MnW1mxylBaHTZ4qErA==",
+      "path": "xunit.extensibility.core/2.9.3",
+      "hashPath": "xunit.extensibility.core.2.9.3.nupkg.sha512"
+    },
+    "MSTest.TestFramework.Extensions/4.0.1.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

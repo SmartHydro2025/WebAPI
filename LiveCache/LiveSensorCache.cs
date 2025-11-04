@@ -23,7 +23,7 @@ namespace SmartHydro_API.LiveCache
         }
 
         // Gets the latest reading for a specific MAC address.
-        public SensorReading? GetLatest(string mac)
+        public virtual SensorReading? GetLatest(string mac)
         {
             var normalizedMac = mac.Trim().ToUpper();
 
