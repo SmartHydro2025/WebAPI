@@ -1,0 +1,51 @@
+# Web API Deployment (Kova?,2023)
+name: WebAPI Deployment
+
+on:
+  push:
+    branches: [ Pipeline ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Build WebAPI
+        run: dotnet build SmartHydro_API.csproj --configuration Release
+
+      - name: Publish WebAPI
+        run: dotnet publish SmartHydro_API.csproj -c Release -o ./publish
+
+      - name: Build Docker image
+        run: docker build -t smarthydro_webapi:latest .
+
+      - name: Copy files to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          source: |
+            ./publish/*
+            docker-compose.yml
+            Dockerfile
+          target: "/root/WebAPI"
+
+      - name: Deploy container on server
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            cd /root/WebAPI
+            docker compose down
+            docker compose up -d --build
