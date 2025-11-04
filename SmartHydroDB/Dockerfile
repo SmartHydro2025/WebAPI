@@ -19,10 +19,8 @@ HEALTHCHECK --interval=10s --timeout=5s --start-period=30s --retries=5 \
   CMD /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $MSSQL_SA_PASSWORD -Q "SELECT 1" || exit 1
 
 # Start SQL Server, wait, and run the init script once
-CMD /bin/bash -c "/opt/mssql/bin/sqlservr & sleep 45 && \
-  if /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $MSSQL_SA_PASSWORD -Q \"SELECT name FROM sys.databases WHERE name = 'SmartHydroDB'\" | grep -q SmartHydroDB; then \
-    echo 'Database already exists — skipping init.'; \
-  else \
-    echo 'Initializing SmartHydroDB database...'; \
-    /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $MSSQL_SA_PASSWORD -i /app/init-smarthydrodb.sql; \
-  fi && wait"
+CMD /bin/bash -c "/opt/mssql/bin/sqlservr & \
+                  sleep 30 && \
+                  echo 'Applying database changes...' && \
+                  /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $MSSQL_SA_PASSWORD -i /app/init-smarthydrodb.sql && \
+                  wait"
