@@ -12,9 +12,6 @@ COPY init-smarthydrodb.sql /app/init-smarthydrodb.sql
 # Copy entrypoint script
 COPY entrypoint.sh /app/entrypoint.sh
 
-# Make entrypoint script executable inside the container
-RUN chmod +x /app/entrypoint.sh
-
 # Install SQL tools
 USER root
 RUN apt-get update && apt-get install -y mssql-tools unixodbc-dev && apt-get clean
