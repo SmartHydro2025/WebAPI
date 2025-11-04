@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\init-smarthydrodb.sql",
+    "\\.github",
+    "\\mosquitto",
+    "\\Properties",
     "\\SmartHydroDB"
   ],
+  "SelectedNode": "\\SmartHydroDB\\init-smarthydrodb.sql",
   "PreviewInSolutionExplorer": false
 }
