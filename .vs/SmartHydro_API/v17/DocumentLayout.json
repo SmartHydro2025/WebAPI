@@ -11,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:smarthydrodb\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\github\\webapi\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\github\\webapi\\smarthydrodb\\init-smarthydrodb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:smarthydrodb\\init-smarthydrodb.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\github\\webapi\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\github\\webapi\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -64,14 +64,14 @@
               "RelativeDocumentMoniker": "SmartHydroDB\\entrypoint.sh",
               "ToolTip": "C:\\GitHub\\WebAPI\\SmartHydroDB\\entrypoint.sh",
               "RelativeToolTip": "SmartHydroDB\\entrypoint.sh",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|",
-              "WhenOpened": "2025-11-04T20:29:26.97Z",
+              "WhenOpened": "2025-11-04T20:44:30.482Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "init-smarthydrodb.sql ",
               "DocumentMoniker": "C:\\GitHub\\WebAPI\\SmartHydroDB\\init-smarthydrodb.sql",
               "RelativeDocumentMoniker": "SmartHydroDB\\init-smarthydrodb.sql",
@@ -89,7 +89,7 @@
               "RelativeDocumentMoniker": "SmartHydroDB\\Dockerfile",
               "ToolTip": "C:\\GitHub\\WebAPI\\SmartHydroDB\\Dockerfile",
               "RelativeToolTip": "SmartHydroDB\\Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAiwBsAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-11-04T07:13:31.156Z",
               "EditorCaption": ""
@@ -109,7 +109,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "docker-compose.yml",
               "DocumentMoniker": "C:\\GitHub\\WebAPI\\docker-compose.yml",
               "RelativeDocumentMoniker": "docker-compose.yml",
