@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using SmartHydro_API.Models;
 
 [ApiController]
 [Route("api/tents/{mac}")] 

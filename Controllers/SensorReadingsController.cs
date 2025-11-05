@@ -2,6 +2,7 @@
 using SmartHydro_API.Interface;
 using SmartHydro_API.LiveCache;
 using System.Security.Cryptography;
+using SmartHydro_API.Models;
 
 namespace SmartHydro_API.Controllers
 {
