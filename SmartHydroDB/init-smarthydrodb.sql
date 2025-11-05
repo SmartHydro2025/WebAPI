@@ -55,8 +55,3 @@ CREATE TABLE TentInformation(
 );
 GO
 
-CREATE TABLE TestPipeline(
-    ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-    pipelineName VARCHAR(255)
-);
-GO

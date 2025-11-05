@@ -1,4 +1,3 @@
-#!/bin/bash
 # Start SQL Server in background
 /opt/mssql/bin/sqlservr &
 
