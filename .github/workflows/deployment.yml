@@ -10,8 +10,10 @@ on:
 permissions:
   contents: write
 
+env:
+  MSSQL_SA_PASSWORD: Password1!   # can also set to a secret: ${{ secrets.MSSQL_SA_PASSWORD }}
+
 jobs:
-  # Build and Test Job
   build-and-test:
     runs-on: ubuntu-latest
 
@@ -19,12 +21,12 @@ jobs:
       sqlserver:
         image: mcr.microsoft.com/mssql/server:2022-latest
         env:
-          SA_PASSWORD: ${{ secrets.MSSQL_SA_PASSWORD }}
+          SA_PASSWORD: $MSSQL_SA_PASSWORD
           ACCEPT_EULA: "Y"
         ports:
           - 1433:1433
         options: >-
-          --health-cmd " /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P ${{ secrets.MSSQL_SA_PASSWORD }} -Q 'SELECT 1' "
+          --health-cmd " /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $MSSQL_SA_PASSWORD -Q 'SELECT 1' "
           --health-interval 10s
           --health-timeout 5s
           --health-retries 10
@@ -46,8 +48,9 @@ jobs:
 
       - name: Run tests
         env:
-          ConnectionStrings__DefaultConnection: "Server=localhost,1433;Database=SmartHydro;User Id=sa;Password=${{ secrets.MSSQL_SA_PASSWORD }};TrustServerCertificate=True"
+          ConnectionStrings__DefaultConnection: "Server=localhost,1433;Database=SmartHydro;User Id=sa;Password=$MSSQL_SA_PASSWORD;TrustServerCertificate=True"
         run: dotnet test --no-build --verbosity normal
+
 
   # Security Scan using CodeQL
   security-scan:
