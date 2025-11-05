@@ -55,10 +55,6 @@ CREATE TABLE TentInformation(
 );
 GO
 
-CREATE TABLE TestPipeline(
-    ID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-    testName VARCHAR(255),
-);
-GO
+DROP TABLE TestPipeline;
 
 
