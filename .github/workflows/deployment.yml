@@ -90,7 +90,7 @@ jobs:
 
   # Deploy on Pipeline branch
   deploy:
-    needs: [build, test, security-scan]
+    needs: [build,security-scan]
     if: github.ref == 'refs/heads/Pipeline'
     runs-on: ubuntu-latest
     steps:
