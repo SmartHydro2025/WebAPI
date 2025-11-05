@@ -58,10 +58,6 @@
               "target": "Package",
               "version": "[4.3.7.1207, )"
             },
-            "MSTest.TestFramework": {
-              "target": "Package",
-              "version": "[4.0.1, )"
-            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.16, )"
@@ -96,7 +92,11 @@
             },
             "Moq": {
               "target": "Package",
-              "version": "[4.5.9, )"
+              "version": "[4.20.72, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.4, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
@@ -106,6 +106,10 @@
               "target": "Package",
               "version": "[6.6.2, )"
             },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.9.3, )"
+            },
             "xunit.abstractions": {
               "target": "Package",
               "version": "[2.0.3, )"
@@ -113,6 +117,12 @@
             "xunit.extensibility.core": {
               "target": "Package",
               "version": "[2.9.3, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
             }
           },
           "imports": [

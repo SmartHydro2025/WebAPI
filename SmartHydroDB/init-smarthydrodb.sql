@@ -55,6 +55,6 @@ CREATE TABLE TentInformation(
 );
 GO
 
-DROP TABLE TestPipeline;
+
 
 
