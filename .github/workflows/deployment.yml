@@ -42,8 +42,8 @@ jobs:
         options: >-
           --health-cmd " /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'Password1!' -Q 'SELECT 1'"
           --health-interval 10s
-          --health-timeout 5s
-          --health-retries 10
+          --health-timeout 10s
+          --health-retries 15
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -54,7 +54,7 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Wait for SQL Server to start
-        run: sleep 60
+        run: sleep 90
 
       - name: Restore dependencies
         run: dotnet restore
