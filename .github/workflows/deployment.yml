@@ -17,15 +17,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Setup .NET 8
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-
       - name: Restore dependencies
         run: dotnet restore
-
       - name: Build project
         run: dotnet build --no-restore --configuration Release
 
@@ -40,10 +37,11 @@ jobs:
           SA_PASSWORD: "Password1!"
           ACCEPT_EULA: "Y"
         options: >-
-          --health-cmd " /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'Password1!' -Q 'SELECT 1'"
+          --health-cmd "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'Password1!' -Q 'SELECT 1'"
           --health-interval 10s
           --health-timeout 10s
           --health-retries 15
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -54,7 +52,17 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Wait for SQL Server to start
-        run: sleep 90
+        run: |
+          echo "Waiting for SQL Server to be healthy..."
+          for i in {1..15}; do
+            /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "Password1!" -Q "SELECT 1" && break
+            echo "SQL Server not ready yet, retrying..."
+            sleep 5
+          done
+
+      - name: Ensure SmartHydroDB exists
+        run: |
+          /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "Password1!" -Q "IF DB_ID('SmartHydroDB') IS NULL CREATE DATABASE SmartHydroDB"
 
       - name: Restore dependencies
         run: dotnet restore
