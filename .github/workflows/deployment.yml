@@ -34,7 +34,7 @@ jobs:
       sqlserver:
         image: mcr.microsoft.com/mssql/server:2022-latest
         env:
-          SA_PASSWORD: $MSSQL_SA_PASSWORD
+          SA_PASSWORD: ${{ env.MSSQL_SA_PASSWORD }}
           ACCEPT_EULA: "Y"
         options: >-
           --memory=4g
