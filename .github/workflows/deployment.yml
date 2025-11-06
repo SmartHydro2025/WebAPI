@@ -37,7 +37,7 @@ jobs:
           SA_PASSWORD: $MSSQL_SA_PASSWORD
           ACCEPT_EULA: "Y"
         options: >-
-          --memory=2g
+          --memory=4g
           --health-cmd "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $MSSQL_SA_PASSWORD -Q 'SELECT 1'"
           --health-interval 10s
           --health-timeout 5s
