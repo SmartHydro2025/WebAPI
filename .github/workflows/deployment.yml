@@ -4,7 +4,7 @@ on:
   push:
     branches: [ Pipeline ]
   pull_request:
-    branches: [ main ]
+    branches: [ Pipeline ]
 
 permissions:
   contents: write
