@@ -1,5 +1,5 @@
 # Start SQL Server in background
-/opt/mssql/bin/sqlservr &
+# /opt/mssql/bin/sqlservr &
 
 # Wait until SQL Server is ready
 until /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -Q "SELECT 1" > /dev/null 2>&1; do

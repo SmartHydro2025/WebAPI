@@ -39,9 +39,10 @@ jobs:
         options: >-
           --memory=4g
           --health-cmd "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $MSSQL_SA_PASSWORD -Q 'SELECT 1'"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 20
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=30
+          --health-start-period=30s
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -51,15 +52,17 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      - name: Wait for SQL Server to start
+      - name: Wait for SQL Server
         run: |
           until docker inspect --format='{{.State.Health.Status}}' ${{ job.services.sqlserver.id }} | grep healthy; do
             echo "Waiting for SQL Server..."
             sleep 5
           done
 
-      - name: Restore dependencies
-        run: dotnet restore
+      - name: Initialize DB
+        run: |
+          /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -Q "IF DB_ID('SmartHydroDB') IS NULL CREATE DATABASE SmartHydroDB"
+          /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -d SmartHydroDB -i ./SmartHydroDB/init-smarthydrodb.sql
 
       - name: Run unit tests
         env:
@@ -113,12 +116,4 @@ jobs:
           target: "/root/WebAPI"
 
       - name: Deploy container on DigitalOcean VM
-        uses: appleboy/ssh-action@v1.1.0
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          password: ${{ secrets.SERVER_PASSWORD }}
-          script: |
-            cd /root/WebAPI
-            docker compose down
-            docker compose up -d --build
+        uses: appleboy/ssh-actio
