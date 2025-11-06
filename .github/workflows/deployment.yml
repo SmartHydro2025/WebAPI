@@ -1,9 +1,6 @@
 name: Deployment
 
 on:
-  pull_request:
-    branches: [ main ]
-    types: [ opened, synchronize ]
   push:
     branches: [ Pipeline ]  
 
@@ -40,10 +37,10 @@ jobs:
       sqlserver:
         image: mcr.microsoft.com/mssql/server:2022-latest
         env:
-          SA_PASSWORD: ${{ env.MSSQL_SA_PASSWORD }}
+          SA_PASSWORD: ${{ secrets.MSSQL_SA_PASSWORD }}
           ACCEPT_EULA: "Y"
         options: >-
-          --health-cmd " /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P '${{ env.MSSQL_SA_PASSWORD }}' -Q 'SELECT 1'"
+          --health-cmd " /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P '${{ secrets.MSSQL_SA_PASSWORD }}' -Q 'SELECT 1'"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 10
@@ -64,7 +61,7 @@ jobs:
 
       - name: Run unit tests
         env:
-          ConnectionStrings__DefaultConnection: "Server=localhost,1433;Database=SmartHydroDB;User Id=sa;Password=${{ env.MSSQL_SA_PASSWORD }};TrustServerCertificate=True;"
+          ConnectionStrings__DefaultConnection: "Server=localhost,1433;Database=SmartHydroDB;User Id=sa;Password=${{ secrets.MSSQL_SA_PASSWORD }};TrustServerCertificate=True;"
         run: dotnet test --no-restore --verbosity normal
 
   # Security Scan using CodeQL
