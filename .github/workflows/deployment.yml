@@ -93,7 +93,7 @@ jobs:
         uses: github/codeql-action/analyze@v3
 
   deploy:
-    needs: [build,test,security-scan]
+    needs: [build,security-scan, test]
     if: github.ref == 'refs/heads/Pipeline'
     runs-on: ubuntu-latest
     steps:
