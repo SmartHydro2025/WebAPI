@@ -19,34 +19,6 @@ namespace SmartHydro_API.Controllers
             _logger = logger;
         }
 
-        //method to add image to cache (which goes to mqtt)
-        [HttpPost("{mac}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> UploadImage(string mac, [Required] IFormFile image)
-        {
-            if (image == null || image.Length == 0)
-            {
-                return BadRequest("No image file was uploaded.");
-            }
-
-            _logger.LogInformation("Receiving image from MAC: {mac}, Size: {length} bytes, Type: {type}",
-                mac, image.Length, image.ContentType);
-
-            //read the image data into a byte array
-            using var memoryStream = new MemoryStream();
-            await image.CopyToAsync(memoryStream);
-            var imageBytes = memoryStream.ToArray();
-
-            //create an image object
-            var cameraImage = new CameraImage(imageBytes, image.ContentType, mac);
-
-            //update the cache with the new image
-            _imageCache.Update(cameraImage);
-
-            return Ok(new { message = $"Image from {mac} received and cached successfully." });
-        }
-
         //method to accept base64 encoded image data from the esp32 cam
         [HttpPost("base64/{mac}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
