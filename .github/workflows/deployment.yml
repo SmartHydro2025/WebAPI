@@ -37,13 +37,14 @@ jobs:
       sqlserver:
         image: mcr.microsoft.com/mssql/server:2022-latest
         env:
-          SA_PASSWORD: "Password1!"
+          SA_PASSWORD: ${{ secrets.MSSQL_SA_PASSWORD }}
           ACCEPT_EULA: "Y"
         options: >-
-          --health-cmd " /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'Password1!' -Q 'SELECT 1'"
+          --memory=2g
+          --health-cmd "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P '${{ secrets.MSSQL_SA_PASSWORD }}' -Q 'SELECT 1'"
           --health-interval 10s
           --health-timeout 5s
-          --health-retries 10
+          --health-retries 20
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -54,7 +55,11 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Wait for SQL Server to start
-        run: sleep 60
+        run: |
+            until docker inspect --format='{{.State.Health.Status}}' ${{ job.services.sqlserver.id }} | grep healthy; do
+              echo "Waiting for SQL Server..."
+              sleep 5
+            done
 
       - name: Restore dependencies
         run: dotnet restore
