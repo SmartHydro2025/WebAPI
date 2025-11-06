@@ -3,8 +3,6 @@ name: WebAPI Deployment
 on:
   push:
     branches: [ Pipeline ]
-  pull_request:
-    branches: [ Pipeline ]
 
 permissions:
   contents: write
