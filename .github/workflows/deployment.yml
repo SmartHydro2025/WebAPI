@@ -7,11 +7,7 @@ on:
 permissions:
   contents: write
 
-env:
-  MSSQL_SA_PASSWORD: ${{ secrets.MSSQL_SA_PASSWORD }}
-
 jobs:
-  # Build jobs
   build:
     runs-on: ubuntu-latest
     steps:
@@ -29,19 +25,20 @@ jobs:
       - name: Build project
         run: dotnet build --no-restore --configuration Release
 
-  # Unit Test
   test:
     runs-on: ubuntu-latest
     needs: build
+    env:
+      MSSQL_SA_PASSWORD: ${{ secrets.MSSQL_SA_PASSWORD }}
     services:
       sqlserver:
         image: mcr.microsoft.com/mssql/server:2022-latest
         env:
-          SA_PASSWORD: ${{ secrets.MSSQL_SA_PASSWORD }}
+          SA_PASSWORD: $MSSQL_SA_PASSWORD
           ACCEPT_EULA: "Y"
         options: >-
           --memory=2g
-          --health-cmd "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P '${{ secrets.MSSQL_SA_PASSWORD }}' -Q 'SELECT 1'"
+          --health-cmd "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $MSSQL_SA_PASSWORD -Q 'SELECT 1'"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 20
@@ -56,20 +53,19 @@ jobs:
 
       - name: Wait for SQL Server to start
         run: |
-            until docker inspect --format='{{.State.Health.Status}}' ${{ job.services.sqlserver.id }} | grep healthy; do
-              echo "Waiting for SQL Server..."
-              sleep 5
-            done
+          until docker inspect --format='{{.State.Health.Status}}' ${{ job.services.sqlserver.id }} | grep healthy; do
+            echo "Waiting for SQL Server..."
+            sleep 5
+          done
 
       - name: Restore dependencies
         run: dotnet restore
 
       - name: Run unit tests
         env:
-          ConnectionStrings__DefaultConnection: "Server=localhost,1433;Database=SmartHydroDB;User Id=sa;Password=${{ secrets.MSSQL_SA_PASSWORD }};TrustServerCertificate=True;"
+          ConnectionStrings__DefaultConnection: "Server=localhost,1433;Database=SmartHydroDB;User Id=sa;Password=$MSSQL_SA_PASSWORD;TrustServerCertificate=True;"
         run: dotnet test --no-restore --verbosity normal
 
-  # Security Scan using CodeQL
   security-scan:
     runs-on: ubuntu-latest
     permissions:
@@ -89,12 +85,12 @@ jobs:
         run: |
           dotnet restore
           dotnet build --configuration Release
+
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
 
-  # Deploy on Pipeline branch
   deploy:
-    needs: [build,security-scan]
+    needs: [build, security-scan]
     if: github.ref == 'refs/heads/Pipeline'
     runs-on: ubuntu-latest
     steps:
