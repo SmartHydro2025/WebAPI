@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\livecache\\aieventcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:livecache\\aieventcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\services\\mqttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:services\\mqttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\livecache\\livetentinformationcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:livecache\\livetentinformationcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,6 +13,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\livecache\\livehardwarestatuscache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:livecache\\livehardwarestatuscache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\livecache\\aieventcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:livecache\\aieventcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\services\\mqttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:services\\mqttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\interface\\sensorreadingstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -86,11 +86,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "MqttService.cs",
               "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Services\\MqttService.cs",
               "RelativeDocumentMoniker": "Services\\MqttService.cs",
@@ -99,60 +99,60 @@
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-04T16:28:15.873Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "LiveSensorCache.cs",
+              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\LiveSensorCache.cs",
+              "RelativeDocumentMoniker": "LiveCache\\LiveSensorCache.cs",
+              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\LiveSensorCache.cs",
+              "RelativeToolTip": "LiveCache\\LiveSensorCache.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAADQAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T07:27:35.547Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "LiveTentInformationCache.cs",
               "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\LiveTentInformationCache.cs",
               "RelativeDocumentMoniker": "LiveCache\\LiveTentInformationCache.cs",
               "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\LiveTentInformationCache.cs",
               "RelativeToolTip": "LiveCache\\LiveTentInformationCache.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-05T07:27:44.711Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LiveSensorCache.cs",
-              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\LiveSensorCache.cs",
-              "RelativeDocumentMoniker": "LiveCache\\LiveSensorCache.cs",
-              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\LiveSensorCache.cs",
-              "RelativeToolTip": "LiveCache\\LiveSensorCache.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:27:35.547Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "LiveHardwareStatusCache.cs",
               "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\LiveHardwareStatusCache.cs",
               "RelativeDocumentMoniker": "LiveCache\\LiveHardwareStatusCache.cs",
               "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\LiveHardwareStatusCache.cs",
               "RelativeToolTip": "LiveCache\\LiveHardwareStatusCache.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAADIAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:26:33.55Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:26:33.55Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AIEventCache.cs",
               "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\AIEventCache.cs",
               "RelativeDocumentMoniker": "LiveCache\\AIEventCache.cs",
               "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\AIEventCache.cs",
               "RelativeToolTip": "LiveCache\\AIEventCache.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAADoAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:26:22.117Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:26:22.117Z"
             },
             {
               "$type": "Document",
@@ -164,8 +164,7 @@
               "RelativeToolTip": "Interface\\SensorReadingStore.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:26:15.183Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:26:15.183Z"
             },
             {
               "$type": "Document",
@@ -177,8 +176,7 @@
               "RelativeToolTip": "Interface\\ISensorReadingStore.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:26:06.253Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:26:06.253Z"
             },
             {
               "$type": "Document",
@@ -190,8 +188,7 @@
               "RelativeToolTip": "Database\\SmartHydroDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:25:59.208Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:25:59.208Z"
             },
             {
               "$type": "Document",
@@ -203,8 +200,7 @@
               "RelativeToolTip": "Controllers\\TentInformationController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:25:54.052Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:25:54.052Z"
             },
             {
               "$type": "Document",
@@ -216,8 +212,7 @@
               "RelativeToolTip": "Controllers\\TentControlController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:25:49.017Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:25:49.017Z"
             },
             {
               "$type": "Document",
@@ -229,8 +224,7 @@
               "RelativeToolTip": "Controllers\\SensorReadingsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:25:45.279Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:25:45.279Z"
             },
             {
               "$type": "Document",
@@ -242,8 +236,7 @@
               "RelativeToolTip": "Controllers\\HardwareStatusController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:25:39.759Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:25:39.759Z"
             },
             {
               "$type": "Document",
@@ -255,8 +248,7 @@
               "RelativeToolTip": "Controllers\\AIEventController.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:24:24.61Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:24:24.61Z"
             },
             {
               "$type": "Document",
@@ -268,8 +260,7 @@
               "RelativeToolTip": "Models\\TentInformation.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:18:59.996Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:18:59.996Z"
             },
             {
               "$type": "Document",
@@ -281,8 +272,7 @@
               "RelativeToolTip": "Models\\TentCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:18:26.344Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:18:26.344Z"
             },
             {
               "$type": "Document",
@@ -294,8 +284,7 @@
               "RelativeToolTip": "Models\\TentCommandResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:18:00.526Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:18:00.526Z"
             },
             {
               "$type": "Document",
@@ -307,8 +296,7 @@
               "RelativeToolTip": "Models\\AiEvent.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:17:15.814Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:17:15.814Z"
             },
             {
               "$type": "Document",
@@ -320,12 +308,7 @@
               "RelativeToolTip": "Models\\HardwareReading.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:15:31.691Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "WhenOpened": "2025-11-05T07:15:31.691Z"
             },
             {
               "$type": "Document",
@@ -337,8 +320,7 @@
               "RelativeToolTip": "Models\\SensorReading.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:14:29.67Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:14:29.67Z"
             }
           ]
         }
