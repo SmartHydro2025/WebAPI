@@ -1,25 +1,29 @@
-﻿services:
-  # Database Service
+﻿version: "3.9"
+
+services:
   smarthydro-db:
     build:
       context: ./SmartHydroDB
       dockerfile: Dockerfile
-    image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: smarthydro-db
-    ports:
-      - "1433:1433"
-      - "1400:1433" 
     environment:
       ACCEPT_EULA: "Y"
       MSSQL_PID: "Express"
       SA_PASSWORD: "Password1!"
+    ports:
+      - "1433:1433"
     volumes:
       - mssql_data:/var/opt/mssql
     restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'Password1!' -Q 'SELECT 1'"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
     networks:
       - smarthydro-network
 
-  # Mosquitto MQTT Broker Service
   mosquitto:
     image: eclipse-mosquitto:2
     container_name: smarthydro_mosquitto
@@ -34,18 +38,19 @@
     networks:
       - smarthydro-network
 
-  # Web API Service
   webapi:
     build: .
     container_name: smarthydro_webapi
     ports:
       - "8080:8080"
     depends_on:
-      - smarthydro-db
-      - mosquitto
+      smarthydro-db:
+        condition: service_healthy
+      mosquitto:
+        condition: service_started
     environment:
-      - ASPNETCORE_ENVIRONMENT=Production
-      - SQL_CONNECTION_STRING=Server=smarthydro-db;Database=SmartHydroDB;User Id=sa;Password=Password1!;TrustServerCertificate=True;
+      ASPNETCORE_ENVIRONMENT: Production
+      SQL_CONNECTION_STRING: "Server=smarthydro-db,1433;Database=SmartHydroDB;User Id=sa;Password=Password1!;TrustServerCertificate=True;"
     restart: always
     networks:
       - smarthydro-network
