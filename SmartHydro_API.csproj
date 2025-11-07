@@ -33,4 +33,10 @@
     <Folder Include="SmartHydroDB\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="images\plant.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
