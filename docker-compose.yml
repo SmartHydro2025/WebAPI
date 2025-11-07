@@ -19,7 +19,7 @@ services:
       test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'Password1!' -Q 'SELECT 1'"]
       interval: 10s
       timeout: 5s
-      retries: 10
+      retries: 30
       start_period: 60s
     networks:
       - smarthydro-network
