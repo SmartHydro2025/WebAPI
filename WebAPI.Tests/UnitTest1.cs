@@ -8,14 +8,18 @@ namespace WebAPI.Tests;
 public class UnitTest1
 {
     private readonly SmartHydroDbContext _dbContext;
-    private readonly LiveSensorCache _cache;
-    private readonly AIEventCache _AIcache;
+
+    public UnitTest1(SmartHydroDbContext dbContext)
+    {
+        _dbContext = dbContext;
+    }
 
     [Fact]
     public void GetTents()
     {
         var tentDetails = _dbContext.TentInformation.ToList();
         Assert.NotNull(tentDetails);
+        Assert.NotEmpty(tentDetails);
     }
 
 }
