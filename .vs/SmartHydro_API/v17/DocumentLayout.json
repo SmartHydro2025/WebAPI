@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\smarthydrodb\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:smarthydrodb\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -58,8 +58,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\SmartHydroDB\\Dockerfile",
+              "RelativeDocumentMoniker": "SmartHydroDB\\Dockerfile",
+              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\SmartHydroDB\\Dockerfile",
+              "RelativeToolTip": "SmartHydroDB\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-07T12:41:18.503Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -79,13 +93,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAACGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-11-07T16:05:14.918Z",
               "EditorCaption": ""
@@ -105,26 +119,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Dockerfile",
-              "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\SmartHydroDB\\Dockerfile",
-              "RelativeDocumentMoniker": "SmartHydroDB\\Dockerfile",
-              "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\SmartHydroDB\\Dockerfile",
-              "RelativeToolTip": "SmartHydroDB\\Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-11-07T12:41:18.503Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "docker-compose.yml",
               "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\docker-compose.yml",
               "RelativeDocumentMoniker": "docker-compose.yml",
               "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\docker-compose.yml",
               "RelativeToolTip": "docker-compose.yml",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAAADUAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAD0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
               "WhenOpened": "2025-11-07T08:13:16.888Z",
               "EditorCaption": ""
