@@ -72,16 +72,16 @@ jobs:
           echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc
           source ~/.bashrc
 
-      - name: Wait for SQL Server
+      - name: Wait for SQL Server to start
         run: |
           echo "Waiting for SQL Server to start..."
-          for i in {1..30}; do
+          for i in {1..60}; do
             /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -Q "SELECT 1" && break
             echo "SQL not ready yet..."
             sleep 5
           done
 
-      - name: Initialize DB
+      - name: Initialize SmartHydroDB
         run: |
           /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -Q "IF DB_ID('SmartHydroDB') IS NULL CREATE DATABASE SmartHydroDB"
           if [ -f ./SmartHydroDB/init-smarthydrodb.sql ]; then
@@ -93,7 +93,7 @@ jobs:
       - name: Run unit tests
         env:
           ConnectionStrings__DefaultConnection: "Server=localhost,1433;Database=SmartHydroDB;User Id=sa;Password=$MSSQL_SA_PASSWORD;TrustServerCertificate=True;"
-        run: dotnet test --no-restore --verbosity normal
+        run: dotnet test WebAPI.Tests/WebAPI.Tests.csproj --no-build --verbosity normal
 
   security-scan:
     runs-on: ubuntu-latest
@@ -128,13 +128,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Docker
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
       - name: Build Docker image
         run: docker build -t smarthydro_webapi:latest .
 
-      - name: Copy files to DigitalOcean VM
+      - name: Copy project files to DigitalOcean VM
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -142,7 +142,6 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           source: "."
           target: "/root/WebAPI"
-          
 
       - name: Ensure Mosquitto config on VM
         uses: appleboy/ssh-action@v1.1.0
@@ -152,7 +151,7 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
             mkdir -p /root/WebAPI/mosquitto/config
-            echo "Using existing mosquitto.conf if present"
+            echo "Mosquitto config directory ready."
 
       - name: Deploy containers on DigitalOcean VM
         uses: appleboy/ssh-action@v1.1.0
@@ -162,5 +161,8 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
             cd /root/WebAPI
+            echo "Stopping old containers..."
             docker compose down
-            docker compose up -d --build
+            echo "Building and starting new containers..."
+            docker compose up -d --build smarthydro_webapi
+            echo "Deployment complete."
