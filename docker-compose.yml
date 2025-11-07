@@ -1,15 +1,16 @@
-﻿services:
+﻿version: '3.9'
+
+services:
   # Database Service
   smarthydro-db:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: smarthydro-db
     ports:
       - "1433:1433"
-      - "1400:1433" 
     environment:
       ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Password1!"
       MSSQL_PID: "Express"
-      MSSQL_SA_PASSWORD: "Password1!"
     volumes:
       - mssql_data:/var/opt/mssql
     restart: always
@@ -41,8 +42,8 @@
       - smarthydro-db
       - mosquitto
     environment:
-      - ASPNETCORE_ENVIRONMENT=Production
-      - SQL_CONNECTION_STRING=Server=smarthydro-db;Database=SmartHydroDB;User Id=sa;Password=Password1!;TrustServerCertificate=True;
+      ASPNETCORE_ENVIRONMENT: Production
+      SQL_CONNECTION_STRING: "Server=smarthydro-db;Database=SmartHydroDB;User Id=sa;Password=Password1!;TrustServerCertificate=True;"
     restart: always
     networks:
       - smarthydro-network
