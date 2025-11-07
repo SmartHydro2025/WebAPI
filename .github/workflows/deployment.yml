@@ -66,4 +66,97 @@ jobs:
       - name: Install SQLCMD tools
         run: |
           curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-          curl -sSL https://packages.microsof
+          curl -sSL https://packages.microsoft.com/config/ubuntu/22.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
+          sudo apt-get update
+          sudo ACCEPT_EULA=Y apt-get install -y mssql-tools18 unixodbc-dev
+          echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc
+          source ~/.bashrc
+
+      - name: Wait for SQL Server
+        run: |
+          echo "Waiting for SQL Server to start..."
+          for i in {1..30}; do
+            /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -Q "SELECT 1" && break
+            echo "SQL not ready yet..."
+            sleep 5
+          done
+
+      - name: Initialize DB
+        run: |
+          /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -Q "IF DB_ID('SmartHydroDB') IS NULL CREATE DATABASE SmartHydroDB"
+          if [ -f ./SmartHydroDB/init-smarthydrodb.sql ]; then
+            /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -d SmartHydroDB -i ./SmartHydroDB/init-smarthydrodb.sql
+          else
+            echo "init-smarthydrodb.sql not found, skipping."
+          fi
+
+      - name: Run unit tests
+        env:
+          ConnectionStrings__DefaultConnection: "Server=localhost,1433;Database=SmartHydroDB;User Id=sa;Password=$MSSQL_SA_PASSWORD;TrustServerCertificate=True;"
+        run: dotnet test --no-restore --verbosity normal
+
+      - name: Debug SQL Server logs
+        if: failure()
+        run: docker logs $(docker ps -aqf "name=sqlserver")
+
+  security-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: csharp
+
+      - name: Build for CodeQL analysis
+        run: |
+          dotnet restore
+          dotnet build --configuration Release
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+
+  deploy:
+    needs: [build, test, security-scan]
+    if: github.ref == 'refs/heads/Pipeline'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker image
+        run: docker build -t smarthydro_webapi:latest .
+
+      - name: Copy files to DigitalOcean VM
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          source: "."
+          target: "/root/WebAPI"
+
+      - name: Deploy container on DigitalOcean VM
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            cd /root/WebAPI
+            docker compose down
+            docker compose up -d --build
