@@ -14,12 +14,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Setup .NET 8
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-
       - name: Cache NuGet packages
         uses: actions/cache@v4
         with:
@@ -27,10 +25,8 @@ jobs:
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
           restore-keys: |
             ${{ runner.os }}-nuget-
-
       - name: Restore dependencies
         run: dotnet restore
-
       - name: Build project
         run: dotnet build --no-restore --configuration Release
 
@@ -48,21 +44,18 @@ jobs:
           SA_PASSWORD: ${{ secrets.MSSQL_SA_PASSWORD }}
           ACCEPT_EULA: "Y"
         options: >-
-          --health-cmd "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -Q 'SELECT 1' || exit 1"
+          --health-cmd "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -Q 'SELECT 1' -C || exit 1"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=50
           --health-start-period=60s
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Setup .NET 8
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-
       - name: Install SQLCMD tools
         run: |
           curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
@@ -71,25 +64,22 @@ jobs:
           sudo ACCEPT_EULA=Y apt-get install -y mssql-tools18 unixodbc-dev
           echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc
           source ~/.bashrc
-
       - name: Wait for SQL Server to start
         run: |
           echo "Waiting for SQL Server to start..."
           for i in {1..60}; do
-            /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -Q "SELECT 1" && break
+            /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -Q "SELECT 1" -C && break
             echo "SQL not ready yet..."
             sleep 5
           done
-
       - name: Initialize SmartHydroDB
         run: |
-          /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -Q "IF DB_ID('SmartHydroDB') IS NULL CREATE DATABASE SmartHydroDB"
+          /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -Q "IF DB_ID('SmartHydroDB') IS NULL CREATE DATABASE SmartHydroDB" -C
           if [ -f ./SmartHydroDB/init-smarthydrodb.sql ]; then
-            /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -d SmartHydroDB -i ./SmartHydroDB/init-smarthydrodb.sql
+            /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "$MSSQL_SA_PASSWORD" -d SmartHydroDB -i ./SmartHydroDB/init-smarthydrodb.sql -C
           else
             echo "init-smarthydrodb.sql not found, skipping."
           fi
-
       - name: Run unit tests
         env:
           ConnectionStrings__DefaultConnection: "Server=localhost,1433;Database=SmartHydroDB;User Id=sa;Password=$MSSQL_SA_PASSWORD;TrustServerCertificate=True;"
@@ -101,22 +91,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Setup .NET 8
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: csharp
-
       - name: Build for CodeQL analysis
         run: |
           dotnet restore
           dotnet build --configuration Release
-
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
 
@@ -127,13 +113,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-
       - name: Build Docker image
         run: docker build -t smarthydro_webapi:latest .
-
       - name: Copy project files to DigitalOcean VM
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -142,7 +125,6 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           source: "."
           target: "/root/WebAPI"
-
       - name: Ensure Mosquitto config on VM
         uses: appleboy/ssh-action@v1.1.0
         with:
@@ -152,7 +134,6 @@ jobs:
           script: |
             mkdir -p /root/WebAPI/mosquitto/config
             echo "Mosquitto config directory ready."
-
       - name: Deploy containers on DigitalOcean VM
         uses: appleboy/ssh-action@v1.1.0
         with:
