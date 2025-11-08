@@ -16,7 +16,7 @@ namespace SmartHydro_API.Controllers
 
 
 
-        [HttpGet]
+        [HttpGet("Image/{mac}")]
         public IActionResult Image(string mac)
         {
 
