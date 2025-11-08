@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:controllers\\imagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\livecache\\aieventcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:livecache\\aieventcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\livecache\\livehardwarestatuscache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:livecache\\livehardwarestatuscache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\livecache\\aieventcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|solutionrelative:livecache\\aieventcache.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF56846D-64E1-047E-D244-D2EA0B23E4F1}|SmartHydro_API.csproj|c:\\users\\jessica van heerden\\onedrive - advtech ltd\\bcad 3\\semester 2\\smarthydro_wil\\webapi\\services\\mqttservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -94,7 +94,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -110,8 +110,12 @@
               "IsPinned": true
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -119,8 +123,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAA6wEwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T18:41:33.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T18:41:33.937Z"
             },
             {
               "$type": "Document",
@@ -130,18 +133,14 @@
               "RelativeDocumentMoniker": "Controllers\\ImageController.cs",
               "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\Controllers\\ImageController.cs",
               "RelativeToolTip": "Controllers\\ImageController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAACkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAAACkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-07T18:32:48.64Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "LiveSensorCache.cs",
               "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\LiveSensorCache.cs",
               "RelativeDocumentMoniker": "LiveCache\\LiveSensorCache.cs",
@@ -153,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "LiveTentInformationCache.cs",
               "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\LiveTentInformationCache.cs",
               "RelativeDocumentMoniker": "LiveCache\\LiveTentInformationCache.cs",
@@ -161,12 +160,11 @@
               "RelativeToolTip": "LiveCache\\LiveTentInformationCache.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:27:44.711Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T07:27:44.711Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "LiveHardwareStatusCache.cs",
               "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\LiveHardwareStatusCache.cs",
               "RelativeDocumentMoniker": "LiveCache\\LiveHardwareStatusCache.cs",
@@ -178,15 +176,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "AIEventCache.cs",
               "DocumentMoniker": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\AIEventCache.cs",
               "RelativeDocumentMoniker": "LiveCache\\AIEventCache.cs",
               "ToolTip": "C:\\Users\\Jessica van Heerden\\OneDrive - ADvTECH Ltd\\BCAD 3\\Semester 2\\SmartHydro_WIL\\WebAPI\\LiveCache\\AIEventCache.cs",
               "RelativeToolTip": "LiveCache\\AIEventCache.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAAADoAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAuwDoAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T07:26:22.117Z"
+              "WhenOpened": "2025-11-05T07:26:22.117Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
