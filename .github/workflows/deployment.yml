@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     env:
-      MSSQL_SA_PASSWORD: ${{ secrets.MSSQL_SA_PASSWORD }} # Adding environmental variable for MSSQL_SA_PASSWORD = GitHub secret
+      MSSQL_SA_PASSWORD: ${{ secrets.MSSQL_SA_PASSWORD }} # Adding environmental variable for MSSQL_SA_PASSWORD = GitHub secret (Kova?,2023)
     services:
       sqlserver:
         image: mcr.microsoft.com/mssql/server:2022-latest
@@ -138,9 +138,9 @@ jobs:
       - name: Deploy containers on DigitalOcean VM
         uses: appleboy/ssh-action@v1.1.0
         with:
-          host: ${{ secrets.SERVER_HOST }} # Adding environmental variable for SERVER_HOST = GitHub secret
-          username: ${{ secrets.SERVER_USER }} # Adding environmental variable for SERVER_USER = GitHub secret
-          password: ${{ secrets.SERVER_PASSWORD }} # Adding environmental variable for SERVER_PASSWORD = GitHub secret
+          host: ${{ secrets.SERVER_HOST }} # Adding environmental variable for SERVER_HOST = GitHub secret (Kova?,2023)
+          username: ${{ secrets.SERVER_USER }} # Adding environmental variable for SERVER_USER = GitHub secret (Kova?,2023)
+          password: ${{ secrets.SERVER_PASSWORD }} # Adding environmental variable for SERVER_PASSWORD = GitHub secret (Kova?,2023)
           script: |
             cd /root/WebAPI
             echo "Stopping old containers..."
