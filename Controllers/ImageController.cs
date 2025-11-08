@@ -22,7 +22,7 @@ namespace SmartHydro_API.Controllers
 
             try
             {
-                var imagePath = Path.Combine(_env.ContentRootPath, "images", name);
+                var imagePath = Path.Combine(_env.ContentRootPath, "images", "plant.jpg");
 
                 if (!System.IO.File.Exists(imagePath))
                 {
