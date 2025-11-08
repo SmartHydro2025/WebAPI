@@ -1,3 +1,4 @@
+# Build, Unit Testing, Security Scan and Deploying the changes to the VM (Kindred,2025)
 name: Deployment
 
 on:
@@ -34,14 +35,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     env:
-      MSSQL_SA_PASSWORD: ${{ secrets.MSSQL_SA_PASSWORD }}
+      MSSQL_SA_PASSWORD: ${{ secrets.MSSQL_SA_PASSWORD }} # Adding environmental variable for MSSQL_SA_PASSWORD = GitHub secret
     services:
       sqlserver:
         image: mcr.microsoft.com/mssql/server:2022-latest
         ports:
           - 1433:1433
         env:
-          SA_PASSWORD: ${{ secrets.MSSQL_SA_PASSWORD }}
+          SA_PASSWORD: ${{ secrets.MSSQL_SA_PASSWORD }} 
           ACCEPT_EULA: "Y"
         options: >-
           --health-cmd "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -Q 'SELECT 1' -C || exit 1"
@@ -105,7 +106,7 @@ jobs:
           dotnet build --configuration Release
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
-
+  
   deploy:
     needs: [build, test, security-scan]
     if: github.ref == 'refs/heads/Pipeline'
@@ -137,9 +138,9 @@ jobs:
       - name: Deploy containers on DigitalOcean VM
         uses: appleboy/ssh-action@v1.1.0
         with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          password: ${{ secrets.SERVER_PASSWORD }}
+          host: ${{ secrets.SERVER_HOST }} # Adding environmental variable for SERVER_HOST = GitHub secret
+          username: ${{ secrets.SERVER_USER }} # Adding environmental variable for SERVER_USER = GitHub secret
+          password: ${{ secrets.SERVER_PASSWORD }} # Adding environmental variable for SERVER_PASSWORD = GitHub secret
           script: |
             cd /root/WebAPI
             echo "Stopping old containers..."

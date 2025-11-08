@@ -6,6 +6,7 @@ namespace WebAPI.Tests;
 public class UnitTest1
 {
 
+    // Testing to retreive tents
     [Fact]
     public void GetTents()
     {

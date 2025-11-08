@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# (Use a subshell with parentheses so it runs independently)
+# Using a subshell with parentheses so it runs independently (Tarrade,2019)
 (
     echo "Waiting for SQL Server to start..."
     # Wait loop until SQL is ready to accept connections
@@ -10,11 +10,11 @@
     done
 
     echo "Running initialization script..."
-    # Run your actual init file
+    # Running init file
     /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "$SA_PASSWORD" -i /init-smarthydrodb.sql -C
     echo "Initialization complete."
 ) &
 
 
-# This 'exec' line must be last. It replaces this bash script as PID 1.
+# Replaces this bash script as PID 1.
 exec /opt/mssql/bin/sqlservr "$@"
