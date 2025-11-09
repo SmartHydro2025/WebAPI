@@ -1,4 +1,5 @@
 using SmartHydro_API.Database;
+using SmartHydro_API.Models;
 using Xunit;
 
 namespace WebAPI.Tests;
