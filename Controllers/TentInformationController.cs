@@ -4,6 +4,7 @@ using SmartHydro_API.LiveCache;
 using System;
 using System.ComponentModel;
 using System.Text.Json;
+using SmartHydro_API.Models;
 
 namespace SmartHydro_API.Controllers
 {

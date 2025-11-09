@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SmartHydro_API.Models;
 
 namespace SmartHydro_API.Database
 {

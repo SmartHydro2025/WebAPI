@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartHydro_API.Database;
 using SmartHydro_API.LiveCache;
+using SmartHydro_API.Models;
 using System;
 
 namespace SmartHydro_API.Controllers

@@ -1,10 +1,11 @@
-﻿// In SmartHydro_API/LiveCache/LiveSensorCache.cs
+﻿using SmartHydro_API.Models;
 using SmartHydro_API;
 
 namespace SmartHydro_API.LiveCache
 {
     public class LiveSensorCache
     {
+        //(Witt, 2023) thread-safe collections ensure that data access is synchronized to prevent data inconsistencies.
         // Dictionary to store readings, keyed by MAC address.
         private readonly Dictionary<string, SensorReading> _cache = new();
         private readonly object _lock = new();
@@ -43,3 +44,10 @@ namespace SmartHydro_API.LiveCache
         }
     }
 }
+
+/*
+REFERENCES
+=====================
+Witt, B. 2023. Thread Safety C#. [Online]. Available at:  https://medium.com/@wgyxxbf/thread-security-in-c-547e5f7cfe2b
+
+ */

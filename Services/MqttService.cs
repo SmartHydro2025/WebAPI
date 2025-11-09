@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection; // Required for IServiceScopeFactory
+﻿using Microsoft.Extensions.DependencyInjection; 
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MQTTnet;
@@ -8,123 +8,13 @@ using SmartHydro_API;
 using SmartHydro_API.Database;
 using SmartHydro_API.Interface;
 using SmartHydro_API.LiveCache;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
-using System.Text.Json.Serialization; //New Line
-
-// --- Data Models ---
+using SmartHydro_API.Models;
 
 
-//class to store details about component readings from arduino
-public class SensorReading
-{
-    [Key]
-    public int? Id { get; set; }
 
-    [JsonPropertyName("mac")]
-    public string? Mac { get; set; }
-
-    [JsonPropertyName("temperature")]
-    public double? Temperature { get; set; }
-
-    [JsonPropertyName("humidity")]
-    public double? Humidity { get; set; }
-
-    [JsonPropertyName("light_level")]
-    public double? LightLevel { get; set; }
-
-    [JsonPropertyName("ph_level")]
-    public double? PhLevel { get; set; }
-
-    [JsonPropertyName("ec_level")]
-    public double? EcLevel { get; set; }
-
-    public DateTime Timestamp { get; set; } = DateTime.UtcNow;
-}
-
-//class to store on and off status of hardware components
-public class HardwareReading
-{
-    [Key]
-    public int ID { get; set; }
-    [JsonPropertyName("mac")]
-    public string Mac { get; set; }
-    [JsonPropertyName("grow_light_status")]
-    public string GrowLightStatus { get; set; }
-    [JsonPropertyName("extractor_fan_status")]
-    public string ExtractorFanStatus { get; set; }
-    [JsonPropertyName("circulation_fan_status")]
-    public string CirculationFanStatus { get; set; }
-    [JsonPropertyName("circulation_pump_status")]
-    public string CirculationPumpStatus { get; set; }
-    [JsonPropertyName("nutrient_pump_status")]
-    public string NutrientPumpStatus { get; set; }
-    [JsonPropertyName("water_pump_status")]
-    public string WaterPumpStatus { get; set; }
-
-    [Column("DateTime")]
-    public DateTime Timestamp { get; set; } = DateTime.UtcNow;
-
-}
-
-//class to store details about which sensor had an ai event trigger
-public class AiEvent
-{
-    [Key]
-    public int ID { get; set; }
-
-    [JsonPropertyName("mac")] 
-    public string Mac { get; set; }
-
-    [JsonPropertyName("sensor")] // ***VERIFY NAME IN JSON
-    public string Sensor { get; set; }
-
-    [JsonPropertyName("message")] // **VERIFY NAME IN JSON
-    public string Message { get; set; }
-}
-
-//class to store if a command is executed
-public class TentCommandResponse
-{
-    public Guid CommandId { get; set; }
-    public bool Success { get; set; }
-}
-
-//class to store which component received a command
-public class TentCommand
-{
-    
-    [JsonPropertyName("mac")] // <-- Add this
-    public string Mac { get; set; }
-    [JsonPropertyName("component")] 
-    public string Component { get; set; }
-    [JsonPropertyName("action")] 
-    public string Action { get; set; }
-}
-
-//class to store information about current tent open in android
-public class TentInformation
-{
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int ID { get; set; }
-
-    [JsonPropertyName("Name")]
-    public string tentName { get; set; }
-
-    [JsonPropertyName("Location")]
-    public string tentLocation { get; set; }
-
-    [JsonPropertyName("Mac")]
-    public string Mac { get; set; }
-
-    [JsonPropertyName("networkName")]
-    public string networkName { get; set; }
-
-}
 
 #region MQTT
 // --- MQTT Service ---
@@ -340,11 +230,7 @@ public class MqttService : IHostedService, IDisposable
                             tentCommandData.Mac, tentCommandData.Component, tentCommandData.Action
                         );
 
-                        // TODO: If you want to store commands in DB:
-                        // using var scope = _scopeFactory.CreateScope();
-                        // var dbContext = scope.ServiceProvider.GetRequiredService<SmartHydroDbContext>();
-                        // dbContext.TentCommands.Add(tentCommandData);
-                        // await dbContext.SaveChangesAsync();
+                        
                     }
                     break;
 
@@ -403,13 +289,10 @@ public class MqttService : IHostedService, IDisposable
 
     public async Task HandleCommandResponseAsync(TentCommandResponse data)
     {
-        // TODO: Replace with your actual database logic
+        
         _logger.LogInformation("Updating command {CommandId} with success status: {Success}", data.CommandId, data.Success);
-        // await dbContext.TentCommands
-        //     .Where(c => c.CommandId == data.CommandId)
-        //     .ExecuteUpdateAsync(s => s.SetProperty(c => c.Success, data.Success));
-        // await dbContext.SaveChangesAsync();
-        await Task.CompletedTask; // Placeholder
+       
+        await Task.CompletedTask;
     }
 
     //logs hardware statuses to db

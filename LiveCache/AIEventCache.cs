@@ -1,8 +1,10 @@
-﻿namespace SmartHydro_API.LiveCache
+﻿using SmartHydro_API.Models;
+
+namespace SmartHydro_API.LiveCache
 {
     public class AIEventCache
     {
-
+        //(Witt, 2023) thread-safe collections ensure that data access is synchronized to prevent data inconsistencies.
         //Stores the AI events, MAC address is the key
         private readonly Dictionary<string, AiEvent> _cache = new();
         //Thread safety
@@ -11,7 +13,7 @@
         //Constantly updates the cache of the live data from the board. 
         public void Update(AiEvent events)
         {
-           //Ignores any events that have no MAC address
+            //Ignores any events that have no MAC address
             if (string.IsNullOrWhiteSpace(events.Mac))
             {
                 return;
@@ -27,7 +29,7 @@
             }
         }
 
-        // Retrieves the latest event for a specific MAC address.
+        // Retrieves the latest event for a specific MAC address (Witt, 2023)
         public AiEvent? GetLatest(string mac)
         {
             var normalizedMac = mac.Trim().ToUpper();
@@ -38,7 +40,7 @@
             }
         }
 
-        // Returns a list of the latest events from all devices.
+        // Returns a list of the latest events from all devices (Witt, 2023)
         public List<AiEvent> GetAllLatest()
         {
             lock (_lock)
@@ -47,5 +49,11 @@
             }
         }
     }
-
 }
+
+/*
+REFERENCES
+=====================
+Witt, B. 2023. Thread Safety C#. [Online]. Available at:  https://medium.com/@wgyxxbf/thread-security-in-c-547e5f7cfe2b
+
+ */

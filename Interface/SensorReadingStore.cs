@@ -1,5 +1,6 @@
 ﻿using SmartHydro_API.Database;
 using SmartHydro_API.Interface;
+using SmartHydro_API.Models;
 
 //ISensorReadingStore is implemented (Raveendran, 2022)
 public class SensorReadingSqlStore : ISensorReadingStore
