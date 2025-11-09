@@ -17,17 +17,18 @@ using SmartHydro_API.Models;
 
 
 #region MQTT
-// --- MQTT Service ---
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// MQTT Service
+//Only code adapted from Smart Hydro 2024
+
 public class MqttService : IHostedService, IDisposable
 {
     private readonly ILogger<MqttService> _logger;
-    private readonly IServiceScopeFactory _scopeFactory; // To resolve scoped services like DbContext
+    private readonly IServiceScopeFactory _scopeFactory; 
     private IManagedMqttClient _mqttClient;
     private readonly string _mqttBroker;
     private readonly string _mqttUsername;
     private readonly string _mqttPassword;
-    private readonly LiveSensorCache _cache; //New Line
+    private readonly LiveSensorCache _cache; 
     private readonly LiveHardwareStatusCache _hardwarecache; //keeps track of hardware statuses
     private readonly AIEventCache _aieventcache; //logs ai events as they trigger
     private readonly LiveTentInformationCache _tentcache; //logs tent details
@@ -170,8 +171,7 @@ public class MqttService : IHostedService, IDisposable
 
     private async Task HandleMessageAsync(string topic, string payload)
     {
-        // Using IServiceScopeFactory to create a new scope for resolving scoped services
-        // like a DbContext. This is the correct pattern for background services.
+    
         using var scope = _scopeFactory.CreateScope();
         // var dbContext = scope.ServiceProvider.GetRequiredService<YourDbContext>();
 

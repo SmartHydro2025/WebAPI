@@ -41,35 +41,35 @@ public class TentControlController : ControllerBase
     [HttpPost("grow-light/off")]
     public async Task<IActionResult> TurnLightOff(string mac) => await PublishCommandAsync(mac, "grow_light", "off");
 
-    // --- Extractor Fan Endpoints ---
+    // Extractor Fan Endpoints 
     [HttpPost("extractor-fan/on")]
     public async Task<IActionResult> TurnExtractorFanOn(string mac) => await PublishCommandAsync(mac, "extractor_fan", "on");
 
     [HttpPost("extractor-fan/off")]
     public async Task<IActionResult> TurnExtractorFanOff(string mac) => await PublishCommandAsync(mac, "extractor_fan", "off");
 
-    // --- Circulation Fan Endpoints ---
+    // Circulation Fan Endpoints 
     [HttpPost("circulation-fan/on")]
     public async Task<IActionResult> TurnCirculationFanOn(string mac) => await PublishCommandAsync(mac, "circulation_fan", "on");
 
     [HttpPost("circulation-fan/off")]
     public async Task<IActionResult> TurnCirculationFanOff(string mac) => await PublishCommandAsync(mac, "circulation_fan", "off");
 
-    // --- Circulation Pump Endpoints ---
+    // Circulation Pump Endpoints 
     [HttpPost("circulation-pump/on")]
     public async Task<IActionResult> TurnCirculationPumpOn(string mac) => await PublishCommandAsync(mac, "circulation_pump", "on");
 
     [HttpPost("circulation-pump/off")]
     public async Task<IActionResult> TurnCirculationPumpOff(string mac) => await PublishCommandAsync(mac, "circulation_pump", "off");
 
-    // --- Water Pump Endpoints ---
+    // Water Pump Endpoints 
     [HttpPost("water-pump/on")]
     public async Task<IActionResult> TurnWaterPumpOn(string mac) => await PublishCommandAsync(mac, "water_pump", "on");
 
     [HttpPost("water-pump/off")]
     public async Task<IActionResult> TurnWaterPumpOff(string mac) => await PublishCommandAsync(mac, "water_pump", "off");
 
-    // --- Nutrient Pump Endpoints ---
+    // Nutrient Pump Endpoints 
     [HttpPost("nutrient-pump/on")]
     public async Task<IActionResult> TurnNutrientPumpOn(string mac) => await PublishCommandAsync(mac, "nutrient_pump", "on");
 
