@@ -1,8 +1,9 @@
 # 🌿 Smart Hydro Web API 🌿
----
-### Disclamier: Some code has been used from previous SMart Hydro Group. Smart Hydro 2025 has decide to adapt it and write our own code to make developers' lives easier.
 
 ## ⚠️🚨Dockerised-Database is our main branch ⚠️🚨
+
+---
+### Disclamier: Some code has been used from previous SMart Hydro Group. Smart Hydro 2025 has decide to adapt it and write our own code to make developers' lives easier.
 
 ## What Smart Hydro 2025 Web API is built on.
 
